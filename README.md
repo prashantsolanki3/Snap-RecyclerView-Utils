@@ -4,6 +4,26 @@ Simple Library to create RecyclerView Adapters and Viewholder in a snap.
 
 Send any data to any Viewholder without creating custom RecyclerView Adapters.
 
+## Add to your project
+
+Add it in your root build.gradle at the end of repositories:
+```
+	allprojects {
+		repositories {
+			...
+			maven { url "https://jitpack.io" }
+		}
+	}
+```
+Add the dependency
+
+```
+	dependencies {
+		compile 'com.github.User:Repo:Tag'
+	}
+	
+```
+
 Simple Usage using ViewHolder which extends  SnapViewHolder.
 
 ```
