@@ -27,4 +27,6 @@ public abstract class SnapViewHolder<T> extends RecyclerView.ViewHolder {
 
     public abstract void animateViewHolder(SnapViewHolder viewHolder, int pos);
 
+    public abstract void attachOnClickListeners(SnapViewHolder viewHolder, T item, int pos);
+
 }

@@ -81,6 +81,31 @@ public class SnapAdapter<T,VH extends RecyclerView.ViewHolder> extends RecyclerV
         return list.get(pos);
     }
 
+    public ArrayList<T> getAllItems(){
+        return list;
+    }
+
+    public void removeItem(int pos){
+        this.list.remove(pos);
+        this.notifyItemRemoved(pos);
+        this.notifyDataSetChanged();
+    }
+
+    public void removeItem(T item){
+        int pos=this.list.indexOf(item);
+        this.list.remove(item);
+        this.notifyItemRemoved(pos);
+        this.notifyDataSetChanged();
+    }
+
+    public void clearAdapter(){
+        int size= this.list.size();
+        this.list.clear();
+        this.list = new ArrayList<>();
+        this.notifyItemRangeRemoved(0, size - 1);
+        this.notifyDataSetChanged();
+    }
+
     public void addAndOverwriteAllItems(ArrayList<T> data) {
         this.list = new ArrayList<>(data);
         this.notifyItemRangeChanged(0, this.list.size() - 1);
@@ -103,11 +128,12 @@ public class SnapAdapter<T,VH extends RecyclerView.ViewHolder> extends RecyclerV
     /**
      * Populate view of viewholder here.
      * */
-    public void populateViewHolderItem(VH viewHolder, T item , int position ){
-        if(viewHolder instanceof SnapViewHolder)
-            ((SnapViewHolder)viewHolder).setData(item,position);
+    public void populateViewHolderItem(VH viewHolder, T item , int position ) {
+        if (viewHolder instanceof SnapViewHolder) {
+            ((SnapViewHolder) viewHolder).setData(item, position);
+            ((SnapViewHolder)viewHolder).attachOnClickListeners((SnapViewHolder)viewHolder, item, position);
+        }
     }
-
     /**
      * Animate viewHolder.itemView in this method.
      * Position is not needed for simple animations.
