@@ -130,10 +130,12 @@ public class SnapAdapter<T,VH extends RecyclerView.ViewHolder> extends RecyclerV
      * */
     public void populateViewHolderItem(VH viewHolder, T item , int position ) {
         if (viewHolder instanceof SnapViewHolder) {
-            ((SnapViewHolder) viewHolder).setData(item, position);
-            ((SnapViewHolder)viewHolder).attachOnClickListeners((SnapViewHolder)viewHolder, item, position);
+            ((SnapViewHolder) viewHolder).setItemData(item);
+            ((SnapViewHolder) viewHolder).populateViewHolder(item, position);
+            ((SnapViewHolder) viewHolder).attachOnClickListeners((SnapViewHolder)viewHolder, item, position);
         }
     }
+
     /**
      * Animate viewHolder.itemView in this method.
      * Position is not needed for simple animations.
