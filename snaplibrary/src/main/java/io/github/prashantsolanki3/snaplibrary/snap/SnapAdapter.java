@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class SnapAdapter<T,VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH>{
 
     Context context;
-    ArrayList<T> list;
+    ArrayList<T> list = new ArrayList<>();
     Class<T> modelClass;
     protected int itemLayout;
     Class<VH> viewHolderClass;
@@ -145,8 +145,6 @@ public class SnapAdapter<T,VH extends RecyclerView.ViewHolder> extends RecyclerV
         if(viewHolder instanceof SnapViewHolder)
             ((SnapViewHolder)viewHolder).animateViewHolder((SnapViewHolder)viewHolder,pos);
     }
-
-
 
     @Override
     public int getItemCount() {
