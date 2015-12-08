@@ -1,5 +1,7 @@
 # Snap RecyclerView Utils
 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Snap--RecyclerView--Utils-green.svg?style=true)](https://android-arsenal.com/details/1/2884)
+
 Simple Library to create RecyclerView Adapters and Viewholder in a snap.
 
 Send any data to any Viewholder without creating custom RecyclerView Adapters.
