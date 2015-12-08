@@ -38,7 +38,6 @@ Simple usage using `ViewHolder` which extends `SnapViewHolder`.
 
 ```Java
 SnapAdapter<SimpleProduct,ViewHolderProduct>  adapterRecycler = new SnapAdapter<>(getContext(),
-                SimpleProduct.class, //Model Class containing data
                 R.layout.item_recycler_product, // Item Layout
                 ViewHolderProduct.class); // ViewHolder
                 
