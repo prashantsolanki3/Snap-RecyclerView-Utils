@@ -8,26 +8,35 @@ Send any data to any Viewholder without creating custom RecyclerView Adapters.
 
 ## Add to your project
 
-Add it in your root build.gradle at the end of repositories:
-```
-	allprojects {
-		repositories {
-			...
-			maven { url "https://jitpack.io" }
-		}
+[![Release](https://img.shields.io/github/release/prashantsolanki3/Snap-RecyclerView-Utils.svg?label=jitpack)](https://jitpack.io/#prashantsolanki3/Snap-RecyclerView-Utils)
+
+Add JitPack to repositories in your project's root `build.gradle` file:
+
+```Gradle
+allprojects {
+	repositories {
+		...
+		maven { url "https://jitpack.io" }
 	}
-```
-Add the dependency
-
-```
-	dependencies {
-	        compile 'com.github.prashantsolanki3:Snap-RecyclerView-Utils:v1.1'
-	}
+}
 ```
 
-Simple Usage using ViewHolder which extends  SnapViewHolder.
+Add the dependency to your module's `build.gradle` file:
 
+```Gradle
+dependencies {
+	...
+    compile 'com.github.prashantsolanki3:Snap-RecyclerView-Utils:v1.1'
+}
 ```
+
+---
+
+# Usage
+
+Simple usage using `ViewHolder` which extends `SnapViewHolder`.
+
+```Java
 SnapAdapter<SimpleProduct,ViewHolderProduct>  adapterRecycler = new SnapAdapter<>(getContext(),
                 SimpleProduct.class, //Model Class containing data
                 R.layout.item_recycler_product, // Item Layout
@@ -37,34 +46,31 @@ recyclerView.setAdapter(adapterRecycler);
 
 //Add items to RecyclerView
 adapterRecycler.addItems(new ArrayList<SimpleProduct>());
-
 ```
 
-ViewHolderProduct class which extends SnapViewHolder
-* Overrides 2 Methods: setData and animateViewHolder.
+`ViewHolderProduct` class which extends `SnapViewHolder`
+* Overrides 2 methods: `setData()` and `animateViewHolder()`.
 
-```
-
+```java
 public class ViewHolderProduct extends SnapViewHolder<SimpleProduct> {
 
-    TextView title;
-    ImageView thumbnail;
-    SimpleProduct simpleProduct;
+    final TextView title;
+    final ImageView thumbnail;
+    final SimpleProduct simpleProduct;
 
     public VhProductList(View itemView, Context context) {
         super(itemView, context);
         initViews();
     }
 
-    private void initViews(){
+    private void initViews() {
         title = (TextView) itemView.findViewById(R.id.product_title);
         thumbnail= (ImageView) itemView.findViewById(R.id.product_image);
     }
 
-
     @Override
     public void setData(SimpleProduct data, int pos) {
-        this.simpleProduct=data;
+        this.simpleProduct = data;
         
         thumbnail.setImageDrawable(null);
         
@@ -82,21 +88,19 @@ public class ViewHolderProduct extends SnapViewHolder<SimpleProduct> {
         
         AnimationSet set = new AnimationSet(true);
 
-        if(position%3==0)
+        if (position % 3 == 0)
             set.addAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.gp_slide_in_left));
-        else if(position%3==1)
+        else if (position % 3 == 1)
             set.addAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.gp_slide_in_right));
 
         set.addAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.gp_slide_in_bottom));
 
         viewHolder.itemView.startAnimation(set);
     }
-
 }
-
 ```
 
-# If your Viewholder doesn't extends SnapViewHolder.
+### If your `Viewholder` doesn't extend `SnapViewHolder`.
 
-* Override populateViewHolderItem method in SnapAdapter to setData.
-* Optionally Override animateItems method in SnapAdaper to animate Items.
+* Override `populateViewHolderItem()` method in `SnapAdapter` to `setData()`.
+* Optionally override `animateItems()` method in `SnapAdaper` to animate Items.
