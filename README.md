@@ -19,9 +19,8 @@ Add the dependency
 
 ```
 	dependencies {
-		compile 'com.github.User:Repo:Tag'
+	        compile 'com.github.prashantsolanki3:Snap-RecyclerView-Utils:v1.1'
 	}
-	
 ```
 
 Simple Usage using ViewHolder which extends  SnapViewHolder.
