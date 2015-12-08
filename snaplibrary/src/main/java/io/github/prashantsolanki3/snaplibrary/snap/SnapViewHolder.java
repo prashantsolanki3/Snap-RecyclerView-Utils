@@ -5,12 +5,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
- *
  * Created by Prashant on 12/5/2015.
  */
 public abstract class SnapViewHolder<T> extends RecyclerView.ViewHolder {
-    Context context;
-    T itemData;
+
+    private Context context;
+    private T itemData;
 
     public SnapViewHolder(View itemView, Context context) {
         super(itemView);
