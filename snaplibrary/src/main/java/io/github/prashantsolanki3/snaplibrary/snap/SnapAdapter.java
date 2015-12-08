@@ -15,13 +15,14 @@ import java.util.ArrayList;
  * Github: prashantsolanki3
  * Email: prs.solanki@live.com
  * */
-public class SnapAdapter<T,VH extends RecyclerView.ViewHolder> extends RecyclerView.Adapter<VH>{
+public class SnapAdapter<T,VH extends SnapViewHolder> extends RecyclerView.Adapter<VH>{
 
-    Context context;
-    ArrayList<T> list = new ArrayList<>();
-    Class<T> modelClass;
+    private final Context context;
+    private final Class<T> modelClass;
+    private final Class<VH> viewHolderClass;
+
+    private ArrayList<T> list;
     protected int itemLayout;
-    Class<VH> viewHolderClass;
     private int lastPosition = -1;
 
 

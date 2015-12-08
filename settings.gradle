@@ -1,1 +1,1 @@
-include ':app', ':snaplibrary'
+include ':sample', ':snaplibrary'
