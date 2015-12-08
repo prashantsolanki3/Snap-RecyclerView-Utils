@@ -37,9 +37,10 @@ dependencies {
 Simple usage using `ViewHolder` which extends `SnapViewHolder`.
 
 ```Java
-SnapAdapter<SimpleProduct,ViewHolderProduct>  adapterRecycler = new SnapAdapter<>(getContext(),
-                R.layout.item_recycler_product, // Item Layout
-                ViewHolderProduct.class); // ViewHolder
+SnapAdapter<SimpleProduct, ViewHolderProduct> adapterRecycler = new SnapAdapter<>(
+	getContext(),
+        R.layout.item_recycler_product, // Item Layout
+        ViewHolderProduct.class); // ViewHolder class, matching generic type
                 
 recyclerView.setAdapter(adapterRecycler);
 
