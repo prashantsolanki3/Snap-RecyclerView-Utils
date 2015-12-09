@@ -26,7 +26,7 @@ Add the dependency to your module's `build.gradle` file:
 ```Gradle
 dependencies {
 	...
-    compile 'com.github.prashantsolanki3:Snap-RecyclerView-Utils:v1.1'
+    compile 'com.github.prashantsolanki3:Snap-RecyclerView-Utils:v1.2'
 }
 ```
 
@@ -100,7 +100,9 @@ public class ViewHolderProduct extends SnapViewHolder<SimpleProduct> {
 }
 ```
 
-### If your `Viewholder` doesn't extend `SnapViewHolder`.
+### If your `Viewholder` doesn't extend `SnapViewHolder`. 
 
-* Override `populateViewHolderItem()` method in `SnapAdapter` to `setData()`.
-* Optionally override `animateItems()` method in `SnapAdaper` to animate Items.
+#### Must extend SnapViewHolder from v1.2 onwards.
+
+* Override `populateViewHolderItem()` method in `SnapAdapter` to set Data to your viewholder.
+* Optionally override `animateItems()` method in `SnapAdaper` to animate items. 
