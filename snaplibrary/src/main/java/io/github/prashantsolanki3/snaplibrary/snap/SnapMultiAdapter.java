@@ -2,10 +2,10 @@ package io.github.prashantsolanki3.snaplibrary.snap;
 
 import android.content.Context;
 import android.support.annotation.IntRange;
-import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,28 +19,28 @@ import java.util.ArrayList;
  * Github: prashantsolanki3
  * Email: prs.solanki@live.com
  */
-public class SnapAdapter<T, VH extends SnapViewHolder> extends RecyclerView.Adapter<VH> {
+public class SnapMultiAdapter extends RecyclerView.Adapter<SnapViewHolder> {
 
     private final Context context;
-    private final Class<VH> viewHolderClass;
-    private final ArrayList<T> mData;
-
-    @LayoutRes
-    protected int itemLayout;
+    private final ArrayList<Object> mData;
     private int lastPosition = -1;
+    ArrayList<SnapMultiViewWrapper> multiViewWrappers;
 
-    public SnapAdapter(@NonNull Context context, @LayoutRes int itemLayout, @NonNull Class<VH> viewHolderClass) {
+
+    public SnapMultiAdapter(@NonNull Context context,
+                            ArrayList<SnapMultiViewWrapper> multiViewWrappers) {
+
         this.context = context;
-        this.itemLayout = itemLayout;
-        this.viewHolderClass = viewHolderClass;
         mData = new ArrayList<>();
+        this.multiViewWrappers=multiViewWrappers;
     }
+
 
     public final Context getContext() {
         return context;
     }
 
-    private void setAnimation(VH vh, int position) {
+    private void setAnimation(SnapViewHolder vh, int position) {
         // If the bound view wasn't previously displayed on screen, it's animated
         if (position > lastPosition) {
             animateItems(vh, position);
@@ -49,55 +49,67 @@ public class SnapAdapter<T, VH extends SnapViewHolder> extends RecyclerView.Adap
     }
 
     @Override
-    public VH onCreateViewHolder(ViewGroup parent, int viewType) throws RuntimeException {
-        final ViewGroup view = (ViewGroup) LayoutInflater.from(parent.getContext()).inflate(this.itemLayout, parent, false);
+    public SnapViewHolder onCreateViewHolder(ViewGroup parent, int viewType) throws RuntimeException {
+        SnapMultiViewWrapper wrapper = getWrapperFromType(viewType);
+
+        final ViewGroup view = (ViewGroup) LayoutInflater.from(parent.getContext()).inflate(wrapper.getLayoutId(), parent, false);
+
         try {
-            Constructor e = this.viewHolderClass.getConstructor(View.class);
+            Constructor e = wrapper.getViewHolder().getConstructor(View.class, Context.class);
             //noinspection unchecked
-            VH vh = (VH) e.newInstance(view);
-            vh.setContext(context);
-            return vh;
-        } catch (Exception var5) {
-            try {
-                Constructor e = this.viewHolderClass.getConstructor(View.class, Context.class);
-                //noinspection unchecked
-                return (VH) e.newInstance(view, context);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            return (SnapViewHolder) e.newInstance(view, context);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
         return null;
     }
 
     @Override
-    public void onBindViewHolder(VH holder, int position) {
-        T t = mData.get(position);
+    public void onBindViewHolder(SnapViewHolder holder, int position) {
+        Object t = mData.get(position);
         this.populateViewHolderItem(holder, t, position);
         this.setAnimation(holder, position);
     }
 
-    public final T getItem(int pos) {
+    @Override
+    public int getItemViewType(int position) {
+        for (SnapMultiViewWrapper wrapper:multiViewWrappers) {
+            if(wrapper.getModel().getName().equals(mData.get(position).getClass().getName()))
+                return wrapper.getLayoutType();
+        }
+        throw new RuntimeException("Please Check the SnapMultiViewWrapper and the input Data set Classes");
+    }
+
+    public SnapMultiViewWrapper getWrapperFromType(int type){
+        for (SnapMultiViewWrapper wrapper:multiViewWrappers)
+                if(wrapper.getLayoutType().equals(type))
+                    return wrapper;
+        return null;
+    }
+
+    public final Object getItem(int pos) {
         return mData.get(pos);
     }
 
-    public ArrayList<T> getAll() {
+    public ArrayList<Object> getAll() {
         return mData;
     }
 
-    public void add(@Nullable T cardBase) {
+    public void add(@Nullable Object cardBase) {
         if (cardBase == null) return;
         this.mData.add(cardBase);
         notifyItemInserted(this.mData.size() - 1);
     }
 
-    public void addAll(@Nullable ArrayList<T> list) {
+    public void addAll(@Nullable ArrayList<Object> list) {
         if (list == null) return;
         final int prevSize = this.mData.size() - 1;
         this.mData.addAll(list);
         this.notifyItemRangeInserted(prevSize, this.mData.size() - 1);
     }
 
-    public void set(@Nullable ArrayList<T> data) {
+    public void set(@Nullable ArrayList<Object> data) {
         clear();
         if (data != null)
             mData.addAll(data);
@@ -109,7 +121,7 @@ public class SnapAdapter<T, VH extends SnapViewHolder> extends RecyclerView.Adap
         this.notifyDataSetChanged();
     }
 
-    public void remove(@NonNull T item) {
+    public void remove(@NonNull Object item) {
         int pos = this.mData.indexOf(item);
         this.mData.remove(pos);
         this.notifyItemRemoved(pos);
@@ -123,7 +135,7 @@ public class SnapAdapter<T, VH extends SnapViewHolder> extends RecyclerView.Adap
     /**
      * Populate view of viewholder here.
      */
-    public void populateViewHolderItem(VH viewHolder, T item, int position) {
+    public void populateViewHolderItem(SnapViewHolder viewHolder, Object item, int position) {
         viewHolder.setItemData(item);
         viewHolder.populateViewHolder(item, position);
         viewHolder.attachOnClickListeners(viewHolder, item, position);
@@ -134,7 +146,7 @@ public class SnapAdapter<T, VH extends SnapViewHolder> extends RecyclerView.Adap
      * Position is not needed for simple animations.
      * Use position for complex animations.
      */
-    public void animateItems(VH viewHolder, int pos) {
+    public void animateItems(SnapViewHolder viewHolder, int pos) {
         viewHolder.animateViewHolder(viewHolder, pos);
     }
 

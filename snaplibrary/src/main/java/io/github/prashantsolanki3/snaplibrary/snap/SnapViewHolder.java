@@ -9,6 +9,8 @@ import android.view.View;
  */
 public abstract class SnapViewHolder<T> extends RecyclerView.ViewHolder {
 
+
+
     private Context context;
     private T itemData;
 
