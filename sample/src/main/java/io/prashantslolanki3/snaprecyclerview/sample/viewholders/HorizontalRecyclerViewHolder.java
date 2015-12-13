@@ -23,10 +23,16 @@ public class HorizontalRecyclerViewHolder extends SnapViewHolder<HorizontalRecyc
     public HorizontalRecyclerViewHolder(View itemView, Context context) {
         super(itemView, context);
         recyclerView = (RecyclerView) itemView.findViewById(R.id.header_rv);
+
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL,
                 false));
-        adapter = new SnapAdapter<>(getContext(), R.layout.item_text_layout,InternalTextViewHolder.class);
+
+        adapter = new SnapAdapter<>(getContext(),
+                HorizontalRecyclerModel.class,
+                R.layout.item_text_layout,
+                InternalTextViewHolder.class);
+
         recyclerView.setAdapter(adapter);
 
     }

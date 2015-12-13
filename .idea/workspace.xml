@@ -113,6 +113,9 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PUSH_TAGS">
+      <GitPushTagMode />
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="availableProjects">
@@ -2961,6 +2964,13 @@
       <option name="number" value="Default" />
       <updated>1449758394078</updated>
     </task>
+    <task id="LOCAL-00001" summary="SnapAdapter and SnapMultiAdapter now extend AbstractSnapMultiAdapter.&#10;Included Model Class in SnapAdapter Constructor.&#10;">
+      <created>1449994945236</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1449994945236</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">

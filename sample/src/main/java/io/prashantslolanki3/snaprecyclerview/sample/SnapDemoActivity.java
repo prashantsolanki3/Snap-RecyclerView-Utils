@@ -1,7 +1,7 @@
 package io.prashantslolanki3.snaprecyclerview.sample;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import io.github.prashantsolanki3.snaplibrary.snap.SnapMultiAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.SnapAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.SnapMultiViewWrapper;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
 import io.prashantslolanki3.snaprecyclerview.sample.model.HorizontalRecyclerModel;
@@ -21,7 +21,7 @@ import io.prashantslolanki3.snaprecyclerview.sample.viewholders.TextViewHolder;
 public class SnapDemoActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    SnapMultiAdapter multiAdapter;
+    SnapAdapter<TextModel,TextViewHolder> multiAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,10 +32,10 @@ public class SnapDemoActivity extends AppCompatActivity {
         wrappers.add(new SnapMultiViewWrapper(HorizontalRecyclerModel.class, HorizontalRecyclerViewHolder.class, R.layout.item_header_layout, 1));
         wrappers.add(new SnapMultiViewWrapper(TextModel.class, TextViewHolder.class, R.layout.item_text_layout,3));
 
-        multiAdapter = new SnapMultiAdapter(this,wrappers);
+        multiAdapter = new SnapAdapter<>(this, TextModel.class, R.layout.item_text_layout,TextViewHolder.class);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(multiAdapter);
-        
+
     }
 
     @Override
@@ -54,7 +54,7 @@ public class SnapDemoActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_add_recycler_item) {
-            multiAdapter.add(new HorizontalRecyclerModel());
+            //multiAdapter.add(new HorizontalRecyclerModel());
             return true;
         }
 

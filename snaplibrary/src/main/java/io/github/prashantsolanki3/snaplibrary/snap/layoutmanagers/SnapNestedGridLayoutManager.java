@@ -34,7 +34,10 @@ Email: se.solovyev@gmail.com
 Site:  http://se.solovyev.org
 * */
 
-
+/**
+ * Not Usable Right Now!
+ * Do not use #SnapNestedGridLayoutManager
+ * */
 class SnapNestedGridLayoutManager extends android.support.v7.widget.GridLayoutManager {
 
     private static boolean canMakeInsetsDirty = true;
