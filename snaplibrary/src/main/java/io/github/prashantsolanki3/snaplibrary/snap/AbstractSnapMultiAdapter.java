@@ -25,14 +25,14 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
 
     private final Context context;
     private final ArrayList<T> mData;
+    ArrayList<SnapLayoutWrapper> layoutWrappers;
     private int lastPosition = -1;
-    ArrayList<SnapMultiViewWrapper> multiViewWrappers;
 
     public AbstractSnapMultiAdapter(@NonNull Context context,
-                                    ArrayList<SnapMultiViewWrapper> multiViewWrappers) {
+                                    ArrayList<SnapLayoutWrapper> layoutWrappers) {
         this.context = context;
         mData = new ArrayList<>();
-        this.multiViewWrappers=multiViewWrappers;
+        this.layoutWrappers = layoutWrappers;
     }
 
     public final Context getContext() {
@@ -49,7 +49,7 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
 
     @Override
     public SnapViewHolder onCreateViewHolder(ViewGroup parent, int viewType) throws RuntimeException {
-        SnapMultiViewWrapper wrapper = getWrapperFromType(viewType);
+        SnapLayoutWrapper wrapper = getWrapperFromType(viewType);
 
         final ViewGroup view = (ViewGroup) LayoutInflater.from(parent.getContext()).inflate(wrapper.getLayoutId(), parent, false);
 
@@ -73,25 +73,25 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
 
     @Override
     public int getItemViewType(int position) {
-
-        for (SnapMultiViewWrapper wrapper:multiViewWrappers) {
+        //TODO: Find a better way to compare classes.
+        for (SnapLayoutWrapper wrapper : layoutWrappers) {
             if(wrapper.getModel().getName().equals(mData.get(position).getClass().getName()))
                 return wrapper.getLayoutType();
         }
 
-        throw new RuntimeException("Please Check the SnapMultiViewWrapper and the input Data set Classes");
+        throw new RuntimeException("Please Check the SnapLayoutWrapper and the input Dataset Classes");
     }
 
-    public SnapMultiViewWrapper getWrapperFromType(int type){
+    public SnapLayoutWrapper getWrapperFromType(int type) {
 
-        for (SnapMultiViewWrapper wrapper:multiViewWrappers)
+        for (SnapLayoutWrapper wrapper : layoutWrappers)
                 if(wrapper.getLayoutType().equals(type))
                     return wrapper;
         return null;
 
     }
 
-    public final Object getItem(int pos) {
+    public final T getItem(int pos) {
         return mData.get(pos);
     }
 
@@ -124,7 +124,7 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         this.notifyDataSetChanged();
     }
 
-    public void remove(@NonNull Object item) {
+    public void remove(@NonNull T item) {
         int pos = this.mData.indexOf(item);
         this.mData.remove(pos);
         this.notifyItemRemoved(pos);

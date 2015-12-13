@@ -13,8 +13,8 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import io.github.prashantsolanki3.snaplibrary.snap.AbstractSnapMultiAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.SnapLayoutWrapper;
 import io.github.prashantsolanki3.snaplibrary.snap.SnapMultiAdapter;
-import io.github.prashantsolanki3.snaplibrary.snap.SnapMultiViewWrapper;
 import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessLoader;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
 import io.prashantslolanki3.snaprecyclerview.sample.model.HorizontalRecyclerModel;
@@ -33,9 +33,9 @@ public class SnapDemoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_snap_recycler_view_utils);
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
 
-        ArrayList<SnapMultiViewWrapper> wrappers = new ArrayList<>();
-        wrappers.add(new SnapMultiViewWrapper(HorizontalRecyclerModel.class, HorizontalRecyclerViewHolder.class, R.layout.item_header_layout, 1));
-        wrappers.add(new SnapMultiViewWrapper(TextModel.class, TextViewHolder.class, R.layout.item_text_layout,3));
+        ArrayList<SnapLayoutWrapper> wrappers = new ArrayList<>();
+        wrappers.add(new SnapLayoutWrapper(HorizontalRecyclerModel.class, HorizontalRecyclerViewHolder.class, R.layout.item_header_layout, 1));
+        wrappers.add(new SnapLayoutWrapper(TextModel.class, TextViewHolder.class, R.layout.item_text_layout, 3));
 
         //multiAdapter = new SnapAdapter<>(this, TextModel.class, R.layout.item_text_layout,TextViewHolder.class);
         multiAdapter = new SnapMultiAdapter(this,wrappers);

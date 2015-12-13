@@ -13,7 +13,11 @@ import java.util.ArrayList;
  */
 public class SnapMultiAdapter extends AbstractSnapMultiAdapter<Object> {
 
-    public SnapMultiAdapter(@NonNull Context context, ArrayList<SnapMultiViewWrapper> multiViewWrappers) {
+    /**
+     * @param context           Context.
+     * @param multiViewWrappers ArrayList Containing SnapLayoutWrapper.
+     */
+    public SnapMultiAdapter(@NonNull Context context, @NonNull ArrayList<SnapLayoutWrapper> multiViewWrappers) {
         super(context, multiViewWrappers);
     }
 
