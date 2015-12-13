@@ -12,6 +12,9 @@ import android.view.ViewGroup;
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 
+import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessLoader;
+import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessRecyclerOnScrollListener;
+
 /**
  * Created by Prashant Solanki.
  * <p/>
@@ -150,9 +153,28 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         viewHolder.animateViewHolder(viewHolder, pos);
     }
 
+
     @Override
     public int getItemCount() {
         return mData.size();
+    }
+
+    public void setEndlessLoader(final RecyclerView recyclerView,int thresholdLimit, final EndlessLoader endlessLoader){
+        final AbstractSnapMultiAdapter adapter = this;
+
+        recyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener(thresholdLimit) {
+
+            @Override
+            public void onLoadMore(int currentPage) {
+                endlessLoader.loadMore(adapter,currentPage);
+            }
+
+            @Override
+            public void onScroll(RecyclerView recyclerView, int dx, int dy) {
+                endlessLoader.onScrolled(recyclerView,dx,dy);
+            }
+
+        });
     }
 
 }
