@@ -4,7 +4,11 @@
 
 Simple Library to create RecyclerView Adapters and Viewholder in a snap.
 
-Send any data to any Viewholder without creating custom RecyclerView Adapters.
+## Features
+
+* Simple RecyclerView Adapter
+* Multiple Layouts RecyclerView Adapter
+* Endless Loader
 
 ## Add to your project
 
