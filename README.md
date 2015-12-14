@@ -40,13 +40,14 @@ Make a `ViewHolder` which extends `SnapViewHolder`.
 
 ```Java
 SnapAdapter<SimpleProduct, ViewHolderProduct> adapterRecycler = new SnapAdapter<>(
-	getContext(),
+	getContext(), //Context
+	SimpleProduct.class, //Model class, matching generic type
         R.layout.item_recycler_product, // Item Layout
         ViewHolderProduct.class); // ViewHolder class, matching generic type
                 
 recyclerView.setAdapter(adapterRecycler);
 
 //Add items to RecyclerView
-adapterRecycler.addItems(new ArrayList<SimpleProduct>());
+adapterRecycler.addAll(new ArrayList<SimpleProduct>());
 ```
 ### Yeah That's All!
