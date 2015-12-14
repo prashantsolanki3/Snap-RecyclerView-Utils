@@ -26,7 +26,7 @@ Add the dependency to your module's `build.gradle` file:
 ```Gradle
 dependencies {
 	...
-    compile 'com.github.prashantsolanki3:Snap-RecyclerView-Utils:v1.2'
+    compile 'com.github.prashantsolanki3:Snap-RecyclerView-Utils:v1.5'
 }
 ```
 
@@ -34,7 +34,8 @@ dependencies {
 
 # Usage
 
-Simple usage using `ViewHolder` which extends `SnapViewHolder`.
+Make a `ViewHolder` which extends `SnapViewHolder`.
+Check out the [wiki](https://github.com/prashantsolanki3/Snap-RecyclerView-Utils/wiki)!
 
 ```Java
 SnapAdapter<SimpleProduct, ViewHolderProduct> adapterRecycler = new SnapAdapter<>(
@@ -47,62 +48,4 @@ recyclerView.setAdapter(adapterRecycler);
 //Add items to RecyclerView
 adapterRecycler.addItems(new ArrayList<SimpleProduct>());
 ```
-
-`ViewHolderProduct` class which extends `SnapViewHolder`
-* Overrides 2 methods: `setData()` and `animateViewHolder()`.
-
-```java
-public class ViewHolderProduct extends SnapViewHolder<SimpleProduct> {
-
-    final TextView title;
-    final ImageView thumbnail;
-    final SimpleProduct simpleProduct;
-
-    public VhProductList(View itemView, Context context) {
-        super(itemView, context);
-        initViews();
-    }
-
-    private void initViews() {
-        title = (TextView) itemView.findViewById(R.id.product_title);
-        thumbnail= (ImageView) itemView.findViewById(R.id.product_image);
-    }
-
-    @Override
-    public void setData(SimpleProduct data, int pos) {
-        this.simpleProduct = data;
-        
-        thumbnail.setImageDrawable(null);
-        
-        title.setText(data.getTitle());
-
-        Glide.with(getContext())
-                .load(data.getListImage())
-                .into(thumbnail);
-
-    }
-
-    @Override
-    public void animateViewHolder(SnapViewHolder viewHolder, int position) {
-        //Apply Animations to ViewHolder.
-        
-        AnimationSet set = new AnimationSet(true);
-
-        if (position % 3 == 0)
-            set.addAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.gp_slide_in_left));
-        else if (position % 3 == 1)
-            set.addAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.gp_slide_in_right));
-
-        set.addAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.gp_slide_in_bottom));
-
-        viewHolder.itemView.startAnimation(set);
-    }
-}
-```
-
-### If your `Viewholder` doesn't extend `SnapViewHolder`. 
-
-#### Must extend SnapViewHolder from v1.2 onwards.
-
-* Override `populateViewHolderItem()` method in `SnapAdapter` to set Data to your viewholder.
-* Optionally override `animateItems()` method in `SnapAdaper` to animate items. 
+### Yeah That's All!
