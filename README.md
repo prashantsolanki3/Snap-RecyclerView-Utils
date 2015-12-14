@@ -34,8 +34,9 @@ dependencies {
 
 # Usage
 
+###[Check out the wiki!](https://github.com/prashantsolanki3/Snap-RecyclerView-Utils/wiki)
+
 Make a `ViewHolder` which extends `SnapViewHolder`.
-Check out the [wiki](https://github.com/prashantsolanki3/Snap-RecyclerView-Utils/wiki)!
 
 ```Java
 SnapAdapter<SimpleProduct, ViewHolderProduct> adapterRecycler = new SnapAdapter<>(
