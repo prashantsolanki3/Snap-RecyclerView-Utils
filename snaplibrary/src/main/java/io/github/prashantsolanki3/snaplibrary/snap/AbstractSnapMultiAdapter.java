@@ -163,8 +163,8 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         return mData.size();
     }
 
-    public void setEndlessLoader(final RecyclerView recyclerView,int thresholdLimit, final EndlessLoader endlessLoader){
-        final AbstractSnapMultiAdapter adapter = this;
+    public void setEndlessLoader(final RecyclerView recyclerView,int thresholdLimit, final EndlessLoader<T> endlessLoader){
+        final AbstractSnapMultiAdapter<T> adapter = this;
 
         recyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener(thresholdLimit) {
 
