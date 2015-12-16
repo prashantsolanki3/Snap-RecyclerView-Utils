@@ -74,13 +74,17 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
     @Override
     public int getItemViewType(int position) {
         //TODO: Find a better way to compare classes.
-        for (SnapLayoutWrapper wrapper : layoutWrappers) {
-            if(wrapper.getModel().getName().equals(mData.get(position).getClass().getName()))
-                return wrapper.getLayoutType();
-        }
+        if(layoutWrappers.size()>1) {
+            for (SnapLayoutWrapper wrapper : layoutWrappers) {
+                if (wrapper.getModel().getName().equals(mData.get(position).getClass().getName()))
+                    return wrapper.getLayoutType();
+            }
 
-        throw new RuntimeException("Please Check the SnapLayoutWrapper and the input Dataset Classes");
-    }
+            throw new RuntimeException("Please Check the SnapLayoutWrapper and the input Dataset Classes");
+        }
+        return layoutWrappers.get(0).getLayoutType();
+
+        }
 
     public SnapLayoutWrapper getWrapperFromType(int type) {
 

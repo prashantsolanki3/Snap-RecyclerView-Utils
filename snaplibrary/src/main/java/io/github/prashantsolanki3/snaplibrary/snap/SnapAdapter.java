@@ -31,6 +31,26 @@ public class SnapAdapter<T, VH extends SnapViewHolder> extends AbstractSnapMulti
                         0))));
     }
 
+
+    /**
+     * @param context         Context.
+     * @param itemLayout      Layout id of RecyclerView Item.
+     * @param viewHolderClass ViewHolder Class to be used by SnapAdapter.
+     */
+    @Deprecated
+    public SnapAdapter(@NonNull Context context, @LayoutRes int itemLayout, @NonNull Class<VH> viewHolderClass) {
+        super(context,
+                new ArrayList<>(Collections.singletonList(new SnapLayoutWrapper(Object.class,
+                        viewHolderClass,
+                        itemLayout,
+                        0))));
+    }
+
+
+    /**
+     * @param context         Context.
+     * @param wrapper SnapLayoutWrapper
+     */
     public SnapAdapter(@NonNull Context context, SnapLayoutWrapper wrapper) {
         super(context, new ArrayList<>(Collections.singletonList(wrapper)));
     }

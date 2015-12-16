@@ -13,20 +13,18 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import io.github.prashantsolanki3.snaplibrary.snap.AbstractSnapMultiAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.SnapAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.SnapLayoutWrapper;
-import io.github.prashantsolanki3.snaplibrary.snap.SnapMultiAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessLoader;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
-import io.prashantslolanki3.snaprecyclerview.sample.model.HorizontalRecyclerModel;
 import io.prashantslolanki3.snaprecyclerview.sample.model.TextModel;
-import io.prashantslolanki3.snaprecyclerview.sample.viewholders.HorizontalRecyclerViewHolder;
 import io.prashantslolanki3.snaprecyclerview.sample.viewholders.TextViewHolder;
 
 public class SnapDemoActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    //SnapAdapter<TextModel,TextViewHolder> multiAdapter;
-    SnapMultiAdapter multiAdapter;
+    SnapAdapter<TextModel,TextViewHolder> multiAdapter;
+   // SnapMultiAdapter multiAdapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,18 +32,18 @@ public class SnapDemoActivity extends AppCompatActivity {
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
 
         ArrayList<SnapLayoutWrapper> wrappers = new ArrayList<>();
-        wrappers.add(new SnapLayoutWrapper(HorizontalRecyclerModel.class, HorizontalRecyclerViewHolder.class, R.layout.item_header_layout, 1));
+       // wrappers.add(new SnapLayoutWrapper(HorizontalRecyclerModel.class, HorizontalRecyclerViewHolder.class, R.layout.item_header_layout, 1));
         wrappers.add(new SnapLayoutWrapper(TextModel.class, TextViewHolder.class, R.layout.item_text_layout, 3));
 
         //multiAdapter = new SnapAdapter<>(this, TextModel.class, R.layout.item_text_layout,TextViewHolder.class);
-        multiAdapter = new SnapMultiAdapter(this,wrappers);
+        multiAdapter = new SnapAdapter<>(this,R.layout.item_text_layout,TextViewHolder.class);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(multiAdapter);
 
         for (int i = 0; i < 10; i++) {
-            if(i%2==0)
+            /*if(i%2==0)
                 multiAdapter.add(new HorizontalRecyclerModel());
-            else
+            else*/
                 multiAdapter.add(new TextModel());
         }
 
@@ -64,22 +62,31 @@ public class SnapDemoActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             Log.d("Load More", "Page No: " + pageNo);
+                            multiAdapter.add(new TextModel());
                             adapter.add(new TextModel());
-                            adapter.add(new HorizontalRecyclerModel());
+                            adapter.add(new TextModel());adapter.add(new TextModel());
+                            adapter.add(new TextModel());adapter.add(new TextModel());
+                            adapter.add(new TextModel());adapter.add(new TextModel());adapter.add(new TextModel());
                             adapter.add(new TextModel());
-                            adapter.add(new HorizontalRecyclerModel());
-                            adapter.add(new TextModel());
-                            adapter.add(new HorizontalRecyclerModel());
-                            adapter.add(new TextModel());
-                            adapter.add(new HorizontalRecyclerModel());
-                            adapter.add(new TextModel());
-                            adapter.add(new HorizontalRecyclerModel());
-
                         }
                     }, 2000);
+
             }
+
         });
 
+
+        multiAdapter.setEndlessLoader(recyclerView, 5, new EndlessLoader() {
+            @Override
+            public void loadMore(AbstractSnapMultiAdapter adapter, int pageNo) {
+
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+
+            }
+        });
     }
 
     @Override
@@ -98,7 +105,7 @@ public class SnapDemoActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_add_recycler_item) {
-            multiAdapter.add(new HorizontalRecyclerModel());
+           // multiAdapter.add(new HorizontalRecyclerModel());
             return true;
         }
 
