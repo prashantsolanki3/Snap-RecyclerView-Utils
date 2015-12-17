@@ -30,7 +30,7 @@ Add the dependency to your module's `build.gradle` file:
 ```Gradle
 dependencies {
 	...
-    compile 'com.github.prashantsolanki3:Snap-RecyclerView-Utils:v1.5'
+    compile 'com.github.prashantsolanki3:Snap-RecyclerView-Utils:v1.6'
 }
 ```
 
