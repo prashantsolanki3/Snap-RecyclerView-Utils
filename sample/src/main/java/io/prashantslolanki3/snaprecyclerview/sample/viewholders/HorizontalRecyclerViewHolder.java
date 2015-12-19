@@ -4,6 +4,7 @@ import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.TextView;
 
 import io.github.prashantsolanki3.snaplibrary.snap.SnapAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
@@ -17,21 +18,22 @@ import io.prashantslolanki3.snaprecyclerview.sample.model.HorizontalRecyclerMode
  */
 public class HorizontalRecyclerViewHolder extends SnapViewHolder<HorizontalRecyclerModel> {
 
-    RecyclerView recyclerView;
-    SnapAdapter<HorizontalRecyclerModel,InternalTextViewHolder> adapter;
+    final TextView title;
+    final RecyclerView recyclerView;
+    SnapAdapter<String, ImageViewHolder> adapter;
 
     public HorizontalRecyclerViewHolder(View itemView, Context context) {
         super(itemView, context);
         recyclerView = (RecyclerView) itemView.findViewById(R.id.header_rv);
-
+        title = (TextView) itemView.findViewById(R.id.item_title);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL,
                 false));
 
         adapter = new SnapAdapter<>(getContext(),
-                HorizontalRecyclerModel.class,
-                R.layout.item_text_layout,
-                InternalTextViewHolder.class);
+                String.class,
+                R.layout.item_image_layout,
+                ImageViewHolder.class);
 
         recyclerView.setAdapter(adapter);
 
@@ -49,8 +51,7 @@ public class HorizontalRecyclerViewHolder extends SnapViewHolder<HorizontalRecyc
 
     @Override
     public void populateViewHolder(HorizontalRecyclerModel data, int pos) {
-        for (int i = 0; i <= pos ; i++) {
-            adapter.add(data);
-        }
+        title.setText(data.getTitle());
+        adapter.set(data.getImages());
     }
 }

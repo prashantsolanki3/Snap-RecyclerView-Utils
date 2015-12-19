@@ -22,6 +22,10 @@ public abstract class EndlessRecyclerOnScrollListener extends RecyclerView.OnScr
         this.visibleThreshold = visibleThreshold;
     }
 
+    public void setVisibleThreshold(int visibleThreshold) {
+        this.visibleThreshold = visibleThreshold;
+    }
+
     RecyclerViewPositionHelper mRecyclerViewHelper;
  
  
@@ -47,15 +51,18 @@ public abstract class EndlessRecyclerOnScrollListener extends RecyclerView.OnScr
             // Do something 
             currentPage++;
  
- 
             onLoadMore(currentPage);
  
 
             loading = true;
         } 
-    } 
- 
- 
+    }
+
+
+    public void itemRemoved(int count) {
+        this.previousTotal -= count;
+    }
+
     //Start loading 
     public abstract void onLoadMore(int currentPage);
     public abstract void onScroll(RecyclerView recyclerView, int dx, int dy);

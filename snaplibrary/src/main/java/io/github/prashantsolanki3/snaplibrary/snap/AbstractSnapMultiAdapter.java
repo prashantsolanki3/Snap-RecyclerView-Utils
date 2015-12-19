@@ -125,16 +125,19 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
     public void remove(@IntRange(from = 0, to = Integer.MAX_VALUE) int pos) {
         this.mData.remove(pos);
         this.notifyItemRemoved(pos);
+        endlessRecyclerOnScrollListener.itemRemoved(1);
         this.notifyDataSetChanged();
     }
 
     public void remove(@NonNull T item) {
         int pos = this.mData.indexOf(item);
         this.mData.remove(pos);
+        endlessRecyclerOnScrollListener.itemRemoved(1);
         this.notifyItemRemoved(pos);
     }
 
     public void clear() {
+        endlessRecyclerOnScrollListener.itemRemoved(mData.size());
         this.mData.clear();
         this.notifyDataSetChanged();
     }
@@ -164,21 +167,29 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
     }
 
     public void setEndlessLoader(final RecyclerView recyclerView,int thresholdLimit, final EndlessLoader<T> endlessLoader){
-        final AbstractSnapMultiAdapter<T> adapter = this;
+        this.endlessLoader = endlessLoader;
 
-        recyclerView.addOnScrollListener(new EndlessRecyclerOnScrollListener(thresholdLimit) {
+        endlessRecyclerOnScrollListener.setVisibleThreshold(thresholdLimit);
 
-            @Override
-            public void onLoadMore(int currentPage) {
-                endlessLoader.loadMore(adapter,currentPage);
-            }
-
-            @Override
-            public void onScroll(RecyclerView recyclerView, int dx, int dy) {
-                endlessLoader.onScrolled(recyclerView,dx,dy);
-            }
-
-        });
+        recyclerView.addOnScrollListener(endlessRecyclerOnScrollListener);
     }
+
+    EndlessLoader<T> endlessLoader = null;
+    final AbstractSnapMultiAdapter<T> adapter = this;
+
+    EndlessRecyclerOnScrollListener endlessRecyclerOnScrollListener = new EndlessRecyclerOnScrollListener(10) {
+
+        @Override
+        public void onLoadMore(int currentPage) {
+            if (endlessLoader != null)
+                endlessLoader.loadMore(adapter, currentPage);
+        }
+
+        @Override
+        public void onScroll(RecyclerView recyclerView, int dx, int dy) {
+            if (endlessLoader != null)
+                endlessLoader.onScrolled(recyclerView, dx, dy);
+        }
+    };
 
 }
