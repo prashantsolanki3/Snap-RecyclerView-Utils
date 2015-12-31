@@ -1,6 +1,7 @@
 # Snap RecyclerView Utils
 
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Snap--RecyclerView--Utils-green.svg?style=true)](https://android-arsenal.com/details/1/2884)
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Snap--RecyclerView--Utils-brightgreen.svg?style=flat-square)](https://android-arsenal.com/details/1/2884)
+[![Travis CI](https://travis-ci.org/prashantsolanki3/Snap-RecyclerView-Utils.svg)](https://travis-ci.org/prashantsolanki3/Snap-RecyclerView-Utils)
 
 Simple Library to create RecyclerView Adapters and Viewholder in a snap.
 
