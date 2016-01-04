@@ -10,6 +10,8 @@ Simple Library to create RecyclerView Adapters and Viewholder in a snap.
 * Simple RecyclerView Adapter
 * Multiple Layouts RecyclerView Adapter
 * Endless Loader
+* Alternate View Support
+* Automatic Empty RecyclerView Layout Handling
 
 ## Add to your project
 
@@ -31,7 +33,7 @@ Add the dependency to your module's `build.gradle` file:
 ```Gradle
 dependencies {
 	...
-    compile 'com.github.prashantsolanki3:Snap-RecyclerView-Utils:v1.6'
+    compile 'com.github.prashantsolanki3:Snap-RecyclerView-Utils:v1.7'
 }
 ```
 
