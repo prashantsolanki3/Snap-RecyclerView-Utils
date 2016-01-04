@@ -1,12 +1,14 @@
 package io.prashantslolanki3.snaprecyclerview.sample;
 
+import android.os.Handler;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.Toast;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -45,15 +47,35 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
         wrappers.add(new SnapLayoutWrapper(HorizontalRecyclerModel.class, HorizontalRecyclerViewHolder.class, R.layout.item_header_layout, 0));
         wrappers.add(new SnapLayoutWrapper(String.class, ImageViewHolder.class, R.layout.item_image_layout, 1));
         wrappers.add(new SnapLayoutWrapper(PictureCaption.class, SinglePictureCaptionViewHolder.class, R.layout.item_pictue_caption_layout, 2));
-        adapter = new SnapMultiAdapter(this, wrappers);
+        adapter = new SnapMultiAdapter(this, wrappers, recyclerView);
+        adapter.setAutoEmptyLayoutHandling(true);
+        adapter.setAlternateView((FrameLayout) findViewById(R.id.alternateView));
+
+        View empty = adapter.getViewFromId(R.layout.alter_empty);
+        TextView textView = (TextView) empty.findViewById(R.id.alter_tv);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(final View v) {
+                Runnable runnable = new Runnable() {
+                    @Override
+                    public void run() {
+                        setFabOnClickAction(v);
+                    }
+                };
+                adapter.showAlternateLayout(adapter.getViewFromId(R.layout.alter_loading));
+                new Handler().postDelayed(runnable, 2500);
+            }
+        });
+
+        adapter.setEmptyView(empty);
+
         recyclerView.setAdapter(adapter);
-        adapter.setEndlessLoader(recyclerView, 5, new EndlessLoader<Object>() {
+        adapter.setEndlessLoader(5, new EndlessLoader<Object>() {
             @Override
             public void loadMore(AbstractSnapMultiAdapter<Object> adapter, int pageNo) {
                 for (int i = 0; i < 15; i++) {
                     setFabOnClickAction(recyclerView);
                 }
-
             }
 
             @Override
@@ -74,8 +96,10 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
             adapter.add(SampleData.getImageUrls(1).get(0));
         else
             adapter.add(SampleData.getPictureCaption());
-
         counter++;
+
+        if (adapter.isAlternateLayoutShowing())
+            adapter.hideAlternateLayout();
 
     }
 
@@ -83,7 +107,7 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
         if (adapter.getItemCount() > 0)
             adapter.remove(adapter.getItemCount() - 1);
         else
-            Toast.makeText(this, "Recycler Empty", Toast.LENGTH_SHORT).show();
+            adapter.showEmptyLayout();
 
         return true;
     }

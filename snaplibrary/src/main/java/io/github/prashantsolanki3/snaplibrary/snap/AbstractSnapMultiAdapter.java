@@ -2,9 +2,11 @@ package io.github.prashantsolanki3.snaplibrary.snap;
 
 import android.content.Context;
 import android.support.annotation.IntRange;
+import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,12 +29,44 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
     private final ArrayList<T> mData;
     ArrayList<SnapLayoutWrapper> layoutWrappers;
     private int lastPosition = -1;
+    ViewGroup alternateView = null;
+    RecyclerView recyclerView = null;
+    EndlessLoader<T> endlessLoader = null;
+    final AbstractSnapMultiAdapter<T> adapter = this;
+    View emptyView = null;
+    @LayoutRes
+    int emptyLayoutId = 0;
+    LayoutInflater inflater;
+    boolean autoEmptyLayoutHandling = false;
 
     public AbstractSnapMultiAdapter(@NonNull Context context,
                                     ArrayList<SnapLayoutWrapper> layoutWrappers) {
         this.context = context;
         mData = new ArrayList<>();
         this.layoutWrappers = layoutWrappers;
+        inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+    }
+
+    public AbstractSnapMultiAdapter(@NonNull Context context,
+                                    ArrayList<SnapLayoutWrapper> layoutWrappers,
+                                    RecyclerView recyclerView) {
+        this.context = context;
+        mData = new ArrayList<>();
+        this.layoutWrappers = layoutWrappers;
+        inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.recyclerView = recyclerView;
+    }
+
+    public AbstractSnapMultiAdapter(@NonNull Context context,
+                                    ArrayList<SnapLayoutWrapper> layoutWrappers,
+                                    RecyclerView recyclerView,
+                                    ViewGroup alternateView) {
+        this.context = context;
+        mData = new ArrayList<>();
+        this.layoutWrappers = layoutWrappers;
+        inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.recyclerView = recyclerView;
+        this.alternateView = alternateView;
     }
 
     public final Context getContext() {
@@ -95,7 +129,7 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
 
     }
 
-    public final T getItem(int pos) {
+    public final T getItem(@IntRange(from = 0, to = Integer.MAX_VALUE) int pos) {
         return mData.get(pos);
     }
 
@@ -107,6 +141,7 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         if (cardBase == null) return;
         this.mData.add(cardBase);
         notifyItemInserted(this.mData.size() - 1);
+        handleEmptyLayoutVisibility();
     }
 
     public void addAll(@Nullable ArrayList<T> list) {
@@ -114,12 +149,14 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         final int prevSize = this.mData.size() - 1;
         this.mData.addAll(list);
         this.notifyItemRangeInserted(prevSize, this.mData.size() - 1);
+        handleEmptyLayoutVisibility();
     }
 
     public void set(@Nullable ArrayList<T> data) {
         clear();
         if (data != null)
             mData.addAll(data);
+        handleEmptyLayoutVisibility();
     }
 
     public void remove(@IntRange(from = 0, to = Integer.MAX_VALUE) int pos) {
@@ -163,19 +200,30 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        int size = mData.size();
+        Log.d("Size", size + "");
+
+        if (autoEmptyLayoutHandling)
+            if (alternateView != null && size == 0)
+                showEmptyLayout();
+            else if (isAlternateLayoutShowing())
+                hideAlternateLayout();
+
+        return size;
     }
 
+    @Deprecated
     public void setEndlessLoader(final RecyclerView recyclerView,int thresholdLimit, final EndlessLoader<T> endlessLoader){
         this.endlessLoader = endlessLoader;
-
         endlessRecyclerOnScrollListener.setVisibleThreshold(thresholdLimit);
-
         recyclerView.addOnScrollListener(endlessRecyclerOnScrollListener);
+        notifyDataSetChanged();
     }
 
-    EndlessLoader<T> endlessLoader = null;
-    final AbstractSnapMultiAdapter<T> adapter = this;
+    public void setEndlessLoader(int thresholdLimit, final EndlessLoader<T> endlessLoader) {
+        checkRecyclerViewInit();
+        this.setEndlessLoader(recyclerView, thresholdLimit, endlessLoader);
+    }
 
     EndlessRecyclerOnScrollListener endlessRecyclerOnScrollListener = new EndlessRecyclerOnScrollListener(10) {
 
@@ -191,5 +239,103 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
                 endlessLoader.onScrolled(recyclerView, dx, dy);
         }
     };
+
+    public void setAlternateView(ViewGroup alternateView) {
+        this.alternateView = alternateView;
+    }
+
+    private void checkAlternateViewInit() {
+        if (alternateView == null)
+            throw new RuntimeException("You must set Alternate View before inflating layouts");
+    }
+
+    private void checkRecyclerViewInit() {
+        if (recyclerView == null)
+            throw new RuntimeException("You must set RecyclerView before setting endless loader");
+    }
+
+    public void setRecyclerView(RecyclerView recyclerView) {
+        this.recyclerView = recyclerView;
+    }
+
+    public void setEmptyView(@NonNull View emptyView) {
+        this.emptyView = emptyView;
+    }
+
+    public void setEmptyLayoutId(@LayoutRes int emptyLayoutId) {
+        this.emptyLayoutId = emptyLayoutId;
+    }
+
+    public void showEmptyLayout() {
+        if (emptyView != null)
+            showAlternateLayout(emptyView);
+        else if (emptyLayoutId != 0)
+            showAlternateLayout(emptyLayoutId);
+        else
+            throw new RuntimeException("Must set emptyView or emptyLayoutId.");
+    }
+
+    public void showAlternateLayout(@LayoutRes int layoutId) {
+        checkRecyclerViewInit();
+        checkAlternateViewInit();
+        alternateView.removeAllViews();
+        recyclerView.setVisibility(View.GONE);
+        View view = inflater.inflate(layoutId, null);
+        alternateView.addView(view,
+                new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT));
+        alternateView.setVisibility(View.VISIBLE);
+    }
+
+    public void showAlternateLayout(@NonNull View view) {
+        checkRecyclerViewInit();
+        checkAlternateViewInit();
+
+        if (alternateView.getChildCount() > 0)
+            alternateView.removeAllViews();
+
+        recyclerView.setVisibility(View.GONE);
+
+        alternateView.addView(view,
+                new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
+                        ViewGroup.LayoutParams.MATCH_PARENT));
+
+        alternateView.setVisibility(View.VISIBLE);
+
+    }
+
+    public boolean isAlternateLayoutShowing() {
+
+        checkAlternateViewInit();
+        return alternateView.getVisibility() == View.VISIBLE;
+
+    }
+
+    public void hideAlternateLayout() {
+
+        checkRecyclerViewInit();
+        checkAlternateViewInit();
+
+        recyclerView.setVisibility(View.VISIBLE);
+        alternateView.setVisibility(View.GONE);
+        alternateView.removeAllViews();
+
+    }
+
+    public void handleEmptyLayoutVisibility() {
+        if (autoEmptyLayoutHandling)
+            if (alternateView != null && getItemCount() == 0)
+                showEmptyLayout();
+            else if (isAlternateLayoutShowing())
+                hideAlternateLayout();
+    }
+
+    public void setAutoEmptyLayoutHandling(boolean autoEmptyLayoutHandling) {
+        this.autoEmptyLayoutHandling = autoEmptyLayoutHandling;
+    }
+
+    public View getViewFromId(@LayoutRes int layoutId) {
+        return inflater.inflate(layoutId, null);
+    }
 
 }
