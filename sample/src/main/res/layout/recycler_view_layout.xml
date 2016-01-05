@@ -15,7 +15,7 @@
         android:id="@+id/recycler" />
 
     <FrameLayout
-        android:id="@+id/alternateView"
+        android:id="@+id/alternateViewContainer"
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

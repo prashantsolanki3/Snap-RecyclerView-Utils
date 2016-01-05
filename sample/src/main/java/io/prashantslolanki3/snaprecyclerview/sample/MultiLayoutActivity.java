@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -17,6 +18,7 @@ import io.github.prashantsolanki3.snaplibrary.snap.AbstractSnapMultiAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.SnapLayoutWrapper;
 import io.github.prashantsolanki3.snaplibrary.snap.SnapMultiAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessLoader;
+import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemClickListener;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
 import io.prashantslolanki3.snaprecyclerview.sample.model.HorizontalRecyclerModel;
 import io.prashantslolanki3.snaprecyclerview.sample.model.PictureCaption;
@@ -49,7 +51,7 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
         wrappers.add(new SnapLayoutWrapper(PictureCaption.class, SinglePictureCaptionViewHolder.class, R.layout.item_pictue_caption_layout, 2));
         adapter = new SnapMultiAdapter(this, wrappers, recyclerView);
         adapter.setAutoEmptyLayoutHandling(true);
-        adapter.setAlternateView((FrameLayout) findViewById(R.id.alternateView));
+        adapter.setAlternateViewContainer((FrameLayout) findViewById(R.id.alternateViewContainer));
 
         View empty = adapter.getViewFromId(R.layout.alter_empty);
         TextView textView = (TextView) empty.findViewById(R.id.alter_tv);
@@ -68,7 +70,7 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
         });
 
         adapter.setEmptyView(empty);
-
+        adapter.hideAlternateLayout();
         recyclerView.setAdapter(adapter);
         adapter.setEndlessLoader(5, new EndlessLoader<Object>() {
             @Override
@@ -81,6 +83,13 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
             @Override
             public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
 
+            }
+        });
+
+        adapter.setOnItemClickListener(new SnapOnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+                Toast.makeText(getApplicationContext(), "Pos: " + position, Toast.LENGTH_SHORT).show();
             }
         });
     }

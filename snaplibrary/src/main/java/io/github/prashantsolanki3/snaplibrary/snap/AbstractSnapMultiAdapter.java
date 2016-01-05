@@ -16,6 +16,8 @@ import java.util.ArrayList;
 
 import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessLoader;
 import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessRecyclerOnScrollListener;
+import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemClickListener;
+import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemTouchListener;
 
 /**
  * Created by Prashant Solanki.
@@ -29,7 +31,7 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
     private final ArrayList<T> mData;
     ArrayList<SnapLayoutWrapper> layoutWrappers;
     private int lastPosition = -1;
-    ViewGroup alternateView = null;
+    ViewGroup alternateViewContainer = null;
     RecyclerView recyclerView = null;
     EndlessLoader<T> endlessLoader = null;
     final AbstractSnapMultiAdapter<T> adapter = this;
@@ -60,13 +62,13 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
     public AbstractSnapMultiAdapter(@NonNull Context context,
                                     ArrayList<SnapLayoutWrapper> layoutWrappers,
                                     RecyclerView recyclerView,
-                                    ViewGroup alternateView) {
+                                    ViewGroup alternateViewContainer) {
         this.context = context;
         mData = new ArrayList<>();
         this.layoutWrappers = layoutWrappers;
         inflater = (LayoutInflater) getContext().getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         this.recyclerView = recyclerView;
-        this.alternateView = alternateView;
+        this.alternateViewContainer = alternateViewContainer;
     }
 
     public final Context getContext() {
@@ -204,7 +206,7 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         Log.d("Size", size + "");
 
         if (autoEmptyLayoutHandling)
-            if (alternateView != null && size == 0)
+            if (alternateViewContainer != null && size == 0)
                 showEmptyLayout();
             else if (isAlternateLayoutShowing())
                 hideAlternateLayout();
@@ -240,12 +242,12 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         }
     };
 
-    public void setAlternateView(ViewGroup alternateView) {
-        this.alternateView = alternateView;
+    public void setAlternateViewContainer(ViewGroup alternateView) {
+        this.alternateViewContainer = alternateView;
     }
 
     private void checkAlternateViewInit() {
-        if (alternateView == null)
+        if (alternateViewContainer == null)
             throw new RuntimeException("You must set Alternate View before inflating layouts");
     }
 
@@ -278,53 +280,52 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
     public void showAlternateLayout(@LayoutRes int layoutId) {
         checkRecyclerViewInit();
         checkAlternateViewInit();
-        alternateView.removeAllViews();
+        alternateViewContainer.removeAllViews();
         recyclerView.setVisibility(View.GONE);
         View view = inflater.inflate(layoutId, null);
-        alternateView.addView(view,
+        alternateViewContainer.addView(view,
                 new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.MATCH_PARENT));
-        alternateView.setVisibility(View.VISIBLE);
+        alternateViewContainer.setVisibility(View.VISIBLE);
     }
 
     public void showAlternateLayout(@NonNull View view) {
         checkRecyclerViewInit();
         checkAlternateViewInit();
 
-        if (alternateView.getChildCount() > 0)
-            alternateView.removeAllViews();
+        if (alternateViewContainer.getChildCount() > 0)
+            alternateViewContainer.removeAllViews();
 
         recyclerView.setVisibility(View.GONE);
 
-        alternateView.addView(view,
+        alternateViewContainer.addView(view,
                 new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                         ViewGroup.LayoutParams.MATCH_PARENT));
 
-        alternateView.setVisibility(View.VISIBLE);
+        alternateViewContainer.setVisibility(View.VISIBLE);
 
     }
 
     public boolean isAlternateLayoutShowing() {
 
         checkAlternateViewInit();
-        return alternateView.getVisibility() == View.VISIBLE;
+        return alternateViewContainer.getVisibility() == View.VISIBLE;
 
     }
 
     public void hideAlternateLayout() {
-
         checkRecyclerViewInit();
         checkAlternateViewInit();
 
         recyclerView.setVisibility(View.VISIBLE);
-        alternateView.setVisibility(View.GONE);
-        alternateView.removeAllViews();
+        alternateViewContainer.setVisibility(View.GONE);
+        alternateViewContainer.removeAllViews();
 
     }
 
     public void handleEmptyLayoutVisibility() {
         if (autoEmptyLayoutHandling)
-            if (alternateView != null && getItemCount() == 0)
+            if (alternateViewContainer != null && getItemCount() == 0)
                 showEmptyLayout();
             else if (isAlternateLayoutShowing())
                 hideAlternateLayout();
@@ -336,6 +337,11 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
 
     public View getViewFromId(@LayoutRes int layoutId) {
         return inflater.inflate(layoutId, null);
+    }
+
+    public void setOnItemClickListener(@NonNull SnapOnItemClickListener clickListener) {
+        checkRecyclerViewInit();
+        recyclerView.addOnItemTouchListener(new SnapOnItemTouchListener(getContext(), clickListener));
     }
 
 }
