@@ -17,6 +17,7 @@ import java.util.Random;
 import io.github.prashantsolanki3.snaplibrary.snap.AbstractSnapMultiAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.SnapLayoutWrapper;
 import io.github.prashantsolanki3.snaplibrary.snap.SnapMultiAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
 import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessLoader;
 import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemClickListener;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
@@ -87,10 +88,17 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
         });
 
         adapter.setOnItemClickListener(new SnapOnItemClickListener() {
+
             @Override
-            public void onItemClick(View view, int position) {
+            public void onItemClick(SnapViewHolder viewHolder, View view, int position) {
                 Toast.makeText(getApplicationContext(), "Pos: " + position, Toast.LENGTH_SHORT).show();
             }
+
+            @Override
+            public void onItemLongPress(SnapViewHolder viewHolder, View view, int position) {
+                Toast.makeText(getApplicationContext(), "Long: " + position, Toast.LENGTH_SHORT).show();
+            }
+
         });
     }
 

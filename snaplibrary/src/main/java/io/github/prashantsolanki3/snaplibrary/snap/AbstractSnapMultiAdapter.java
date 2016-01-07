@@ -18,6 +18,7 @@ import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessLoader;
 import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessRecyclerOnScrollListener;
 import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemClickListener;
 import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemTouchListener;
+import io.github.prashantsolanki3.snaplibrary.snap.utils.UtilsLayoutWrapper;
 
 /**
  * Created by Prashant Solanki.
@@ -85,7 +86,7 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
 
     @Override
     public SnapViewHolder onCreateViewHolder(ViewGroup parent, int viewType) throws RuntimeException {
-        SnapLayoutWrapper wrapper = getWrapperFromType(viewType);
+        SnapLayoutWrapper wrapper = UtilsLayoutWrapper.getWrapperFromType(layoutWrappers, viewType);
 
         final ViewGroup view = (ViewGroup) LayoutInflater.from(parent.getContext()).inflate(wrapper.getLayoutId(), parent, false);
 
@@ -102,8 +103,8 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
 
     @Override
     public void onBindViewHolder(SnapViewHolder holder, int position) {
-        T t = mData.get(position);
-        this.populateViewHolderItem(holder, t, position);
+        T item = mData.get(position);
+        this.populateViewHolderItem(holder, item, position);
         this.setAnimation(holder, position);
     }
 
@@ -111,25 +112,15 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
     public int getItemViewType(int position) {
         //TODO: Find a better way to compare classes.
         if(layoutWrappers.size()>1) {
-            for (SnapLayoutWrapper wrapper : layoutWrappers) {
-                if (wrapper.getModel().getName().equals(mData.get(position).getClass().getName()))
-                    return wrapper.getLayoutType();
-            }
-
-            throw new RuntimeException("Please Check the SnapLayoutWrapper and the input Dataset Classes");
+            return UtilsLayoutWrapper.getWrapperFromModel(layoutWrappers,
+                    mData.get(position).getClass())
+                    .getLayoutType();
         }
-        return layoutWrappers.get(0).getLayoutType();
+        return layoutWrappers.get(0)
+                .getLayoutType();
 
         }
 
-    public SnapLayoutWrapper getWrapperFromType(int type) {
-
-        for (SnapLayoutWrapper wrapper : layoutWrappers)
-                if(wrapper.getLayoutType().equals(type))
-                    return wrapper;
-        return null;
-
-    }
 
     public final T getItem(@IntRange(from = 0, to = Integer.MAX_VALUE) int pos) {
         return mData.get(pos);
@@ -179,6 +170,10 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         endlessRecyclerOnScrollListener.itemRemoved(mData.size());
         this.mData.clear();
         this.notifyDataSetChanged();
+    }
+
+    public ArrayList<SnapLayoutWrapper> getLayoutWrappers() {
+        return layoutWrappers;
     }
 
     /**
@@ -268,6 +263,10 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         this.emptyLayoutId = emptyLayoutId;
     }
 
+    public RecyclerView getRecyclerView() {
+        return recyclerView;
+    }
+
     public void showEmptyLayout() {
         if (emptyView != null)
             showAlternateLayout(emptyView);
@@ -342,6 +341,10 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
     public void setOnItemClickListener(@NonNull SnapOnItemClickListener clickListener) {
         checkRecyclerViewInit();
         recyclerView.addOnItemTouchListener(new SnapOnItemTouchListener(getContext(), clickListener));
+    }
+
+    public int getItemPosition(@NonNull T item) {
+        return getAll().indexOf(item);
     }
 
 }

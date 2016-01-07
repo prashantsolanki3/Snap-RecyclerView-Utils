@@ -17,7 +17,7 @@ import java.util.Collections;
  *
  * To Create a simple RecyclerView Adapter with Single Layout.
  */
-public class SnapAdapter<T, VH extends SnapViewHolder> extends AbstractSnapMultiAdapter<T> {
+public class SnapAdapter<T, VH extends SnapViewHolder<T>> extends AbstractSnapMultiAdapter<T> {
 
     /**
      * @param context         Context.
@@ -118,4 +118,5 @@ public class SnapAdapter<T, VH extends SnapViewHolder> extends AbstractSnapMulti
                        @NonNull ViewGroup alternateView) {
         super(context, new ArrayList<>(Collections.singletonList(wrapper)), recyclerView, alternateView);
     }
+
 }

@@ -28,9 +28,11 @@ public class SampleData {
 
     public static ArrayList<String> getImageUrls(int no) {
         ArrayList<String> strings = new ArrayList<>();
+
         for (int i = 0; i < no; i++) {
-            strings.add("http://lorempixel.com/300/300/abstract/These%20are%20Random%20Images/");
+            strings.add("http://lorempixel.com/300/300/abstract/These%20are%20Random%20Images%20" + new Random().nextInt() + "/");
         }
+
         return strings;
     }
 
