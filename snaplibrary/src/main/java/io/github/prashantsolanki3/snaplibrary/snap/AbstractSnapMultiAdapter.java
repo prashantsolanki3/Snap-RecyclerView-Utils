@@ -177,6 +177,21 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
     }
 
     /**
+     * Add new Layouts to the adapter.
+     */
+    public void addLayoutWrapper(@NonNull SnapLayoutWrapper wrapper) {
+        this.layoutWrappers.add(wrapper);
+    }
+
+    /**
+     * Should not be used unless extremely important.
+     * Any item of the type that is being removed must not be present in the adapter.
+     */
+    public void removeLayoutWrapper(@NonNull SnapLayoutWrapper wrapper) {
+        this.layoutWrappers.remove(wrapper);
+    }
+
+    /**
      * Populate view of viewholder here.
      */
     public void populateViewHolderItem(SnapViewHolder viewHolder, T item, int position) {

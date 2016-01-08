@@ -13,29 +13,20 @@
     </layouts>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="No Filters" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c20241f6-414b-49bb-a247-01abf9155877" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/SelectableRecyclerViewActivity.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/SelectableSinglePictureCaptionViewHolder.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/sample/src/main/res/menu/menu_selectable_recycler_view.xml" />
+      <change type="DELETED" beforePath="F:\WORK\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\SnapMultiViewWrapper.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/AbstractSnapMultiAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/AbstractSnapMultiAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/sample/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/BaseRecyclerViewActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/BaseRecyclerViewActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/SelectableRecyclerViewActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/SelectableRecyclerViewActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/SelectableSinglePictureCaptionViewHolder.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/SelectableSinglePictureCaptionViewHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapMultiAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapMultiAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SnapSelectableAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SnapSelectableAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SnapSelectableViewHolder.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SnapSelectableViewHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/appcompat_v7_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/layout/item_pictue_caption_layout.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/item_pictue_caption_layout.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/recyclerview_v7_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snaplibrary/snaplibrary.iml" afterPath="$PROJECT_DIR$/snaplibrary/snaplibrary.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/values/strings.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/values/strings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/values/styles.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/values/styles.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_annotations_23_1_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/support_v4_23_1_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/support_v4_23_1_1.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="F:\WORK\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\selectable\SnapSelectableAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/AbstractSnapSelectableAdapter.java" />
     </list>
     <ignored path="Snap-RecyclerView-Utils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,46 +55,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="SnapSelectableAdapter.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SnapSelectableAdapter.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7531645">
-              <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
-              <folding>
-                <element signature="method#onCreateViewHolder#0;class#SnapSelectableAdapter#0" expanded="false" />
-                <element signature="method#onBindViewHolder#0;class#SnapSelectableAdapter#0" expanded="false" />
-                <element signature="e#5538#5539#0" expanded="true" />
-                <element signature="e#5601#5602#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SnapSelectableViewHolder.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SnapSelectableViewHolder.java">
+      <file leaf-file-name="AbstractSnapSelectableAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/AbstractSnapSelectableAdapter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+              <caret line="244" column="13" selection-start-line="244" selection-start-column="13" selection-end-line="244" selection-end-column="13" />
               <folding>
-                <element signature="e#712#713#0" expanded="true" />
-                <element signature="e#742#743#0" expanded="true" />
+                <element signature="method#onCreateViewHolder#0;class#AbstractSnapSelectableAdapter#0" expanded="false" />
+                <element signature="method#onBindViewHolder#0;class#AbstractSnapSelectableAdapter#0" expanded="false" />
+                <element signature="e#5270#5271#0" expanded="true" />
+                <element signature="e#5333#5334#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SelectableRecyclerViewActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="SnapLayoutWrapper.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapLayoutWrapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SelectableRecyclerViewActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/SelectableRecyclerViewActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2046#2047#0" expanded="true" />
-                <element signature="e#2097#2098#0" expanded="true" />
-                <element signature="e#2418#2419#0" expanded="true" />
-                <element signature="e#2470#2471#0" expanded="true" />
-              </folding>
+            <state vertical-scroll-proportion="0.6057907">
+              <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -112,10 +94,9 @@
         <entry file="file://$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/BaseRecyclerViewActivity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
               <folding>
-                <element signature="e#1561#1562#0" expanded="true" />
-                <element signature="e#1591#1592#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -126,20 +107,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="81" column="13" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="item_pictue_caption_layout.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/item_pictue_caption_layout.xml">
-          <provider editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-7.37931">
-              <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
-              <folding />
+              <folding>
+                <marker date="1452270023930" expanded="false" signature="74:662" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -155,11 +125,22 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Prashant Solanki &lt;solankisrp2@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="master" />
       </map>
+    </option>
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
     </option>
   </component>
   <component name="GradleLocalSettings">
@@ -2468,14 +2449,18 @@
         <option value="$PROJECT_DIR$/sample/src/main/res/layout/activity_selectable_recycler_view.xml" />
         <option value="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/SinglePictureCaptionViewHolder.java" />
         <option value="$PROJECT_DIR$/sample/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/AbstractSnapMultiAdapter.java" />
         <option value="$PROJECT_DIR$/sample/src/main/res/layout/item_pictue_caption_layout.xml" />
         <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SnapSelectableViewHolder.java" />
         <option value="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/SelectableSinglePictureCaptionViewHolder.java" />
         <option value="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/BaseRecyclerViewActivity.java" />
         <option value="$PROJECT_DIR$/sample/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/SelectableRecyclerViewActivity.java" />
+        <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SnapSelectableMultiAdapter.java" />
+        <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/AbstractSnapMultiAdapter.java" />
+        <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapMultiAdapter.java" />
+        <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/AbstractSnapSelectableAdapter.java" />
+        <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapAdapter.java" />
         <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SnapSelectableAdapter.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/SelectableRecyclerViewActivity.java" />
       </list>
     </option>
   </component>
@@ -2511,27 +2496,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Snap-RecyclerView-Utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Snap-RecyclerView-Utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Snap-RecyclerView-Utils" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scratches">
         <subPane />
       </pane>
@@ -2571,19 +2535,30 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="Snap-RecyclerView-Utils" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Snap-RecyclerView-Utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="sample" />
-              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+              <option name="myItemId" value="Snap-RecyclerView-Utils" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2608,6 +2583,7 @@
       <recent name="" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="io.github.prashantsolanki3.snaplibrary.snap.selectable" />
       <recent name="io.prashantslolanki3.snaprecyclerview.sample.viewholders" />
     </key>
   </component>
@@ -2807,6 +2783,13 @@
       <option name="number" value="Default" />
       <updated>1450374945138</updated>
     </task>
+    <task id="LOCAL-00001" summary="All Selection Modes implemented">
+      <created>1452255505880</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1452255505880</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -2820,15 +2803,14 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32879046" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.41396934" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18739353" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25416037" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28214827" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
@@ -2844,6 +2826,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15031983" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" x="92" y="92" width="1736" height="856" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
     </layout>
@@ -2894,6 +2877,13 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="All Selection Modes implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="All Selection Modes implemented" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -2915,45 +2905,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/item_pictue_caption_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="34" selection-start-line="26" selection-start-column="34" selection-end-line="26" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/recycler_view_layout.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/model/HorizontalRecyclerModel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="26" column="5" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/endless/EndlessRecyclerOnScrollListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="19" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/AbstractSnapMultiAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/endless/EndlessLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2965,7 +2916,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="65" selection-start-line="5" selection-start-column="65" selection-end-line="5" selection-end-column="65" />
-          <folding />
+          <folding>
+            <element signature="e#358#376#0" expanded="false" />
+            <element signature="e#991#1040#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2974,7 +2928,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2983,7 +2937,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="53" column="54" selection-start-line="53" selection-start-column="54" selection-end-line="53" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3005,7 +2958,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="98" column="7" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3014,7 +2966,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3030,7 +2982,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="98" column="7" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3039,7 +2990,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3055,7 +3006,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="98" column="7" selection-start-line="98" selection-start-column="7" selection-end-line="98" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3064,7 +3014,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3088,7 +3038,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -3097,7 +3047,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3206,7 +3155,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24329159">
           <caret line="54" column="54" selection-start-line="54" selection-start-column="54" selection-end-line="54" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3225,7 +3173,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.46618357">
           <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3234,8 +3181,8 @@
         <state vertical-scroll-proportion="0.65700483">
           <caret line="24" column="55" selection-start-line="24" selection-start-column="55" selection-end-line="24" selection-end-column="55" />
           <folding>
-            <element signature="e#359#377#0" expanded="true" />
-            <element signature="e#994#1043#0" expanded="true" />
+            <element signature="e#358#376#0" expanded="false" />
+            <element signature="e#991#1040#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -3244,7 +3191,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21881838">
           <caret line="19" column="11" selection-start-line="19" selection-start-column="11" selection-end-line="19" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3253,8 +3199,8 @@
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-7.37931">
-          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="48" selection-start-line="27" selection-start-column="48" selection-end-line="27" selection-end-column="48" />
           <folding />
         </state>
       </provider>
@@ -3263,17 +3209,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="81" column="13" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/BaseRecyclerViewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding>
-            <element signature="e#1561#1562#0" expanded="true" />
-            <element signature="e#1591#1592#0" expanded="true" />
+            <marker date="1452270023930" expanded="false" signature="74:662" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -3282,18 +3219,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33152175">
           <caret line="346" column="33" selection-start-line="346" selection-start-column="33" selection-end-line="346" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SnapSelectableViewHolder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#712#713#0" expanded="true" />
-            <element signature="e#742#743#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3305,46 +3230,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/SelectableRecyclerViewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="39" selection-start-line="35" selection-start-column="39" selection-end-line="35" selection-end-column="39" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2046#2047#0" expanded="true" />
-            <element signature="e#2097#2098#0" expanded="true" />
-            <element signature="e#2418#2419#0" expanded="true" />
-            <element signature="e#2470#2471#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/utils/UtilsLayoutWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33152175">
           <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapMultiAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1135857">
+          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SnapSelectableViewHolder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/AbstractSnapMultiAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.67663044">
-          <caret line="348" column="0" selection-start-line="348" selection-start-column="0" selection-end-line="348" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.5077951">
+          <caret line="355" column="16" selection-start-line="355" selection-start-column="16" selection-end-line="355" selection-end-column="16" />
+          <folding>
+            <element signature="e#3070#3071#0" expanded="true" />
+            <element signature="e#3100#3101#0" expanded="true" />
+            <element signature="e#4851#4852#0" expanded="true" />
+            <element signature="e#4879#4880#0" expanded="true" />
+            <element signature="e#6247#6248#0" expanded="true" />
+            <element signature="e#6284#6285#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8106904">
+          <caret line="174" column="4" selection-start-line="174" selection-start-column="4" selection-end-line="174" selection-end-column="4" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/AbstractSnapSelectableAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="244" column="13" selection-start-line="244" selection-start-column="13" selection-end-line="244" selection-end-column="13" />
+          <folding>
+            <element signature="method#onCreateViewHolder#0;class#AbstractSnapSelectableAdapter#0" expanded="false" />
+            <element signature="method#onBindViewHolder#0;class#AbstractSnapSelectableAdapter#0" expanded="false" />
+            <element signature="e#5270#5271#0" expanded="true" />
+            <element signature="e#5333#5334#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SnapSelectableAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7531645">
-          <caret line="153" column="0" selection-start-line="153" selection-start-column="0" selection-end-line="153" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.6815145">
+          <caret line="18" column="36" selection-start-line="18" selection-start-column="36" selection-end-line="18" selection-end-column="36" />
           <folding>
-            <element signature="method#onCreateViewHolder#0;class#SnapSelectableAdapter#0" expanded="false" />
-            <element signature="method#onBindViewHolder#0;class#SnapSelectableAdapter#0" expanded="false" />
-            <element signature="e#5538#5539#0" expanded="true" />
-            <element signature="e#5601#5602#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapLayoutWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/BaseRecyclerViewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="36" selection-start-line="11" selection-start-column="36" selection-end-line="11" selection-end-column="36" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/SelectableRecyclerViewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6057907">
+          <caret line="76" column="13" selection-start-line="76" selection-start-column="13" selection-end-line="76" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>

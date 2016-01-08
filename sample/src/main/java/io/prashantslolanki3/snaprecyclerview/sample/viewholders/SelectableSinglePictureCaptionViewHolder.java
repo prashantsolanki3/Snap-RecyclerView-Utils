@@ -9,7 +9,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
-import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.selectable.AbstractSnapSelectableAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableViewHolder;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
 import io.prashantslolanki3.snaprecyclerview.sample.model.PictureCaption;
@@ -29,7 +29,7 @@ public class SelectableSinglePictureCaptionViewHolder extends SnapSelectableView
     final ImageView selectionOverlay;
 
 
-    public SelectableSinglePictureCaptionViewHolder(View itemView, Context context, SnapSelectableAdapter adapter) {
+    public SelectableSinglePictureCaptionViewHolder(View itemView, Context context, AbstractSnapSelectableAdapter adapter) {
         super(itemView, context, adapter);
         title = (TextView) itemView.findViewById(R.id.item_title);
         imageView = (ImageView) itemView.findViewById(R.id.item_iv);

@@ -17,7 +17,7 @@ import java.util.Collections;
  *
  * To Create a simple RecyclerView Adapter with Single Layout.
  */
-public class SnapAdapter<T, VH extends SnapViewHolder<T>> extends AbstractSnapMultiAdapter<T> {
+public class SnapAdapter<T> extends AbstractSnapMultiAdapter<T> {
 
     /**
      * @param context         Context.
@@ -25,7 +25,11 @@ public class SnapAdapter<T, VH extends SnapViewHolder<T>> extends AbstractSnapMu
      * @param itemLayout      Layout id of RecyclerView Item.
      * @param viewHolderClass ViewHolder Class to be used by SnapAdapter.
      */
-    public SnapAdapter(@NonNull Context context, @NonNull Class<T> modelClass, @LayoutRes int itemLayout, @NonNull Class<VH> viewHolderClass) {
+    @Deprecated
+    public SnapAdapter(@NonNull Context context,
+                       @NonNull Class modelClass,
+                       @LayoutRes int itemLayout,
+                       @NonNull Class<? extends SnapViewHolder> viewHolderClass) {
         super(context,
                 new ArrayList<>(Collections.singletonList(new SnapLayoutWrapper(modelClass,
                         viewHolderClass,
@@ -40,7 +44,11 @@ public class SnapAdapter<T, VH extends SnapViewHolder<T>> extends AbstractSnapMu
      * @param viewHolderClass ViewHolder Class to be used by SnapAdapter.
      * @param recyclerView    Corresponding RecyclerView
      */
-    public SnapAdapter(@NonNull Context context, @NonNull Class<T> modelClass, @LayoutRes int itemLayout, @NonNull Class<VH> viewHolderClass, @NonNull RecyclerView recyclerView) {
+    public SnapAdapter(@NonNull Context context,
+                       @NonNull Class modelClass,
+                       @LayoutRes int itemLayout,
+                       @NonNull Class<? extends SnapViewHolder> viewHolderClass,
+                       @NonNull RecyclerView recyclerView) {
         super(context,
                 new ArrayList<>(Collections.singletonList(new SnapLayoutWrapper(modelClass,
                         viewHolderClass,
@@ -56,10 +64,11 @@ public class SnapAdapter<T, VH extends SnapViewHolder<T>> extends AbstractSnapMu
      * @param recyclerView    Corresponding RecyclerView
      * @param alternateView   ViewGroup that will contain the alternative views like Empty Recycler View, Loading View, etc.
      */
+    @Deprecated
     public SnapAdapter(@NonNull Context context,
                        @NonNull Class<T> modelClass,
                        @LayoutRes int itemLayout,
-                       @NonNull Class<VH> viewHolderClass,
+                       @NonNull Class<? extends SnapViewHolder> viewHolderClass,
                        @NonNull RecyclerView recyclerView,
                        @NonNull ViewGroup alternateView) {
         super(context,
@@ -77,7 +86,7 @@ public class SnapAdapter<T, VH extends SnapViewHolder<T>> extends AbstractSnapMu
     @Deprecated
     public SnapAdapter(@NonNull Context context,
                        @LayoutRes int itemLayout,
-                       @NonNull Class<VH> viewHolderClass) {
+                       @NonNull Class<? extends SnapViewHolder> viewHolderClass) {
         super(context,
                 new ArrayList<>(Collections.singletonList(new SnapLayoutWrapper(Object.class,
                         viewHolderClass,
@@ -90,6 +99,7 @@ public class SnapAdapter<T, VH extends SnapViewHolder<T>> extends AbstractSnapMu
      * @param context         Context.
      * @param wrapper SnapLayoutWrapper
      */
+    @Deprecated
     public SnapAdapter(@NonNull Context context,
                        @NonNull SnapLayoutWrapper wrapper) {
         super(context, new ArrayList<>(Collections.singletonList(wrapper)));
@@ -103,7 +113,9 @@ public class SnapAdapter<T, VH extends SnapViewHolder<T>> extends AbstractSnapMu
     public SnapAdapter(@NonNull Context context,
                        @NonNull SnapLayoutWrapper wrapper,
                        @NonNull RecyclerView recyclerView) {
-        super(context, new ArrayList<>(Collections.singletonList(wrapper)), recyclerView);
+        super(context,
+                new ArrayList<>(Collections.singletonList(wrapper)),
+                recyclerView);
     }
 
     /**
@@ -116,7 +128,49 @@ public class SnapAdapter<T, VH extends SnapViewHolder<T>> extends AbstractSnapMu
                        @NonNull SnapLayoutWrapper wrapper,
                        @NonNull RecyclerView recyclerView,
                        @NonNull ViewGroup alternateView) {
-        super(context, new ArrayList<>(Collections.singletonList(wrapper)), recyclerView, alternateView);
+        super(context,
+                new ArrayList<>(Collections.singletonList(wrapper)),
+                recyclerView,
+                alternateView);
     }
+
+    /**
+     * @param context           Context.
+     * @param multiViewWrappers ArrayList Containing SnapLayoutWrapper.
+     */
+    @Deprecated
+    public SnapAdapter(@NonNull Context context,
+                       @NonNull ArrayList<SnapLayoutWrapper> multiViewWrappers) {
+        super(context,
+                multiViewWrappers);
+    }
+
+    /**
+     * @param context        Context.
+     * @param layoutWrappers ArrayList Containing SnapLayoutWrapper.
+     * @param recyclerView   Corresponding RecyclerView
+     */
+    public SnapAdapter(@NonNull Context context,
+                       @NonNull ArrayList<SnapLayoutWrapper> layoutWrappers,
+                       @NonNull RecyclerView recyclerView) {
+        super(context,
+                layoutWrappers,
+                recyclerView);
+    }
+
+    /**
+     * @param context        Context.
+     * @param layoutWrappers ArrayList Containing SnapLayoutWrapper.
+     * @param recyclerView   Corresponding RecyclerView
+     * @param alternateView  ViewGroup that will contain the alternative views like Empty Recycler View, Loading View, etc.
+     */
+    public SnapAdapter(@NonNull Context context,
+                       @NonNull ArrayList<SnapLayoutWrapper> layoutWrappers,
+                       @NonNull RecyclerView recyclerView,
+                       @NonNull ViewGroup alternateView) {
+        super(context, layoutWrappers, recyclerView, alternateView);
+    }
+
+    //TODO: Builder to make adapters
 
 }

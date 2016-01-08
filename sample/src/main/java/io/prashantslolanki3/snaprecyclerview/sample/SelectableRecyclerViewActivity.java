@@ -7,6 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import io.github.prashantsolanki3.snaplibrary.snap.selectable.AbstractSnapSelectableAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableLayoutWrapper;
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableViewHolder;
@@ -16,7 +17,7 @@ import io.prashantslolanki3.snaprecyclerview.sample.viewholders.SelectableSingle
 
 public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
 
-    SnapSelectableAdapter<PictureCaption, SelectableSinglePictureCaptionViewHolder> adapter;
+    SnapSelectableAdapter<PictureCaption> adapter;
 
     @Override
     public void setLayoutManager(RecyclerView recyclerView) {
@@ -35,7 +36,7 @@ public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
 
         adapter = new SnapSelectableAdapter<>(this,
                 wrapper,
-                SnapSelectableAdapter.SelectionType.SINGLE,
+                AbstractSnapSelectableAdapter.SelectionType.SINGLE,
                 recyclerView);
 
         recyclerView.setAdapter(adapter);
@@ -44,7 +45,7 @@ public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
             adapter.add(SampleData.getPictureCaption());
         }
 
-        adapter.setOnSelectionListener(new SnapSelectableAdapter.SelectionListener() {
+        adapter.setOnSelectionListener(new AbstractSnapSelectableAdapter.SelectionListener() {
 
             ActionMode.Callback callback = new ActionMode.Callback() {
                 @Override
@@ -71,12 +72,12 @@ public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
             ActionMode actionMode = null;
 
             @Override
-            public void onSelectionModeEnabled(SnapSelectableAdapter.SelectionType selectionType) {
+            public void onSelectionModeEnabled(AbstractSnapSelectableAdapter.SelectionType selectionType) {
                 actionMode = getToolbar().startActionMode(callback);
             }
 
             @Override
-            public void onSelectionModeDisabled(SnapSelectableAdapter.SelectionType selectionType) {
+            public void onSelectionModeDisabled(AbstractSnapSelectableAdapter.SelectionType selectionType) {
                 if (actionMode != null) {
                     actionMode.finish();
                 }
@@ -84,6 +85,11 @@ public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
 
             @Override
             public void onItemSelected(SnapSelectableViewHolder holder, int pos) {
+
+            }
+
+            @Override
+            public void onItemDeselected(SnapSelectableViewHolder holder, int pos) {
 
             }
         });

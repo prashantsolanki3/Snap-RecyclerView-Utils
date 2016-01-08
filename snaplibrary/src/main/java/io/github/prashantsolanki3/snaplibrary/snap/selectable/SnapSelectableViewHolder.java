@@ -15,14 +15,14 @@ import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
  */
 public abstract class SnapSelectableViewHolder<T> extends SnapViewHolder<T> {
 
-    SnapSelectableAdapter adapter;
+    AbstractSnapSelectableAdapter adapter;
 
-    public SnapSelectableViewHolder(View itemView, Context context, SnapSelectableAdapter adapter) {
+    public SnapSelectableViewHolder(View itemView, Context context, AbstractSnapSelectableAdapter adapter) {
         super(itemView, context);
         this.adapter = adapter;
     }
 
-    public SnapSelectableAdapter getAdapter() {
+    public AbstractSnapSelectableAdapter getAdapter() {
         return adapter;
     }
 
