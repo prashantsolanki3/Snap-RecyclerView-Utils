@@ -28,12 +28,10 @@ public abstract class SnapSelectableViewHolder<T> extends SnapViewHolder<T> {
 
     public abstract void onSelectionEnabled(SnapSelectableViewHolder viewHolder, T item, int pos);
 
+    public abstract void onSelectionDisabled(SnapSelectableViewHolder viewHolder, T item, int pos);
+
     public abstract void onSelected(SnapSelectableViewHolder viewHolder, T item, int pos);
 
     public abstract void onDeselected(SnapSelectableViewHolder viewHolder, T item, int pos);
-
-    @Override
-    public void attachOnClickListeners(SnapViewHolder viewHolder, T item, int pos) {
-    }
 
 }

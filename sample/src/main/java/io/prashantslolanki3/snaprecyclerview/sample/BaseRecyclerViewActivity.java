@@ -12,13 +12,16 @@ import io.github.prashantsolanki3.snaprecyclerviewutils.R;
 public abstract class BaseRecyclerViewActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base_recycler_view);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
         recyclerView.setHasFixedSize(true);
         setLayoutManager(recyclerView);
@@ -38,5 +41,7 @@ public abstract class BaseRecyclerViewActivity extends AppCompatActivity {
 
     public abstract void setFabOnClickAction(View view);
 
-
+    public Toolbar getToolbar() {
+        return toolbar;
+    }
 }

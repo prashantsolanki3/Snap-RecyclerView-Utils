@@ -2,7 +2,7 @@ package io.github.prashantsolanki3.snaplibrary.snap.selectable;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.util.Log;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,7 +29,7 @@ import io.github.prashantsolanki3.snaplibrary.snap.utils.UtilsLayoutWrapper;
 public class SnapSelectableAdapter<T, VH extends SnapSelectableViewHolder<T>> extends AbstractSnapMultiAdapter<T> {
 
     public List<T> selectedItems;
-    public SelectionType selectionType;
+    public final SelectionType selectionType;
     public boolean selectionEnabled = false;
     public int selectionLimit = Integer.MAX_VALUE;
     SelectionListener selectionListener = null;
@@ -44,8 +44,8 @@ public class SnapSelectableAdapter<T, VH extends SnapSelectableViewHolder<T>> ex
      * @param context Context.
      * @param wrapper SnapLayoutWrapper
      */
-    public SnapSelectableAdapter(@NonNull Context context, @NonNull SnapSelectableLayoutWrapper wrapper, SelectionType selectionType) {
-        super(context, new ArrayList<SnapLayoutWrapper>(Collections.singletonList(wrapper)));
+    public SnapSelectableAdapter(@NonNull Context context, @NonNull SnapSelectableLayoutWrapper wrapper, SelectionType selectionType, RecyclerView recyclerView) {
+        super(context, new ArrayList<SnapLayoutWrapper>(Collections.singletonList(wrapper)), recyclerView);
         this.selectionType = selectionType;
 
         selectedItems = new ArrayList<>();
@@ -53,18 +53,20 @@ public class SnapSelectableAdapter<T, VH extends SnapSelectableViewHolder<T>> ex
         switch (selectionType) {
             case SINGLE:
                 selectionEnabled = true;
+                setSelectionLimit(1);
                 break;
             case MULTIPLE:
                 selectionEnabled = true;
                 break;
             case MULTIPLE_ON_LONG_PRESS:
-                longPressHandler();
                 selectionEnabled = false;
                 break;
             default:
                 throw new IllegalArgumentException("Selection type not Supported");
         }
+        longPressHandler();
     }
+
 
     @Override
     public SnapViewHolder onCreateViewHolder(ViewGroup parent, int viewType) throws RuntimeException {
@@ -86,10 +88,12 @@ public class SnapSelectableAdapter<T, VH extends SnapSelectableViewHolder<T>> ex
     @Override
     public void onBindViewHolder(final SnapViewHolder holder, final int position) {
         super.onBindViewHolder(holder, position);
+
         SnapSelectableViewHolder<T> viewHolder = (SnapSelectableViewHolder<T>) holder;
 
+        final boolean isVhSelectable = UtilsLayoutWrapper.isViewHolderSelectable(getLayoutWrappers(), viewHolder);
 
-        if (UtilsLayoutWrapper.isViewHolderSelectable(getLayoutWrappers(), viewHolder) && selectionEnabled) {
+        if (selectionEnabled && isVhSelectable) {
 
             viewHolder.onSelectionEnabled(viewHolder, viewHolder.getItemData(), position);
 
@@ -97,12 +101,16 @@ public class SnapSelectableAdapter<T, VH extends SnapSelectableViewHolder<T>> ex
                 viewHolder.onSelected(viewHolder, viewHolder.getItemData(), position);
             else
                 viewHolder.onDeselected(viewHolder, viewHolder.getItemData(), position);
+
+        } else if (isVhSelectable) {
+
+            viewHolder.onSelectionDisabled(viewHolder, viewHolder.getItemData(), position);
+
         }
     }
 
     //TODO: Long press to enable MULTIPLE_ON_LONG_PRESS Selection Mode. Disable when No items selected.
     //TODO: MULTIPLE, SINGLE Selection: Always enabled.
-
 
     /*
     *
@@ -115,7 +123,7 @@ public class SnapSelectableAdapter<T, VH extends SnapSelectableViewHolder<T>> ex
      * returns True if Item is added.
      * and False if item is removed.
      */
-    public boolean toggleSelection(T selection, int pos) {
+    private boolean toggleSelection(T selection, int pos) {
         if (selectedItems.contains(selection)) {
             deselectItem(selection, pos);
             return false;
@@ -130,40 +138,34 @@ public class SnapSelectableAdapter<T, VH extends SnapSelectableViewHolder<T>> ex
      */
     public boolean selectItem(T selection, int pos) {
 
+        if (selectionType == SelectionType.SINGLE && !selectedItems.isEmpty()) {
+            T i = selectedItems.get(0);
+            deselectItem(i, getItemPosition(i));
+        }
+
         if (getSelectionLimit() == selectedItems.size())
             return false;
 
         selectedItems.add(selection);
-        Log.d("selected", pos + " " + selection.toString());
         notifyItemChanged(pos);
+
         return true;
     }
 
     public boolean deselectItem(T selection, int pos) {
         selectedItems.remove(selection);
-        Log.d("Deselected", pos + " " + selection.toString());
         notifyItemChanged(pos);
+
         if (selectionType == SelectionType.MULTIPLE_ON_LONG_PRESS && selectedItems.isEmpty()) {
             setSelectionEnabled(false);
             return false;
         }
+
         return true;
     }
 
     void longPressHandler() {
-        setOnItemClickListener(new SnapOnItemClickListener() {
-            @Override
-            public void onItemClick(SnapViewHolder viewHolder, View view, int position) {
-                if (isSelectionEnabled())
-                    toggleSelection((T) viewHolder.getItemData(), position);
-            }
-
-            @Override
-            public void onItemLongPress(SnapViewHolder viewHolder, View view, int position) {
-                setSelectionEnabled(true);
-                toggleSelection((T) viewHolder.getItemData(), position);
-            }
-        });
+        setOnItemClickListener(snapOnItemClickListener);
     }
 
     /**
@@ -220,6 +222,25 @@ public class SnapSelectableAdapter<T, VH extends SnapSelectableViewHolder<T>> ex
         void onSelectionModeEnabled(SelectionType selectionType);
 
         void onSelectionModeDisabled(SelectionType selectionType);
+
+        void onItemSelected(SnapSelectableViewHolder holder, int pos);
     }
+
+    SnapOnItemClickListener snapOnItemClickListener = new SnapOnItemClickListener() {
+        @Override
+        public void onItemClick(SnapViewHolder viewHolder, View view, int position) {
+            if (isSelectionEnabled() && UtilsLayoutWrapper.isViewHolderSelectable(getLayoutWrappers(), (SnapSelectableViewHolder) viewHolder)) {
+                toggleSelection((T) viewHolder.getItemData(), position);
+            }
+        }
+
+        @Override
+        public void onItemLongPress(SnapViewHolder viewHolder, View view, int position) {
+            if (!isSelectionEnabled() && UtilsLayoutWrapper.isViewHolderSelectable(getLayoutWrappers(), (SnapSelectableViewHolder) viewHolder)) {
+                setSelectionEnabled(true);
+                toggleSelection((T) viewHolder.getItemData(), position);
+            }
+        }
+    };
 
 }

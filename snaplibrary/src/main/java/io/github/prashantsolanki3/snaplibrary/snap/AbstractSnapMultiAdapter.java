@@ -243,12 +243,12 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
 
     private void checkAlternateViewInit() {
         if (alternateViewContainer == null)
-            throw new RuntimeException("You must set Alternate View before inflating layouts");
+            throw new RuntimeException("You must set Alternate View");
     }
 
     private void checkRecyclerViewInit() {
         if (recyclerView == null)
-            throw new RuntimeException("You must set RecyclerView before setting endless loader");
+            throw new RuntimeException("You must set RecyclerView");
     }
 
     public void setRecyclerView(RecyclerView recyclerView) {
