@@ -20,7 +20,7 @@ public class HorizontalRecyclerViewHolder extends SnapViewHolder<HorizontalRecyc
 
     final TextView title;
     final RecyclerView recyclerView;
-    SnapAdapter<String, ImageViewHolder> adapter;
+    SnapAdapter<String> adapter;
 
     public HorizontalRecyclerViewHolder(View itemView, Context context) {
         super(itemView, context);

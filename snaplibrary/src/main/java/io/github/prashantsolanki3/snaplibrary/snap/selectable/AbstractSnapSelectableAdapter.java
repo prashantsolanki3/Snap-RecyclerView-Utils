@@ -228,6 +228,7 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
 
     //TODO: Implement onItemClickListener to support the working of ViewHolder onClick listeners
     // TODO: and Long press to activate multiple selections. Also complete the selection listener.
+    //TODO: Remove Selected item if it has  been removed from the list.
 
     SnapOnItemClickListener snapOnItemClickListener = new SnapOnItemClickListener() {
         @Override

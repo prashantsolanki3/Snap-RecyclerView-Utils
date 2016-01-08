@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import io.github.prashantsolanki3.snaplibrary.snap.AbstractSnapMultiAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessLoader;
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.AbstractSnapSelectableAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableLayoutWrapper;
@@ -36,7 +38,7 @@ public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
 
         adapter = new SnapSelectableAdapter<>(this,
                 wrapper,
-                AbstractSnapSelectableAdapter.SelectionType.SINGLE,
+                AbstractSnapSelectableAdapter.SelectionType.MULTIPLE_ON_LONG_PRESS,
                 recyclerView);
 
         recyclerView.setAdapter(adapter);
@@ -44,6 +46,20 @@ public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
         for (int i = 0; i < 25; i++) {
             adapter.add(SampleData.getPictureCaption());
         }
+
+        adapter.setEndlessLoader(5, new EndlessLoader<PictureCaption>() {
+            @Override
+            public void loadMore(AbstractSnapMultiAdapter<PictureCaption> adapter, int pageNo) {
+                for (int i = 0; i < 25; i++) {
+                    adapter.add(SampleData.getPictureCaption());
+                }
+            }
+
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+
+            }
+        });
 
         adapter.setOnSelectionListener(new AbstractSnapSelectableAdapter.SelectionListener() {
 

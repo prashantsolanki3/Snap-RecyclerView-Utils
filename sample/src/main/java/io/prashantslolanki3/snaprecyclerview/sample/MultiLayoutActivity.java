@@ -15,8 +15,8 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import io.github.prashantsolanki3.snaplibrary.snap.AbstractSnapMultiAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.SnapAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.SnapLayoutWrapper;
-import io.github.prashantsolanki3.snaplibrary.snap.SnapMultiAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
 import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessLoader;
 import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemClickListener;
@@ -37,7 +37,7 @@ import io.prashantslolanki3.snaprecyclerview.sample.viewholders.SinglePictureCap
  */
 public class MultiLayoutActivity extends BaseRecyclerViewActivity {
 
-    SnapMultiAdapter adapter;
+    SnapAdapter adapter;
 
     @Override
     public void setLayoutManager(RecyclerView recyclerView) {
@@ -50,7 +50,8 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
         wrappers.add(new SnapLayoutWrapper(HorizontalRecyclerModel.class, HorizontalRecyclerViewHolder.class, R.layout.item_header_layout, 0));
         wrappers.add(new SnapLayoutWrapper(String.class, ImageViewHolder.class, R.layout.item_image_layout, 1));
         wrappers.add(new SnapLayoutWrapper(PictureCaption.class, SinglePictureCaptionViewHolder.class, R.layout.item_pictue_caption_layout, 2));
-        adapter = new SnapMultiAdapter(this, wrappers, recyclerView);
+        adapter = new SnapAdapter(this, wrappers, recyclerView);
+
         adapter.setAutoEmptyLayoutHandling(true);
         adapter.setAlternateViewContainer((FrameLayout) findViewById(R.id.alternateViewContainer));
 
