@@ -1,25 +1,31 @@
-package io.prashantslolanki3.snaprecyclerview.sample;
+package io.prashantslolanki3.snaprecyclerview.sample.ui;
 
+import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+
+import java.util.ArrayList;
 
 import io.github.prashantsolanki3.snaplibrary.snap.AbstractSnapMultiAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessLoader;
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.AbstractSnapSelectableAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.selectable.SelectionActionModeListener;
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableLayoutWrapper;
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableViewHolder;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
+import io.prashantslolanki3.snaprecyclerview.sample.SampleData;
 import io.prashantslolanki3.snaprecyclerview.sample.model.PictureCaption;
+import io.prashantslolanki3.snaprecyclerview.sample.viewholders.ImageViewHolder;
 import io.prashantslolanki3.snaprecyclerview.sample.viewholders.SelectableSinglePictureCaptionViewHolder;
 
 public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
 
-    SnapSelectableAdapter<PictureCaption> adapter;
+    SnapSelectableAdapter adapter;
 
     @Override
     public void setLayoutManager(RecyclerView recyclerView) {
@@ -29,29 +35,48 @@ public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
     }
 
     @Override
+    public void setFabOnClickAction(FloatingActionButton view) {
+
+    }
+
+    @Override
+    public void init(Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
     public void setAdapter(RecyclerView recyclerView) {
-        SnapSelectableLayoutWrapper wrapper = new SnapSelectableLayoutWrapper(PictureCaption.class,
+        ArrayList<SnapSelectableLayoutWrapper> wrappers = new ArrayList<>();
+        wrappers.add(new SnapSelectableLayoutWrapper(PictureCaption.class,
                 SelectableSinglePictureCaptionViewHolder.class,
                 R.layout.item_pictue_caption_layout,
                 1,
-                true);
+                true));
 
-        adapter = new SnapSelectableAdapter<>(this,
-                wrapper,
-                AbstractSnapSelectableAdapter.SelectionType.MULTIPLE_ON_LONG_PRESS,
-                recyclerView);
+        wrappers.add(new SnapSelectableLayoutWrapper(String.class,
+                ImageViewHolder.class,
+                R.layout.item_image_layout,
+                2, false));
+
+        adapter = new SnapSelectableAdapter(this,
+                wrappers,
+                recyclerView,
+                AbstractSnapSelectableAdapter.SelectionType.MULTIPLE_ON_LONG_PRESS);
 
         recyclerView.setAdapter(adapter);
 
         for (int i = 0; i < 25; i++) {
             adapter.add(SampleData.getPictureCaption());
+            adapter.add(SampleData.getImageUrls(1).get(0));
         }
 
-        adapter.setEndlessLoader(5, new EndlessLoader<PictureCaption>() {
+        adapter.setEndlessLoader(5, new EndlessLoader() {
             @Override
-            public void loadMore(AbstractSnapMultiAdapter<PictureCaption> adapter, int pageNo) {
+            public void loadMore(AbstractSnapMultiAdapter adapter, int pageNo) {
                 for (int i = 0; i < 25; i++) {
                     adapter.add(SampleData.getPictureCaption());
+                    adapter.add(SampleData.getImageUrls(1));
                 }
             }
 
@@ -61,42 +86,17 @@ public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
             }
         });
 
-        adapter.setOnSelectionListener(new AbstractSnapSelectableAdapter.SelectionListener() {
 
-            ActionMode.Callback callback = new ActionMode.Callback() {
-                @Override
-                public boolean onCreateActionMode(ActionMode mode, Menu menu) {
-                    return true;
-                }
-
-                @Override
-                public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                    mode.setTitle("Action Mode");
-                    return true;
-                }
-
-                @Override
-                public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
-                    return false;
-                }
-
-                @Override
-                public void onDestroyActionMode(ActionMode mode) {
-                }
-            };
-
-            ActionMode actionMode = null;
+        adapter.setOnSelectionListener(new SelectionActionModeListener(getToolbar()) {
 
             @Override
-            public void onSelectionModeEnabled(AbstractSnapSelectableAdapter.SelectionType selectionType) {
-                actionMode = getToolbar().startActionMode(callback);
+            public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
+                return false;
             }
 
             @Override
-            public void onSelectionModeDisabled(AbstractSnapSelectableAdapter.SelectionType selectionType) {
-                if (actionMode != null) {
-                    actionMode.finish();
-                }
+            public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                return false;
             }
 
             @Override
@@ -108,12 +108,12 @@ public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
             public void onItemDeselected(SnapSelectableViewHolder holder, int pos) {
 
             }
+
+            @Override
+            public void onSelectionLimitReached() {
+
+            }
         });
-
-    }
-
-    @Override
-    public void setFabOnClickAction(View view) {
 
     }
 

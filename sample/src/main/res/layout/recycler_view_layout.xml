@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="io.prashantslolanki3.snaprecyclerview.sample.BaseRecyclerViewActivity"
-    tools:showIn="@layout/activity_base_recycler_view">
+    tools:context="io.prashantslolanki3.snaprecyclerview.sample.ui.BaseRecyclerViewActivity"
+    tools:showIn="@layout/activity_base_recycler">
 
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"

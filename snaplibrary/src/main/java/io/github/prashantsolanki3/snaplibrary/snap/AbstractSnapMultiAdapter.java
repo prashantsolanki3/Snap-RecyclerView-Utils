@@ -116,10 +116,11 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
                     mData.get(position).getClass())
                     .getLayoutType();
         }
+
         return layoutWrappers.get(0)
                 .getLayoutType();
 
-        }
+    }
 
 
     public final T getItem(@IntRange(from = 0, to = Integer.MAX_VALUE) int pos) {
@@ -130,9 +131,10 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         return mData;
     }
 
-    public void add(@Nullable T cardBase) {
-        if (cardBase == null) return;
-        this.mData.add(cardBase);
+    public void add(@Nullable T item) {
+        if (item == null)
+            return;
+        this.mData.add(item);
         notifyItemInserted(this.mData.size() - 1);
         handleEmptyLayoutVisibility();
     }

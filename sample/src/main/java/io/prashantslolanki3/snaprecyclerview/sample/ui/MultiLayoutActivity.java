@@ -1,6 +1,8 @@
-package io.prashantslolanki3.snaprecyclerview.sample;
+package io.prashantslolanki3.snaprecyclerview.sample.ui;
 
+import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
@@ -21,6 +23,7 @@ import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
 import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessLoader;
 import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemClickListener;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
+import io.prashantslolanki3.snaprecyclerview.sample.SampleData;
 import io.prashantslolanki3.snaprecyclerview.sample.model.HorizontalRecyclerModel;
 import io.prashantslolanki3.snaprecyclerview.sample.model.PictureCaption;
 import io.prashantslolanki3.snaprecyclerview.sample.viewholders.HorizontalRecyclerViewHolder;
@@ -38,6 +41,12 @@ import io.prashantslolanki3.snaprecyclerview.sample.viewholders.SinglePictureCap
 public class MultiLayoutActivity extends BaseRecyclerViewActivity {
 
     SnapAdapter adapter;
+
+
+    @Override
+    public void init(Bundle savedInstanceState) {
+
+    }
 
     @Override
     public void setLayoutManager(RecyclerView recyclerView) {
@@ -63,7 +72,7 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
                 Runnable runnable = new Runnable() {
                     @Override
                     public void run() {
-                        setFabOnClickAction(v);
+                        setFabOnClickAction(null);
                     }
                 };
                 adapter.showAlternateLayout(adapter.getViewFromId(R.layout.alter_loading));
@@ -78,7 +87,7 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
             @Override
             public void loadMore(AbstractSnapMultiAdapter<Object> adapter, int pageNo) {
                 for (int i = 0; i < 15; i++) {
-                    setFabOnClickAction(recyclerView);
+                    setFabOnClickAction(null);
                 }
             }
 
@@ -106,7 +115,7 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
     int counter = 0;
 
     @Override
-    public void setFabOnClickAction(View view) {
+    public void setFabOnClickAction(FloatingActionButton view) {
         Random random = new Random();
         if (counter % 3 == 0)
             adapter.add(SampleData.getHorizontalRecyclerModels(1, random.nextInt(5)).get(0));
@@ -120,6 +129,7 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
             adapter.hideAlternateLayout();
 
     }
+
 
     public boolean setOnRemoveClickAction() {
         if (adapter.getItemCount() > 0)

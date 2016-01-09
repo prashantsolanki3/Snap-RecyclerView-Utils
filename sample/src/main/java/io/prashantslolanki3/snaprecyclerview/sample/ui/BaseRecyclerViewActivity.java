@@ -1,4 +1,4 @@
-package io.prashantslolanki3.snaprecyclerview.sample;
+package io.prashantslolanki3.snaprecyclerview.sample.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -13,24 +13,24 @@ public abstract class BaseRecyclerViewActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
     Toolbar toolbar;
+    FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base_recycler_view);
-
+        setContentView(R.layout.activity_base_recycler);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        fab = (FloatingActionButton) findViewById(R.id.fab_add_items);
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
+        init(savedInstanceState);
         recyclerView.setHasFixedSize(true);
         setLayoutManager(recyclerView);
         setAdapter(recyclerView);
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_add_items);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                setFabOnClickAction(view);
+                setFabOnClickAction((FloatingActionButton) view);
             }
         });
     }
@@ -39,9 +39,22 @@ public abstract class BaseRecyclerViewActivity extends AppCompatActivity {
 
     public abstract void setAdapter(RecyclerView recyclerView);
 
-    public abstract void setFabOnClickAction(View view);
+    public abstract void setFabOnClickAction(FloatingActionButton view);
+
+    public abstract void init(Bundle savedInstanceState);
+
+    public FloatingActionButton getFab() {
+        return fab;
+    }
+
+    public RecyclerView getRecyclerView() {
+        return recyclerView;
+    }
 
     public Toolbar getToolbar() {
         return toolbar;
     }
+
+
 }
+

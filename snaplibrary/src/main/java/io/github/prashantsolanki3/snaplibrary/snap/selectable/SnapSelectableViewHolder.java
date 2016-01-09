@@ -1,6 +1,7 @@
 package io.github.prashantsolanki3.snaplibrary.snap.selectable;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.view.View;
 
 import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
@@ -15,6 +16,7 @@ import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
  */
 public abstract class SnapSelectableViewHolder<T> extends SnapViewHolder<T> {
 
+
     AbstractSnapSelectableAdapter adapter;
 
     public SnapSelectableViewHolder(View itemView, Context context, AbstractSnapSelectableAdapter adapter) {
@@ -22,6 +24,11 @@ public abstract class SnapSelectableViewHolder<T> extends SnapViewHolder<T> {
         this.adapter = adapter;
     }
 
+    public SnapSelectableViewHolder(View itemView, Context context) {
+        super(itemView, context);
+    }
+
+    @Nullable
     public AbstractSnapSelectableAdapter getAdapter() {
         return adapter;
     }

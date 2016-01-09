@@ -44,10 +44,22 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
      * @param context Context.
      * @param wrapper SnapLayoutWrapper
      */
-    public AbstractSnapSelectableAdapter(@NonNull Context context, @NonNull SnapSelectableLayoutWrapper wrapper, SelectionType selectionType, RecyclerView recyclerView) {
+    public AbstractSnapSelectableAdapter(@NonNull Context context, @NonNull SnapSelectableLayoutWrapper wrapper, RecyclerView recyclerView, SelectionType selectionType) {
         super(context, new ArrayList<SnapLayoutWrapper>(Collections.singletonList(wrapper)), recyclerView);
         this.selectionType = selectionType;
+        init();
+    }
 
+    public AbstractSnapSelectableAdapter(@NonNull Context context,
+                                         ArrayList<SnapLayoutWrapper> layoutWrappers,
+                                         RecyclerView recyclerView,
+                                         SelectionType selectionType) {
+        super(context, layoutWrappers, recyclerView);
+        this.selectionType = selectionType;
+        init();
+    }
+
+    private void init() {
         selectedItems = new ArrayList<>();
 
         switch (selectionType) {
@@ -66,7 +78,6 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         }
         longPressHandler();
     }
-
 
     @Override
     public SnapViewHolder onCreateViewHolder(ViewGroup parent, int viewType) throws RuntimeException {
@@ -135,13 +146,18 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
      */
     public boolean selectItem(T selection, int pos) {
 
+        if (!isSelectionEnabled())
+            return false;
+
         if (selectionType == SelectionType.SINGLE && !selectedItems.isEmpty()) {
             T i = selectedItems.get(0);
             deselectItem(i, getItemPosition(i));
         }
 
-        if (getSelectionLimit() == selectedItems.size())
+        if (getSelectionLimit() == selectedItems.size()) {
+            selectionListener.onSelectionLimitReached();
             return false;
+        }
 
         selectedItems.add(selection);
         notifyItemChanged(pos);
@@ -150,6 +166,10 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
     }
 
     public boolean deselectItem(T selection, int pos) {
+
+        if (!isSelectionEnabled())
+            return false;
+
         selectedItems.remove(selection);
         notifyItemChanged(pos);
 
@@ -158,6 +178,22 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
             return false;
         }
 
+        return true;
+    }
+
+    public boolean selectAll() {
+        if (!isSelectionEnabled())
+            return false;
+        this.selectedItems.addAll(getAll());
+        notifyItemRangeChanged(0, getItemCount() - 1);
+        return true;
+    }
+
+    public boolean clearSelection() {
+        if (!isSelectionEnabled())
+            return false;
+        this.selectedItems.clear();
+        notifyDataSetChanged();
         return true;
     }
 
@@ -183,8 +219,9 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         if (selectionListener != null)
             if (selectionEnabled)
                 selectionListener.onSelectionModeEnabled(selectionType);
-            else
+            else {
                 selectionListener.onSelectionModeDisabled(selectionType);
+            }
         notifyDataSetChanged();
     }
 
@@ -215,15 +252,7 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         MULTIPLE, MULTIPLE_ON_LONG_PRESS, SINGLE
     }
 
-    public interface SelectionListener {
-        void onSelectionModeEnabled(SelectionType selectionType);
 
-        void onSelectionModeDisabled(SelectionType selectionType);
-
-        void onItemSelected(SnapSelectableViewHolder holder, int pos);
-
-        void onItemDeselected(SnapSelectableViewHolder holder, int pos);
-    }
 
 
     //TODO: Implement onItemClickListener to support the working of ViewHolder onClick listeners
@@ -240,7 +269,11 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
 
         @Override
         public void onItemLongPress(SnapViewHolder viewHolder, View view, int position) {
-            if (!isSelectionEnabled() && UtilsLayoutWrapper.isViewHolderSelectable(getLayoutWrappers(), (SnapSelectableViewHolder) viewHolder)) {
+            if (!isSelectionEnabled()
+                    &&
+                    UtilsLayoutWrapper.isViewHolderSelectable(getLayoutWrappers(), (SnapSelectableViewHolder) viewHolder)
+                    &&
+                    selectionType == SelectionType.MULTIPLE_ON_LONG_PRESS) {
                 setSelectionEnabled(true);
                 toggleSelection((T) viewHolder.getItemData(), position);
             }
