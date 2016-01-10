@@ -12,6 +12,8 @@ public interface SelectionListener<T> {
 
     void onSelectionLimitReached();
 
+    void onSelectionLimitExceeding();
+
     void onNoneSelected();
 
 }

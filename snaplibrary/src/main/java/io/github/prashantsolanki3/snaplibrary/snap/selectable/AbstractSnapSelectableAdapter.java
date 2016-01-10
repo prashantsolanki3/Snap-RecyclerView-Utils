@@ -32,7 +32,7 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
     public final SelectionType selectionType;
     public boolean selectionEnabled = false;
     public int selectionLimit = Integer.MAX_VALUE;
-    SelectionListener selectionListener = null;
+    SelectionListener<T> selectionListener = null;
 
     /*
     *
@@ -186,9 +186,12 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
             deselectItem(i);
         }
 
-        if (selectedItems.size() >= getSelectionLimit()) {
+        if (selectedItems.size() + 1 >= getSelectionLimit()) {
             selectionListener.onSelectionLimitReached();
-            return false;
+            if (selectedItems.size() >= getSelectionLimit()) {
+                selectionListener.onSelectionLimitExceeding();
+                return false;
+            }
         }
 
         if (selection == null)
@@ -227,6 +230,10 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         selectedItems.remove(selection);
         notifyItemChanged(pos);
         selectionListener.onItemDeselected(selection, pos);
+
+        if (selectedItems.isEmpty())
+            selectionListener.onNoneSelected();
+
         if (selectionType == SelectionType.MULTIPLE_ON_LONG_PRESS && selectedItems.isEmpty()) {
             setSelectionEnabled(false);
             return false;
@@ -238,20 +245,31 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
     public boolean selectAll() {
         if (!isSelectionEnabled())
             return false;
-        this.selectedItems.addAll(getAll());
-        notifyItemRangeChanged(0, getItemCount() - 1);
+        //Clear selected items to remove repetition.
+        this.selectedItems.clear();
+        //Select only the selectable items.
+        for (int i = 0; i < getItemCount(); i++) {
+            T t = getItem(i);
+            if (((SnapSelectableLayoutWrapper) UtilsLayoutWrapper
+                    .getWrapperFromModel(getLayoutWrappers(),
+                            t.getClass()))
+                    .isSelectable()) {
+                this.selectedItems.add(t);
+                notifyItemChanged(i);
+            }
+        }
+
         return true;
     }
 
     /**
-     * Deselects all selected items and disables the selection mode.
+     * Deselects all selected items
      */
     public boolean deselectAll() {
         if (!isSelectionEnabled())
             return false;
         this.selectedItems.clear();
         notifyDataSetChanged();
-        setSelectionEnabled(false);
         return true;
     }
 
@@ -276,7 +294,7 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
     /**
      * Handle Contextual ActionBar
      */
-    public void setOnSelectionListener(SelectionListener selectionListener) {
+    public void setOnSelectionListener(SelectionListener<T> selectionListener) {
         this.selectionListener = selectionListener;
     }
 
@@ -292,7 +310,7 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
                 selectionListener.onSelectionModeEnabled(selectionType);
             else {
                 selectionListener.onSelectionModeDisabled(selectionType);
-                deselectAll(false);
+                deselectAll();
             }
         this.selectionEnabled = selectionEnabled;
         notifyDataSetChanged();

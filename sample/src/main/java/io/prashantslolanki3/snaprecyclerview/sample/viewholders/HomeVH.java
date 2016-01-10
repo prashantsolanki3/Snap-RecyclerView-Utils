@@ -32,11 +32,11 @@ public class HomeVH extends SnapViewHolder<HomeItem> {
 
     @Override
     public void attachOnClickListeners(SnapViewHolder viewHolder, final HomeItem item, int pos) {
-        itemView.setOnClickListener(new View.OnClickListener() {
+        /*itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                item.startActivity(getContext());
+                getContext().startActivity(new Intent(getContext(),item.getActivity()));
             }
-        });
+        });*/
     }
 }

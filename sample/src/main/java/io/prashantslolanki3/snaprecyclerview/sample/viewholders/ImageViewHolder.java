@@ -12,7 +12,6 @@ import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.AbstractSnapSelectableAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableViewHolder;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
-import io.prashantslolanki3.snaprecyclerview.sample.model.GalleryItem;
 
 /**
  * Package io.prashantslolanki3.snaprecyclerview.sample.viewholders
@@ -22,7 +21,7 @@ import io.prashantslolanki3.snaprecyclerview.sample.model.GalleryItem;
  * Email: solankisrp2@gmail.com
  * Github: @prashantsolanki3
  */
-public class ImageViewHolder extends SnapSelectableViewHolder<GalleryItem> {
+public class ImageViewHolder extends SnapSelectableViewHolder<String> {
 
     final ImageView imageView, tick;
 
@@ -39,10 +38,10 @@ public class ImageViewHolder extends SnapSelectableViewHolder<GalleryItem> {
     }
 
     @Override
-    public void populateViewHolder(GalleryItem data, int pos) {
+    public void populateViewHolder(String data, int pos) {
         imageView.setImageDrawable(null);
         Glide.with(getContext())
-                .load(data.getImageUri())
+                .load(data)
                 .into(imageView);
     }
 
@@ -52,28 +51,28 @@ public class ImageViewHolder extends SnapSelectableViewHolder<GalleryItem> {
     }
 
     @Override
-    public void attachOnClickListeners(SnapViewHolder viewHolder, GalleryItem item, int pos) {
+    public void attachOnClickListeners(SnapViewHolder viewHolder, String item, int pos) {
 
     }
 
     @Override
-    public void onSelectionEnabled(SnapSelectableViewHolder viewHolder, GalleryItem item, int pos) {
+    public void onSelectionEnabled(SnapSelectableViewHolder viewHolder, String item, int pos) {
         tick.setVisibility(View.VISIBLE);
         tick.setImageDrawable(new IconDrawable(getContext(), FontAwesomeIcons.fa_check_circle_o).colorRes(android.R.color.white).sizeDp(36));
     }
 
     @Override
-    public void onSelectionDisabled(SnapSelectableViewHolder viewHolder, GalleryItem item, int pos) {
+    public void onSelectionDisabled(SnapSelectableViewHolder viewHolder, String item, int pos) {
         tick.setVisibility(View.GONE);
     }
 
     @Override
-    public void onSelected(SnapSelectableViewHolder viewHolder, GalleryItem item, int pos) {
+    public void onSelected(SnapSelectableViewHolder viewHolder, String item, int pos) {
         tick.setImageDrawable(new IconDrawable(getContext(), FontAwesomeIcons.fa_check_circle).colorRes(android.R.color.white).sizeDp(36));
     }
 
     @Override
-    public void onDeselected(SnapSelectableViewHolder viewHolder, GalleryItem item, int pos) {
+    public void onDeselected(SnapSelectableViewHolder viewHolder, String item, int pos) {
         tick.setImageDrawable(new IconDrawable(getContext(), FontAwesomeIcons.fa_check_circle_o).colorRes(android.R.color.white).sizeDp(36));
     }
 }

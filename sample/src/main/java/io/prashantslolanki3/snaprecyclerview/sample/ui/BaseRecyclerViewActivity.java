@@ -1,6 +1,9 @@
 package io.prashantslolanki3.snaprecyclerview.sample.ui;
 
 import android.os.Bundle;
+import android.support.annotation.LayoutRes;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
@@ -14,15 +17,25 @@ public abstract class BaseRecyclerViewActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     Toolbar toolbar;
     FloatingActionButton fab;
+    AppBarLayout appBarLayout;
+    CollapsingToolbarLayout collapsingToolbarLayout;
+
+    public
+    @LayoutRes
+    int getContentLayoutId() {
+        return R.layout.activity_base_recycler;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_base_recycler);
+        setContentView(getContentLayoutId());
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         fab = (FloatingActionButton) findViewById(R.id.fab_add_items);
         recyclerView = (RecyclerView) findViewById(R.id.recycler);
+        appBarLayout = (AppBarLayout) findViewById(R.id.app_bar);
+        collapsingToolbarLayout = (CollapsingToolbarLayout) findViewById(R.id.toolbar_layout);
         init(savedInstanceState);
         recyclerView.setHasFixedSize(true);
         setLayoutManager(recyclerView);

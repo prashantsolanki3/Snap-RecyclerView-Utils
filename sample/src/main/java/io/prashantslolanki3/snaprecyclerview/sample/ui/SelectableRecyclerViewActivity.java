@@ -123,6 +123,11 @@ public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
             public void onSelectionLimitReached() {
                 getActionMode().setTitle("Max Selected");
             }
+
+            @Override
+            public void onSelectionLimitExceeding() {
+
+            }
         });
 
     }

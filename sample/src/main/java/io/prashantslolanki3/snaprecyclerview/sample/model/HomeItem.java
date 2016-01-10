@@ -1,7 +1,6 @@
 package io.prashantslolanki3.snaprecyclerview.sample.model;
 
-import android.content.Context;
-import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
 
 /**
  * Created by Prashant on 1/9/2016.
@@ -9,19 +8,22 @@ import android.content.Intent;
 public class HomeItem {
 
     String title;
-    Class t;
+    Class<? extends FragmentActivity> activity;
 
-    public HomeItem(String title, Class t) {
+    public HomeItem(String title, Class<? extends FragmentActivity> activity) {
         this.title = title;
-        this.t = t;
+        this.activity = activity;
     }
 
     public String getTitle() {
         return title;
     }
 
-    public void startActivity(Context context) {
-        context.startActivity(new Intent(context, t));
+    public void setTitle(String title) {
+        this.title = title;
     }
 
+    public Class getActivity() {
+        return activity;
+    }
 }

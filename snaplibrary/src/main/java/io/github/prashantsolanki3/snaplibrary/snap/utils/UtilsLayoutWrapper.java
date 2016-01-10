@@ -40,4 +40,14 @@ public class UtilsLayoutWrapper {
         throw new RuntimeException("Please Check the SnapSelectableLayoutWrapper and the input Dataset Classes");
     }
 
+    public static boolean isViewHolderTypeSelectable(List<SnapLayoutWrapper> layoutWrappers, int type) {
+
+        SnapSelectableLayoutWrapper wrapper = (SnapSelectableLayoutWrapper) getWrapperFromType(layoutWrappers, type);
+
+        if (wrapper != null)
+            return wrapper.isSelectable();
+
+        throw new RuntimeException("Please Check the SnapSelectableLayoutWrapper and the input Dataset Classes");
+    }
+
 }
