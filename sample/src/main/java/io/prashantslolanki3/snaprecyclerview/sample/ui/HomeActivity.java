@@ -1,4 +1,4 @@
-package io.prashantslolanki3.snaprecyclerview.sample;
+package io.prashantslolanki3.snaprecyclerview.sample.ui;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -12,10 +12,6 @@ import io.github.prashantsolanki3.snaplibrary.snap.SnapAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.SnapLayoutWrapper;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
 import io.prashantslolanki3.snaprecyclerview.sample.model.HomeItem;
-import io.prashantslolanki3.snaprecyclerview.sample.ui.BaseRecyclerViewActivity;
-import io.prashantslolanki3.snaprecyclerview.sample.ui.GalleryActivity;
-import io.prashantslolanki3.snaprecyclerview.sample.ui.MultiLayoutActivity;
-import io.prashantslolanki3.snaprecyclerview.sample.ui.SelectableRecyclerViewActivity;
 import io.prashantslolanki3.snaprecyclerview.sample.viewholders.HomeVH;
 
 /**
@@ -25,7 +21,7 @@ public class HomeActivity extends BaseRecyclerViewActivity {
 
     @Override
     public void init(Bundle savedInstanceState) {
-        getFab().setImageDrawable(new IconDrawable(this, FontAwesomeIcons.fa_share).color(android.R.color.white));
+        getFab().setImageDrawable(new IconDrawable(this, FontAwesomeIcons.fa_share_alt).colorRes(android.R.color.white));
     }
 
     @Override

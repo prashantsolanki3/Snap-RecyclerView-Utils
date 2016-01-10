@@ -8,6 +8,9 @@ import android.view.ActionMode;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.joanzapata.iconify.IconDrawable;
+import com.joanzapata.iconify.fonts.FontAwesomeIcons;
+
 import java.util.ArrayList;
 
 import io.github.prashantsolanki3.snaplibrary.snap.AbstractSnapMultiAdapter;
@@ -16,11 +19,9 @@ import io.github.prashantsolanki3.snaplibrary.snap.selectable.AbstractSnapSelect
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.SelectionActionModeListener;
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableLayoutWrapper;
-import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableViewHolder;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
-import io.prashantslolanki3.snaprecyclerview.sample.SampleData;
 import io.prashantslolanki3.snaprecyclerview.sample.model.PictureCaption;
-import io.prashantslolanki3.snaprecyclerview.sample.viewholders.ImageViewHolder;
+import io.prashantslolanki3.snaprecyclerview.sample.model.SampleData;
 import io.prashantslolanki3.snaprecyclerview.sample.viewholders.SelectableSinglePictureCaptionViewHolder;
 
 public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
@@ -41,8 +42,9 @@ public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
 
     @Override
     public void init(Bundle savedInstanceState) {
-
+        getFab().setImageDrawable(new IconDrawable(this, FontAwesomeIcons.fa_share_alt).colorRes(android.R.color.white));
     }
+
 
     @Override
     @SuppressWarnings("unchecked")
@@ -54,21 +56,15 @@ public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
                 1,
                 true));
 
-        wrappers.add(new SnapSelectableLayoutWrapper(String.class,
-                ImageViewHolder.class,
-                R.layout.item_image_layout,
-                2, false));
-
         adapter = new SnapSelectableAdapter(this,
                 wrappers,
                 recyclerView,
-                AbstractSnapSelectableAdapter.SelectionType.MULTIPLE_ON_LONG_PRESS);
+                AbstractSnapSelectableAdapter.SelectionType.MULTIPLE);
 
         recyclerView.setAdapter(adapter);
 
         for (int i = 0; i < 25; i++) {
             adapter.add(SampleData.getPictureCaption());
-            adapter.add(SampleData.getImageUrls(1).get(0));
         }
 
         adapter.setEndlessLoader(5, new EndlessLoader() {
@@ -76,7 +72,6 @@ public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
             public void loadMore(AbstractSnapMultiAdapter adapter, int pageNo) {
                 for (int i = 0; i < 25; i++) {
                     adapter.add(SampleData.getPictureCaption());
-                    adapter.add(SampleData.getImageUrls(1));
                 }
             }
 
@@ -88,54 +83,47 @@ public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
 
 
         adapter.setOnSelectionListener(new SelectionActionModeListener(getToolbar()) {
-
             @Override
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
-                return false;
+                getMenuInflater().inflate(R.menu.menu_actionmode, menu);
+                return true;
             }
 
             @Override
             public boolean onActionItemClicked(ActionMode mode, MenuItem item) {
+                int id = item.getItemId();
+                if (id == R.id.action_select_all) {
+                    adapter.selectAll();
+                    return false;
+                }
+                if (id == R.id.action_deselect_all) {
+                    adapter.deselectAll();
+                    return false;
+                }
+
                 return false;
             }
 
             @Override
-            public void onItemSelected(SnapSelectableViewHolder holder, int pos) {
+            public void onItemSelected(Object item, int pos) {
 
             }
 
             @Override
-            public void onItemDeselected(SnapSelectableViewHolder holder, int pos) {
+            public void onItemDeselected(Object item, int pos) {
+
+            }
+
+            @Override
+            public void onNoneSelected() {
 
             }
 
             @Override
             public void onSelectionLimitReached() {
-
+                getActionMode().setTitle("Max Selected");
             }
         });
 
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_selectable_recycler_view, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
     }
 }

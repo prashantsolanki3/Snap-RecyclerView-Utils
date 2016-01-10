@@ -131,12 +131,29 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
      * returns True if Item is added.
      * and False if item is removed.
      */
-    private boolean toggleSelection(T selection, int pos) {
+    public boolean toggleSelection(T selection) {
+        int pos = getItemPosition(selection);
         if (selectedItems.contains(selection)) {
-            deselectItem(selection, pos);
+            deselectItem(selection);
             return false;
         } else {
-            selectItem(selection, pos);
+            selectItem(selection);
+            return true;
+        }
+    }
+
+    /**
+     * Toggle GalleryItems Selection
+     * returns True if Item is added.
+     * and False if item is removed.
+     */
+    public boolean toggleSelection(int pos) {
+        T selection = getItem(pos);
+        if (selectedItems.contains(selection)) {
+            deselectItem(selection);
+            return false;
+        } else {
+            selectItem(selection);
             return true;
         }
     }
@@ -144,35 +161,72 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
     /**
      * @return true if the item is selected and false is item is not selected or the selection limit is reached.
      */
-    public boolean selectItem(T selection, int pos) {
+    public boolean selectItem(T selection) {
+        return internalSelectItem(selection, Integer.MIN_VALUE);
+    }
+
+    /**
+     * @return true if the item is selected and false is item is not selected or the selection limit is reached.
+     */
+    public boolean selectItem(int pos) {
+        return internalSelectItem(null, pos);
+    }
+
+    @SuppressWarnings("unchecked")
+    private boolean internalSelectItem(T selection, int pos) {
+
+        if (selection == null && pos == Integer.MIN_VALUE)
+            return false;
 
         if (!isSelectionEnabled())
             return false;
 
         if (selectionType == SelectionType.SINGLE && !selectedItems.isEmpty()) {
             T i = selectedItems.get(0);
-            deselectItem(i, getItemPosition(i));
+            deselectItem(i);
         }
 
-        if (getSelectionLimit() == selectedItems.size()) {
+        if (selectedItems.size() >= getSelectionLimit()) {
             selectionListener.onSelectionLimitReached();
             return false;
         }
 
+        if (selection == null)
+            selection = getItem(pos);
+        else if (pos == Integer.MIN_VALUE)
+            pos = getItemPosition(selection);
+
         selectedItems.add(selection);
+        selectionListener.onItemSelected(selection, pos);
         notifyItemChanged(pos);
 
         return true;
     }
 
-    public boolean deselectItem(T selection, int pos) {
+    public boolean deselectItem(T selection) {
+        return internalDeselectItem(selection, Integer.MIN_VALUE);
+    }
+
+    public boolean deselectItem(int pos) {
+        return internalDeselectItem(null, pos);
+    }
+
+    @SuppressWarnings("unchecked")
+    private boolean internalDeselectItem(T selection, int pos) {
+
+        if (selection == null && pos == Integer.MIN_VALUE)
+            return false;
 
         if (!isSelectionEnabled())
             return false;
 
+        if (selection == null)
+            selection = getItem(pos);
+        else if (pos == Integer.MIN_VALUE)
+            pos = getItemPosition(selection);
         selectedItems.remove(selection);
         notifyItemChanged(pos);
-
+        selectionListener.onItemDeselected(selection, pos);
         if (selectionType == SelectionType.MULTIPLE_ON_LONG_PRESS && selectedItems.isEmpty()) {
             setSelectionEnabled(false);
             return false;
@@ -189,11 +243,29 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         return true;
     }
 
-    public boolean clearSelection() {
+    /**
+     * Deselects all selected items and disables the selection mode.
+     */
+    public boolean deselectAll() {
         if (!isSelectionEnabled())
             return false;
         this.selectedItems.clear();
         notifyDataSetChanged();
+        setSelectionEnabled(false);
+        return true;
+    }
+
+    /**
+     * Deselects all selected items.
+     *
+     * @param disableSelection to disable or keep the selection mode
+     */
+    public boolean deselectAll(boolean disableSelection) {
+        if (!isSelectionEnabled())
+            return false;
+        this.selectedItems.clear();
+        notifyDataSetChanged();
+        setSelectionEnabled(!disableSelection);
         return true;
     }
 
@@ -215,13 +287,14 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
     * */
 
     public void setSelectionEnabled(boolean selectionEnabled) {
-        this.selectionEnabled = selectionEnabled;
         if (selectionListener != null)
             if (selectionEnabled)
                 selectionListener.onSelectionModeEnabled(selectionType);
             else {
                 selectionListener.onSelectionModeDisabled(selectionType);
+                deselectAll(false);
             }
+        this.selectionEnabled = selectionEnabled;
         notifyDataSetChanged();
     }
 
@@ -241,18 +314,19 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         this.selectionLimit = selectionLimit;
     }
 
+    public List<T> getSelectedItems() {
+        return selectedItems;
+    }
 
     /*
     *
     * Enum and listeners
     *
-    * */
+    */
 
     public enum SelectionType {
         MULTIPLE, MULTIPLE_ON_LONG_PRESS, SINGLE
     }
-
-
 
 
     //TODO: Implement onItemClickListener to support the working of ViewHolder onClick listeners
@@ -263,21 +337,22 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         @Override
         public void onItemClick(SnapViewHolder viewHolder, View view, int position) {
             if (isSelectionEnabled() && UtilsLayoutWrapper.isViewHolderSelectable(getLayoutWrappers(), (SnapSelectableViewHolder) viewHolder)) {
-                toggleSelection((T) viewHolder.getItemData(), position);
+                toggleSelection(position);
             }
         }
 
         @Override
         public void onItemLongPress(SnapViewHolder viewHolder, View view, int position) {
-            if (!isSelectionEnabled()
-                    &&
-                    UtilsLayoutWrapper.isViewHolderSelectable(getLayoutWrappers(), (SnapSelectableViewHolder) viewHolder)
-                    &&
+            if (!isSelectionEnabled() &&
+                    UtilsLayoutWrapper.isViewHolderSelectable(getLayoutWrappers(), (SnapSelectableViewHolder) viewHolder) &&
                     selectionType == SelectionType.MULTIPLE_ON_LONG_PRESS) {
                 setSelectionEnabled(true);
-                toggleSelection((T) viewHolder.getItemData(), position);
+                toggleSelection(position);
             }
         }
     };
+
+
+
 
 }

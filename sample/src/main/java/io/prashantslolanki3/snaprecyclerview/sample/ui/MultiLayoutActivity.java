@@ -23,11 +23,10 @@ import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
 import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessLoader;
 import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemClickListener;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
-import io.prashantslolanki3.snaprecyclerview.sample.SampleData;
 import io.prashantslolanki3.snaprecyclerview.sample.model.HorizontalRecyclerModel;
 import io.prashantslolanki3.snaprecyclerview.sample.model.PictureCaption;
+import io.prashantslolanki3.snaprecyclerview.sample.model.SampleData;
 import io.prashantslolanki3.snaprecyclerview.sample.viewholders.HorizontalRecyclerViewHolder;
-import io.prashantslolanki3.snaprecyclerview.sample.viewholders.ImageViewHolder;
 import io.prashantslolanki3.snaprecyclerview.sample.viewholders.SinglePictureCaptionViewHolder;
 
 /**
@@ -57,7 +56,6 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
     public void setAdapter(final RecyclerView recyclerView) {
         ArrayList<SnapLayoutWrapper> wrappers = new ArrayList<>();
         wrappers.add(new SnapLayoutWrapper(HorizontalRecyclerModel.class, HorizontalRecyclerViewHolder.class, R.layout.item_header_layout, 0));
-        wrappers.add(new SnapLayoutWrapper(String.class, ImageViewHolder.class, R.layout.item_image_layout, 1));
         wrappers.add(new SnapLayoutWrapper(PictureCaption.class, SinglePictureCaptionViewHolder.class, R.layout.item_pictue_caption_layout, 2));
         adapter = new SnapAdapter(this, wrappers, recyclerView);
 
@@ -117,12 +115,11 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
     @Override
     public void setFabOnClickAction(FloatingActionButton view) {
         Random random = new Random();
-        if (counter % 3 == 0)
+        if (counter % 2 == 0)
             adapter.add(SampleData.getHorizontalRecyclerModels(1, random.nextInt(5)).get(0));
-        else if (counter % 4 == 0)
-            adapter.add(SampleData.getImageUrls(1).get(0));
         else
             adapter.add(SampleData.getPictureCaption());
+
         counter++;
 
         if (adapter.isAlternateLayoutShowing())

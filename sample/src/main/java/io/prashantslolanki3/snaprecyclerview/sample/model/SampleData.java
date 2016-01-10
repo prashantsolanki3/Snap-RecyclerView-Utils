@@ -1,10 +1,7 @@
-package io.prashantslolanki3.snaprecyclerview.sample;
+package io.prashantslolanki3.snaprecyclerview.sample.model;
 
 import java.util.ArrayList;
 import java.util.Random;
-
-import io.prashantslolanki3.snaprecyclerview.sample.model.HorizontalRecyclerModel;
-import io.prashantslolanki3.snaprecyclerview.sample.model.PictureCaption;
 
 /**
  * Package io.prashantslolanki3.snaprecyclerview.sample

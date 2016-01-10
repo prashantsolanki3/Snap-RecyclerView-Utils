@@ -5,7 +5,6 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.joanzapata.iconify.IconDrawable;
 import com.joanzapata.iconify.fonts.FontAwesomeIcons;
 
@@ -44,8 +43,6 @@ public class ImageViewHolder extends SnapSelectableViewHolder<GalleryItem> {
         imageView.setImageDrawable(null);
         Glide.with(getContext())
                 .load(data.getImageUri())
-                .skipMemoryCache(true)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
                 .into(imageView);
     }
 
@@ -62,7 +59,7 @@ public class ImageViewHolder extends SnapSelectableViewHolder<GalleryItem> {
     @Override
     public void onSelectionEnabled(SnapSelectableViewHolder viewHolder, GalleryItem item, int pos) {
         tick.setVisibility(View.VISIBLE);
-        tick.setImageDrawable(new IconDrawable(getContext(), FontAwesomeIcons.fa_check_circle_o).color(android.R.color.white));
+        tick.setImageDrawable(new IconDrawable(getContext(), FontAwesomeIcons.fa_check_circle_o).colorRes(android.R.color.white).sizeDp(36));
     }
 
     @Override
@@ -72,11 +69,11 @@ public class ImageViewHolder extends SnapSelectableViewHolder<GalleryItem> {
 
     @Override
     public void onSelected(SnapSelectableViewHolder viewHolder, GalleryItem item, int pos) {
-        tick.setImageDrawable(new IconDrawable(getContext(), FontAwesomeIcons.fa_check_circle).color(android.R.color.white));
+        tick.setImageDrawable(new IconDrawable(getContext(), FontAwesomeIcons.fa_check_circle).colorRes(android.R.color.white).sizeDp(36));
     }
 
     @Override
     public void onDeselected(SnapSelectableViewHolder viewHolder, GalleryItem item, int pos) {
-        tick.setImageDrawable(new IconDrawable(getContext(), FontAwesomeIcons.fa_check_circle_o).color(android.R.color.white));
+        tick.setImageDrawable(new IconDrawable(getContext(), FontAwesomeIcons.fa_check_circle_o).colorRes(android.R.color.white).sizeDp(36));
     }
 }

@@ -14,6 +14,7 @@
     <ImageView
         android:id="@+id/item_tick"
         android:layout_gravity="start|top"
+        android:scaleType="fitStart"
         android:padding="4dp"
         android:background="@drawable/gradient_left_right_black"
         android:layout_width="36dp"

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_select_all"
+        android:title="All"
+        android:orderInCategory="101"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_deselect_all"
+        android:title="None"
+        android:orderInCategory="102"
+        app:showAsAction="ifRoom" />
+</menu>

@@ -7,11 +7,13 @@ import android.view.Menu;
 
 /**
  * Created by Prashant on 1/9/2016.
+ *
  */
-public abstract class SelectionActionModeListener implements SelectionListener, ActionMode.Callback {
+public abstract class SelectionActionModeListener<T> implements SelectionListener<T>, ActionMode.Callback {
 
     Toolbar toolbar = null;
     ActionMode actionMode = null;
+    //TODO: if back pressed, then clear the adapter.
 
     public SelectionActionModeListener(Toolbar toolbar) {
         this.toolbar = toolbar;

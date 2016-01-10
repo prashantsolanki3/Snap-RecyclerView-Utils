@@ -10,6 +10,7 @@ import io.github.prashantsolanki3.snaplibrary.snap.SnapLayoutWrapper;
 
 /**
  * Created by Prashant on 1/8/2016.
+ *
  */
 public class SnapSelectableAdapter<T> extends AbstractSnapSelectableAdapter<T> {
 
