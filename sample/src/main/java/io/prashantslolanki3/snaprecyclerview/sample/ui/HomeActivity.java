@@ -19,6 +19,7 @@ import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
 import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemClickListener;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
 import io.prashantslolanki3.snaprecyclerview.sample.model.HomeItem;
+import io.prashantslolanki3.snaprecyclerview.sample.ui.pickers.SnapImagePickerActivity;
 import io.prashantslolanki3.snaprecyclerview.sample.viewholders.HomeVH;
 
 /**

@@ -1,4 +1,4 @@
-package io.prashantslolanki3.snaprecyclerview.sample.ui;
+package io.prashantslolanki3.snaprecyclerview.sample.ui.pickers;
 
 import android.app.Activity;
 import android.content.Context;
@@ -13,9 +13,6 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.GridLayoutManager;
@@ -38,7 +35,8 @@ import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableAdap
 import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableLayoutWrapper;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
 import io.github.prashantsolanki3.utiloid.U;
-import io.prashantslolanki3.snaprecyclerview.sample.ui.vp.SliderImageFragment;
+import io.prashantslolanki3.snaprecyclerview.sample.ui.BaseRecyclerViewActivity;
+import io.prashantslolanki3.snaprecyclerview.sample.ui.pickers.viewpager.ImagesViewPagerAdapter;
 import io.prashantslolanki3.snaprecyclerview.sample.viewholders.ImageViewHolder;
 
 /**
@@ -53,7 +51,8 @@ public class SnapImagePickerActivity extends BaseRecyclerViewActivity {
 
     SnapSelectableAdapter<String> adapter;
     ViewPager viewPager;
-    VpA vpA;
+    ImagesViewPagerAdapter imagesViewPagerAdapter;
+    AbstractSnapSelectableAdapter.SelectionType selectionType;
 
     public static Intent getIntent(Context context, int selectionLimit) {
         Intent intent = new Intent(context, SnapImagePickerActivity.class);
@@ -76,6 +75,10 @@ public class SnapImagePickerActivity extends BaseRecyclerViewActivity {
         if (getIntent() != null && getIntent().getAction() != null && getIntent().getAction().equals(Intent.ACTION_PICK)) {
             limit = 1;
         }
+
+        //Set SelectionType according to the Selection Limit.
+        selectionType = limit == 1 ? AbstractSnapSelectableAdapter.SelectionType.SINGLE : AbstractSnapSelectableAdapter.SelectionType.MULTIPLE;
+
         collapsingToolbarLayout.setTitleEnabled(false);
         appBarLayout.setLayoutParams(new CoordinatorLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, (int) U.getScreenWidthPixels()));
         viewPager = (ViewPager) findViewById(R.id.view_pager);
@@ -112,7 +115,7 @@ public class SnapImagePickerActivity extends BaseRecyclerViewActivity {
         adapter = new SnapSelectableAdapter<>(this,
                 wrapper,
                 recyclerView,
-                limit == 1 ? AbstractSnapSelectableAdapter.SelectionType.SINGLE : AbstractSnapSelectableAdapter.SelectionType.MULTIPLE);
+                selectionType);
 
         adapter.setSelectionLimit(limit);
         adapter.setOnSelectionListener(new SelectionListener<String>() {
@@ -150,12 +153,15 @@ public class SnapImagePickerActivity extends BaseRecyclerViewActivity {
                             }
                         });
 
-                vpA.add(item);
+                if (adapter.selectionType == AbstractSnapSelectableAdapter.SelectionType.SINGLE)
+                    appBarLayout.setExpanded(true, true);
+
+                imagesViewPagerAdapter.add(item);
             }
 
             @Override
             public void onItemDeselected(String item, int pos) {
-                vpA.remove(item);
+                imagesViewPagerAdapter.remove(item);
             }
 
             @Override
@@ -213,9 +219,8 @@ public class SnapImagePickerActivity extends BaseRecyclerViewActivity {
                     adapter.add(imageCursor.getString(imageCursor.getColumnIndex(MediaStore.Images.Media.DATA)));
                 }
 
-            //TODO: Set a Place Holder.
-            vpA = new VpA(getSupportFragmentManager(), adapter.getItemCount() > 0 ? adapter.getItem(0) : "");
-            viewPager.setAdapter(vpA);
+            imagesViewPagerAdapter = new ImagesViewPagerAdapter(getSupportFragmentManager(), adapter.getItemCount() > 0 ? adapter.getItem(0) : "");
+            viewPager.setAdapter(imagesViewPagerAdapter);
             viewPager.setOffscreenPageLimit(0);
         } catch (Exception e) {
             e.printStackTrace();
@@ -228,63 +233,12 @@ public class SnapImagePickerActivity extends BaseRecyclerViewActivity {
     }
 
 
-    public static class VpA extends FragmentStatePagerAdapter {
 
-        ArrayList<String> items;
-        String placeHolder;
-
-        public VpA(FragmentManager fm, String s) {
-            super(fm);
-            items = new ArrayList<>();
-            placeHolder = s;
-        }
-
-        /**
-         * Return the Fragment associated with a specified position.
-         *
-         * @param position
-         */
-        @Override
-        public Fragment getItem(int position) {
-
-            if (getCount() == 1 && items.size() == 0)
-                return SliderImageFragment.newInstance(placeHolder);
-
-            return SliderImageFragment.newInstance(items.get(position));
-        }
-
-        public void add(String s) {
-            items.add(0, s);
-            notifyDataSetChanged();
-        }
-
-        public void remove(String s) {
-            items.remove(s);
-            notifyDataSetChanged();
-        }
-
-        public void clear() {
-            items.clear();
-            notifyDataSetChanged();
-        }
-
-        /**
-         * Return the number of views available.
-         */
-        @Override
-        public int getCount() {
-            return items.size() == 0 ? 1 : items.size();
-        }
-
-        @Override
-        public int getItemPosition(Object object) {
-            return POSITION_NONE;
-        }
-    }
-
-    /*TODO: OnClick Open FullScreen Activity.
-    Remove Title.
-    Give Options ro change color of toolbar, enable/disable dynamic colorr,
-    FAB colors and icons for 3 states - none selected, some selected, max selected.*/
 
 }
+
+/*TODO: OnClick Open FullScreen Activity.
+  TODO: Remove Title.
+  TODO: Give Options ro change color of toolbar, enable/disable dynamic color,
+  TODO: FAB colors and icons for 3 states - none selected, some selected, max selected.
+  TODO: Set Placeholder for ViewPager.*/

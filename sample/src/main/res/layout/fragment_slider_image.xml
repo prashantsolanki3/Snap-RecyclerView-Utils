@@ -4,9 +4,8 @@
     android:layout_height="match_parent"
     tools:context="com.prashant.showcaseviewpager.SliderImageFragment">
 
-    <ImageView
+    <com.davemorrissey.labs.subscaleview.SubsamplingScaleImageView
         android:id="@+id/slider_image"
-        android:scaleType="centerCrop"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

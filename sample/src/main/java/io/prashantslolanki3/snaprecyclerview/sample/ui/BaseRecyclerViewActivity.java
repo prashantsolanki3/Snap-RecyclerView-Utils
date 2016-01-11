@@ -14,11 +14,11 @@ import io.github.prashantsolanki3.snaprecyclerviewutils.R;
 
 public abstract class BaseRecyclerViewActivity extends AppCompatActivity {
 
-    RecyclerView recyclerView;
-    Toolbar toolbar;
-    FloatingActionButton fab;
-    AppBarLayout appBarLayout;
-    CollapsingToolbarLayout collapsingToolbarLayout;
+    public RecyclerView recyclerView;
+    public Toolbar toolbar;
+    public FloatingActionButton fab;
+    public AppBarLayout appBarLayout;
+    public CollapsingToolbarLayout collapsingToolbarLayout;
 
     public
     @LayoutRes
