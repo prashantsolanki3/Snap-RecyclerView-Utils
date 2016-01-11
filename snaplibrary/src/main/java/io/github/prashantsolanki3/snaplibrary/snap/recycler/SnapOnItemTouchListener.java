@@ -44,7 +44,7 @@ public class SnapOnItemTouchListener implements RecyclerView.OnItemTouchListener
             snapGestureDetector.setView(childView);
             snapGestureDetector.setViewHolder(viewHolder);
             snapGestureDetector.setPosition(((AbstractSnapMultiAdapter) recyclerView.getAdapter())
-                    .getItemPosition(viewHolder.getItemData()));
+                    .indexOf(viewHolder.getItemData()));
 
             if (snapGestureDetector.onTouchEvent(e))
                 return true;

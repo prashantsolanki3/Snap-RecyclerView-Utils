@@ -13,7 +13,9 @@ import android.view.ViewGroup;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
+import java.util.List;
 
+import io.github.prashantsolanki3.snaplibrary.snap.adapter.BasicsRecyclerViewAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessLoader;
 import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessRecyclerOnScrollListener;
 import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemClickListener;
@@ -26,7 +28,7 @@ import io.github.prashantsolanki3.snaplibrary.snap.utils.UtilsLayoutWrapper;
  * Github: prashantsolanki3
  * Email: prs.solanki@live.com
  */
-public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<SnapViewHolder> {
+public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<SnapViewHolder> implements BasicsRecyclerViewAdapter<T, SnapViewHolder> {
 
     private final Context context;
     private final ArrayList<T> mData;
@@ -76,10 +78,12 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         return context;
     }
 
-    private void setAnimation(SnapViewHolder vh, int position) {
+
+    @Override
+    public void setAnimation(SnapViewHolder vh, int position) {
         // If the bound view wasn't previously displayed on screen, it's animated
         if (position > lastPosition) {
-            animateItems(vh, position);
+            vh.animateViewHolder(vh, position);
             lastPosition = position;
         }
     }
@@ -122,15 +126,17 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
 
     }
 
-
+    @Override
     public final T getItem(@IntRange(from = 0, to = Integer.MAX_VALUE) int pos) {
         return mData.get(pos);
     }
 
+    @Override
     public ArrayList<T> getAll() {
         return mData;
     }
 
+    @Override
     public void add(@Nullable T item) {
         if (item == null)
             return;
@@ -139,7 +145,8 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         handleEmptyLayoutVisibility();
     }
 
-    public void addAll(@Nullable ArrayList<T> list) {
+    @Override
+    public void addAll(@Nullable List<T> list) {
         if (list == null) return;
         final int prevSize = this.mData.size() - 1;
         this.mData.addAll(list);
@@ -147,13 +154,15 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         handleEmptyLayoutVisibility();
     }
 
-    public void set(@Nullable ArrayList<T> data) {
+    @Override
+    public void set(@Nullable List<T> data) {
         clear();
         if (data != null)
             mData.addAll(data);
         handleEmptyLayoutVisibility();
     }
 
+    @Override
     public void remove(@IntRange(from = 0, to = Integer.MAX_VALUE) int pos) {
         this.mData.remove(pos);
         this.notifyItemRemoved(pos);
@@ -161,6 +170,7 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         this.notifyDataSetChanged();
     }
 
+    @Override
     public void remove(@NonNull T item) {
         int pos = this.mData.indexOf(item);
         this.mData.remove(pos);
@@ -168,6 +178,7 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         this.notifyItemRemoved(pos);
     }
 
+    @Override
     public void clear() {
         endlessRecyclerOnScrollListener.itemRemoved(mData.size());
         this.mData.clear();
@@ -200,15 +211,6 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         viewHolder.setItemData(item);
         viewHolder.populateViewHolder(item, position);
         viewHolder.attachOnClickListeners(viewHolder, item, position);
-    }
-
-    /**
-     * Animate viewHolder.itemView in this method.
-     * Position is not needed for simple animations.
-     * Use position for complex animations.
-     */
-    public void animateItems(SnapViewHolder viewHolder, int pos) {
-        viewHolder.animateViewHolder(viewHolder, pos);
     }
 
 
@@ -360,8 +362,13 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         recyclerView.addOnItemTouchListener(new SnapOnItemTouchListener(getContext(), clickListener));
     }
 
-    public int getItemPosition(@NonNull T item) {
+    @Override
+    public int indexOf(@NonNull T item) {
         return getAll().indexOf(item);
+    }
+
+    public int getPosition(@NonNull T item) {
+        return indexOf(item);
     }
 
 }

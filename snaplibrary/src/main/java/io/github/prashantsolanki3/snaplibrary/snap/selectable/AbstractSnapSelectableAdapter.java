@@ -132,7 +132,7 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
      * and False if item is removed.
      */
     public boolean toggleSelection(T selection) {
-        int pos = getItemPosition(selection);
+        int pos = indexOf(selection);
         if (selectedItems.contains(selection)) {
             deselectItem(selection);
             return false;
@@ -197,7 +197,7 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         if (selection == null)
             selection = getItem(pos);
         else if (pos == Integer.MIN_VALUE)
-            pos = getItemPosition(selection);
+            pos = indexOf(selection);
 
         selectedItems.add(selection);
         selectionListener.onItemSelected(selection, pos);
@@ -226,7 +226,7 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         if (selection == null)
             selection = getItem(pos);
         else if (pos == Integer.MIN_VALUE)
-            pos = getItemPosition(selection);
+            pos = indexOf(selection);
         selectedItems.remove(selection);
         notifyItemChanged(pos);
         selectionListener.onItemDeselected(selection, pos);

@@ -47,7 +47,6 @@ public class SnapImagePickerActivity extends BaseRecyclerViewActivity {
     private int limit = 1;
     private static final String ARG_SELECTION_LIMIT = "limit";
     private static final String ARG_ARRAY_GALLERY_ITEM_URI = "gallery_item_uri_array";
-    private static final String ARG_ARRAY_GALLERY_ITEM_ORIENTATION = "gallery_item_orientation_array";
 
     SnapSelectableAdapter<String> adapter;
     ViewPager viewPager;
@@ -89,6 +88,9 @@ public class SnapImagePickerActivity extends BaseRecyclerViewActivity {
                 appBarLayout.setExpanded(true, true);
             }
         });
+        toolbar.setTitle(" ");
+
+
     }
 
     @Nullable
@@ -237,8 +239,8 @@ public class SnapImagePickerActivity extends BaseRecyclerViewActivity {
 
 }
 
-/*TODO: OnClick Open FullScreen Activity.
-  TODO: Remove Title.
+  /*
   TODO: Give Options ro change color of toolbar, enable/disable dynamic color,
   TODO: FAB colors and icons for 3 states - none selected, some selected, max selected.
-  TODO: Set Placeholder for ViewPager.*/
+  TODO: Set Placeholder for ViewPager.
+  */
