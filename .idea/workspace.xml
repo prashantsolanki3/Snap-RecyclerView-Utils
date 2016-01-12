@@ -16,39 +16,12 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c20241f6-414b-49bb-a247-01abf9155877" name="Default" comment="Picker Builder created.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/wrapper/SnapSelectableLayoutWrapper.java" />
-      <change type="DELETED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\SnapLayoutWrapper.java" afterPath="" />
-      <change type="DELETED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\SnapViewHolder.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/HomeActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/HomeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/HomeVH.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/HomeVH.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/HorizontalRecyclerViewHolder.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/HorizontalRecyclerViewHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/ImageViewHolder.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/ImageViewHolder.java" />
+    <list default="true" id="c20241f6-414b-49bb-a247-01abf9155877" name="Default" comment="Restructured.">
+      <change type="DELETED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\selectable\SnapSelectableLayoutWrapper.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/AbstractSnapMultiAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/AbstractSnapMultiAdapter.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/MultiLayoutActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/MultiLayoutActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/SelectableRecyclerViewActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/SelectableRecyclerViewActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/SelectableSinglePictureCaptionViewHolder.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/SelectableSinglePictureCaptionViewHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/SinglePictureCaptionViewHolder.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/SinglePictureCaptionViewHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/utils/SnapGestureDetector.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/utils/SnapGestureDetector.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/pickers/SnapImagePickerActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/pickers/SnapImagePickerActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/utils/UtilsLayoutWrapper.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/utils/UtilsLayoutWrapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\AbstractSnapMultiAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/AbstractSnapMultiAdapter.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\SnapAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/SnapAdapter.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\SnapLayoutWrapper.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/wrapper/SnapLayoutWrapper.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\SnapMultiAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/SnapMultiAdapter.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\SnapViewHolder.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/viewholder/SnapViewHolder.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\endless\EndlessLoader.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/endless/EndlessLoader.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\endless\EndlessRecyclerOnScrollListener.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/endless/EndlessRecyclerOnScrollListener.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\endless\RecyclerViewPositionHelper.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/utils/RecyclerViewPositionHelper.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\layoutmanagers\SnapNestedGridLayoutManager.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/managers/SnapNestedGridLayoutManager.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\layoutmanagers\SnapNestedLinearLayoutManger.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/managers/SnapNestedLinearLayoutManger.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\recycler\SnapOnItemClickListener.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/touch/SnapOnItemClickListener.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\recycler\SnapOnItemTouchListener.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/touch/SnapOnItemTouchListener.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\selectable\AbstractSnapSelectableAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/AbstractSnapSelectableAdapter.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\selectable\SelectionActionModeListener.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/selection/SelectionActionModeListener.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\selectable\SelectionListener.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/selection/SelectionListener.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\selectable\SnapSelectableAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/SnapSelectableAdapter.java" />
-      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\selectable\SnapSelectableViewHolder.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/viewholder/SnapSelectableViewHolder.java" />
     </list>
     <ignored path="Snap-RecyclerView-Utils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -85,7 +58,43 @@
     <favorites_list name="Snap-RecyclerView-Utils" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="AbstractSnapMultiAdapter.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/AbstractSnapMultiAdapter.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="19" column="83" selection-start-line="19" selection-start-column="83" selection-end-line="19" selection-end-column="83" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MultiLayoutActivity.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/MultiLayoutActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.2596006">
+              <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#2843#3331#0" expanded="true" />
+                <element signature="e#2978#3155#0" expanded="true" />
+                <element signature="e#3154#3155#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="BaseRecyclerViewActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/BaseRecyclerViewActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -2520,8 +2529,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapLayoutWrapper.java" />
         <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layoutwrapper/SnapSelectionLayoutWrapper.java" />
         <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/AbstractSnapSelectableMultiAdapter.java" />
         <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/endless/EndlessLoader.java" />
@@ -2571,6 +2578,8 @@
         <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/listeners/SelectionActionModeListener.java" />
         <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/SnapOnItemClickListener.java" />
         <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/utils/RecyclerViewPositionHelper.java" />
+        <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/AbstractSnapMultiAdapter.java" />
+        <option value="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/MultiLayoutActivity.java" />
       </list>
     </option>
   </component>
@@ -2674,6 +2683,16 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Snap-RecyclerView-Utils" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Snap-RecyclerView-Utils" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sample" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -3007,7 +3026,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452605914244</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Restructured.">
+      <created>1452606805033</created>
+      <option name="number" value="00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1452606805033</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -3021,19 +3046,19 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43604004" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24471635" sideWeight="0.4978678" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24471635" sideWeight="0.4978678" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38153505" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925472" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25139043" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -3043,7 +3068,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24520256" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24520256" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -3070,6 +3095,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Endless Loader working after removing items from recycler.&#10;Sample App Updated" />
     <MESSAGE value="travis ci" />
     <MESSAGE value="Alternate Layout Support" />
@@ -3079,9 +3106,11 @@
     <MESSAGE value="ImagePicker onClick Image Opens fullscreen Activity, restructuring" />
     <MESSAGE value="Basic Adapter Method moved to Interface." />
     <MESSAGE value="Picker Builder created." />
-    <option name="LAST_COMMIT_MESSAGE" value="Picker Builder created." />
+    <MESSAGE value="Restructured." />
+    <option name="LAST_COMMIT_MESSAGE" value="Restructured." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -3090,16 +3119,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/alter_loading.xml">
-      <provider editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40338984">
-          <caret line="7" column="8" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://D:/Program Files (x86)/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1-sources.jar!/android/support/annotation/NonNull.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.21982759">
@@ -3295,13 +3314,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/BaseRecyclerViewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.45107794">
-          <caret line="28" column="13" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/SnapAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.77446103">
@@ -3376,14 +3388,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5299539">
           <caret line="56" column="50" selection-start-line="56" selection-start-column="50" selection-end-line="56" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/AbstractSnapMultiAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="4.890937">
-          <caret line="362" column="5" selection-start-line="362" selection-start-column="5" selection-end-line="362" selection-end-column="5" />
           <folding />
         </state>
       </provider>
@@ -3501,6 +3505,35 @@
         <state vertical-scroll-proportion="0.29565218">
           <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/AbstractSnapMultiAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="19" column="83" selection-start-line="19" selection-start-column="83" selection-end-line="19" selection-end-column="83" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/BaseRecyclerViewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/MultiLayoutActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2596006">
+          <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2843#3331#0" expanded="true" />
+            <element signature="e#2978#3155#0" expanded="true" />
+            <element signature="e#3154#3155#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

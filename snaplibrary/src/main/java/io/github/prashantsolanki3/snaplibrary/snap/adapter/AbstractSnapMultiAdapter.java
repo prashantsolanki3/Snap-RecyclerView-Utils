@@ -17,8 +17,8 @@ import java.util.List;
 
 import io.github.prashantsolanki3.snaplibrary.snap.layout.viewholder.SnapViewHolder;
 import io.github.prashantsolanki3.snaplibrary.snap.layout.wrapper.SnapLayoutWrapper;
-import io.github.prashantsolanki3.snaplibrary.snap.listeners.EndlessRecyclerOnScrollListener;
 import io.github.prashantsolanki3.snaplibrary.snap.listeners.endless.EndlessLoader;
+import io.github.prashantsolanki3.snaplibrary.snap.listeners.endless.EndlessRecyclerOnScrollListener;
 import io.github.prashantsolanki3.snaplibrary.snap.listeners.touch.SnapOnItemClickListener;
 import io.github.prashantsolanki3.snaplibrary.snap.listeners.touch.SnapOnItemTouchListener;
 import io.github.prashantsolanki3.snaplibrary.snap.utils.UtilsLayoutWrapper;

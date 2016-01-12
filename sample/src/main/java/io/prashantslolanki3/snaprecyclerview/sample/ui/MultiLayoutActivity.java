@@ -109,7 +109,6 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
 
         });
     }
-
     @Override
     public void setAdapter(final RecyclerView recyclerView) {
         ArrayList<SnapLayoutWrapper> wrappers = new ArrayList<>();
