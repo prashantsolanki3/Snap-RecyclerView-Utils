@@ -76,7 +76,7 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
             default:
                 throw new IllegalArgumentException("Selection type not Supported");
         }
-        longPressHandler();
+        setOnItemClickListener(snapOnItemClickListener);
     }
 
     @Override
@@ -287,9 +287,6 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         return true;
     }
 
-    void longPressHandler() {
-        setOnItemClickListener(snapOnItemClickListener);
-    }
 
     /**
      * Handle Contextual ActionBar
@@ -348,7 +345,7 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
 
 
     //TODO: Implement onItemClickListener to support the working of ViewHolder onClick listeners
-    // TODO: and Long press to activate multiple selections. Also complete the selection listener.
+    //TODO: and Long press to activate multiple selections. Also complete the selection listener.
     //TODO: Remove Selected item if it has  been removed from the list.
 
     SnapOnItemClickListener snapOnItemClickListener = new SnapOnItemClickListener() {

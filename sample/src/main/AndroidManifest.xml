@@ -40,7 +40,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="io.prashantslolanki3.snaprecyclerview.sample.ui.pickers.ImageFullScreenActivity"></activity>
+        <activity
+            android:name="io.prashantslolanki3.snaprecyclerview.sample.ui.pickers.ImageFullScreenActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

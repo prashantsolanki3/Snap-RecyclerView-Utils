@@ -17,6 +17,7 @@ import io.github.prashantsolanki3.snaplibrary.snap.SnapAdapter;
 import io.github.prashantsolanki3.snaplibrary.snap.SnapLayoutWrapper;
 import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
 import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemClickListener;
+import io.github.prashantsolanki3.snaplibrary.snap.selectable.AbstractSnapSelectableAdapter;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
 import io.prashantslolanki3.snaprecyclerview.sample.model.HomeItem;
 import io.prashantslolanki3.snaprecyclerview.sample.ui.pickers.SnapImagePickerActivity;
@@ -53,8 +54,15 @@ public class HomeActivity extends BaseRecyclerViewActivity {
             public void onItemClick(SnapViewHolder viewHolder, View view, int position) {
                 switch (position) {
                     case 2:
-                        startActivityForResult(SnapImagePickerActivity.getIntent(getApplicationContext(), 5), REQUEST_CODE_GALLERY);
+                        Intent intent = new SnapImagePickerActivity.Builder(getApplicationContext())
+                                .setSelectionType(AbstractSnapSelectableAdapter.SelectionType.MULTIPLE_ON_LONG_PRESS, 5)
+                                .setTitle("Snap Image Picker")
+                                .setHeaderPlaceHolderImage("http://www.gettyimages.ca/gi-resources/images/Homepage/Category-Creative/UK/UK_Creative_462809583.jpg")
+                                .getIntent();
+
+                        startActivityForResult(intent, REQUEST_CODE_GALLERY);
                         break;
+
                     default:
                         startActivity(new Intent(getApplicationContext(), ((HomeVH) viewHolder).getItemData().getActivity()));
                 }

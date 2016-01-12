@@ -51,8 +51,26 @@ public class ImageViewHolder extends SnapSelectableViewHolder<String> {
     }
 
     @Override
-    public void attachOnClickListeners(SnapViewHolder viewHolder, String item, int pos) {
-
+    public void attachOnClickListeners(SnapViewHolder viewHolder, final String item, final int pos) {
+        //ViewHolder based selection implementation.
+        /*itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!Utiloid.BASIC_UTILS.isNull(getAdapter())&&getAdapter().isSelectionEnabled()) {
+                    getAdapter().toggleSelection(pos);
+                }
+            }
+        });
+        itemView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if(!Utiloid.BASIC_UTILS.isNull(getAdapter())&&!getAdapter().isSelectionEnabled()) {
+                    getAdapter().setSelectionEnabled(true);
+                    getAdapter().toggleSelection(pos);
+                }
+                return true;
+            }
+        });*/
     }
 
     @Override

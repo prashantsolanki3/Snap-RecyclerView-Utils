@@ -13,7 +13,6 @@ public abstract class SelectionActionModeListener<T> implements SelectionListene
 
     Toolbar toolbar = null;
     ActionMode actionMode = null;
-    //TODO: if back pressed, then clear the adapter.
 
     public SelectionActionModeListener(Toolbar toolbar) {
         this.toolbar = toolbar;
