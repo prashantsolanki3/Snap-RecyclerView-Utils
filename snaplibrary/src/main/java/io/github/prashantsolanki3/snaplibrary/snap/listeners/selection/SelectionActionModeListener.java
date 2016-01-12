@@ -1,8 +1,10 @@
-package io.github.prashantsolanki3.snaplibrary.snap.selectable;
+package io.github.prashantsolanki3.snaplibrary.snap.listeners.selection;
 
 import android.support.v7.widget.Toolbar;
 import android.view.ActionMode;
 import android.view.Menu;
+
+import io.github.prashantsolanki3.snaplibrary.snap.adapter.AbstractSnapSelectableAdapter;
 
 
 /**

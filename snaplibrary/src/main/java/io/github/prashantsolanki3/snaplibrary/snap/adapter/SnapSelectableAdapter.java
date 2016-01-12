@@ -1,4 +1,4 @@
-package io.github.prashantsolanki3.snaplibrary.snap.selectable;
+package io.github.prashantsolanki3.snaplibrary.snap.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -6,7 +6,8 @@ import android.support.v7.widget.RecyclerView;
 
 import java.util.ArrayList;
 
-import io.github.prashantsolanki3.snaplibrary.snap.SnapLayoutWrapper;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.wrapper.SnapLayoutWrapper;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.wrapper.SnapSelectableLayoutWrapper;
 
 /**
  * Created by Prashant on 1/8/2016.

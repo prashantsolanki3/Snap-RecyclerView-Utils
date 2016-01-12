@@ -1,4 +1,6 @@
-package io.github.prashantsolanki3.snaplibrary.snap.selectable;
+package io.github.prashantsolanki3.snaplibrary.snap.listeners.selection;
+
+import io.github.prashantsolanki3.snaplibrary.snap.adapter.AbstractSnapSelectableAdapter;
 
 public interface SelectionListener<T> {
 

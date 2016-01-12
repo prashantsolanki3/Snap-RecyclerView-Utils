@@ -1,4 +1,4 @@
-package io.github.prashantsolanki3.snaplibrary.snap;
+package io.github.prashantsolanki3.snaplibrary.snap.adapter;
 
 import android.content.Context;
 import android.support.annotation.IntRange;
@@ -15,11 +15,12 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.prashantsolanki3.snaplibrary.snap.adapter.BasicsRecyclerViewAdapter;
-import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessLoader;
-import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessRecyclerOnScrollListener;
-import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemClickListener;
-import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemTouchListener;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.viewholder.SnapViewHolder;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.wrapper.SnapLayoutWrapper;
+import io.github.prashantsolanki3.snaplibrary.snap.listeners.EndlessRecyclerOnScrollListener;
+import io.github.prashantsolanki3.snaplibrary.snap.listeners.endless.EndlessLoader;
+import io.github.prashantsolanki3.snaplibrary.snap.listeners.touch.SnapOnItemClickListener;
+import io.github.prashantsolanki3.snaplibrary.snap.listeners.touch.SnapOnItemTouchListener;
 import io.github.prashantsolanki3.snaplibrary.snap.utils.UtilsLayoutWrapper;
 
 /**
@@ -30,19 +31,33 @@ import io.github.prashantsolanki3.snaplibrary.snap.utils.UtilsLayoutWrapper;
  */
 public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<SnapViewHolder> implements BasicsRecyclerViewAdapter<T, SnapViewHolder> {
 
+    final AbstractSnapMultiAdapter<T> adapter = this;
     private final Context context;
     private final ArrayList<T> mData;
     ArrayList<SnapLayoutWrapper> layoutWrappers;
-    private int lastPosition = -1;
     ViewGroup alternateViewContainer = null;
     RecyclerView recyclerView = null;
     EndlessLoader<T> endlessLoader = null;
-    final AbstractSnapMultiAdapter<T> adapter = this;
     View emptyView = null;
     @LayoutRes
     int emptyLayoutId = 0;
     LayoutInflater inflater;
     boolean autoEmptyLayoutHandling = false;
+    EndlessRecyclerOnScrollListener endlessRecyclerOnScrollListener = new EndlessRecyclerOnScrollListener(10) {
+
+        @Override
+        public void onLoadMore(int currentPage) {
+            if (endlessLoader != null)
+                endlessLoader.loadMore(adapter, currentPage);
+        }
+
+        @Override
+        public void onScroll(RecyclerView recyclerView, int dx, int dy) {
+            if (endlessLoader != null)
+                endlessLoader.onScrolled(recyclerView, dx, dy);
+        }
+    };
+    private int lastPosition = -1;
 
     public AbstractSnapMultiAdapter(@NonNull Context context,
                                     ArrayList<SnapLayoutWrapper> layoutWrappers) {
@@ -77,7 +92,6 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
     public final Context getContext() {
         return context;
     }
-
 
     @Override
     public void setAnimation(SnapViewHolder vh, int position) {
@@ -213,7 +227,6 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         viewHolder.attachOnClickListeners(viewHolder, item, position);
     }
 
-
     @Override
     public int getItemCount() {
         int size = mData.size();
@@ -241,21 +254,6 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         this.setEndlessLoader(recyclerView, thresholdLimit, endlessLoader);
     }
 
-    EndlessRecyclerOnScrollListener endlessRecyclerOnScrollListener = new EndlessRecyclerOnScrollListener(10) {
-
-        @Override
-        public void onLoadMore(int currentPage) {
-            if (endlessLoader != null)
-                endlessLoader.loadMore(adapter, currentPage);
-        }
-
-        @Override
-        public void onScroll(RecyclerView recyclerView, int dx, int dy) {
-            if (endlessLoader != null)
-                endlessLoader.onScrolled(recyclerView, dx, dy);
-        }
-    };
-
     public void setAlternateViewContainer(ViewGroup alternateView) {
         this.alternateViewContainer = alternateView;
     }
@@ -270,10 +268,6 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
             throw new RuntimeException("You must set RecyclerView");
     }
 
-    public void setRecyclerView(RecyclerView recyclerView) {
-        this.recyclerView = recyclerView;
-    }
-
     public void setEmptyView(@NonNull View emptyView) {
         this.emptyView = emptyView;
     }
@@ -284,6 +278,10 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
 
     public RecyclerView getRecyclerView() {
         return recyclerView;
+    }
+
+    public void setRecyclerView(RecyclerView recyclerView) {
+        this.recyclerView = recyclerView;
     }
 
     public void showEmptyLayout() {

@@ -2,9 +2,9 @@ package io.github.prashantsolanki3.snaplibrary.snap.utils;
 
 import java.util.List;
 
-import io.github.prashantsolanki3.snaplibrary.snap.SnapLayoutWrapper;
-import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableLayoutWrapper;
-import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableViewHolder;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.viewholder.SnapSelectableViewHolder;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.wrapper.SnapLayoutWrapper;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.wrapper.SnapSelectableLayoutWrapper;
 
 /**
  * Package io.github.prashantsolanki3.snaplibrary.snap.utils

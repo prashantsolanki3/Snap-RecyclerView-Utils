@@ -1,25 +1,18 @@
-package io.github.prashantsolanki3.snaplibrary.snap.recycler;
+package io.github.prashantsolanki3.snaplibrary.snap.listeners.touch;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.MotionEvent;
 import android.view.View;
 
-import io.github.prashantsolanki3.snaplibrary.snap.AbstractSnapMultiAdapter;
-import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
+import io.github.prashantsolanki3.snaplibrary.snap.adapter.AbstractSnapMultiAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.viewholder.SnapViewHolder;
 import io.github.prashantsolanki3.snaplibrary.snap.utils.SnapGestureDetector;
 
 public class SnapOnItemTouchListener implements RecyclerView.OnItemTouchListener {
 
     SnapGestureDetector snapGestureDetector;
     private SnapOnItemClickListener listener;
-
-    public SnapOnItemTouchListener(final Context context, final SnapOnItemClickListener listener) {
-        this.listener = listener;
-        snapGestureDetector = new SnapGestureDetector(context, gestureListener);
-        gestureListener.setDetector(snapGestureDetector);
-    }
-
     SnapGestureDetector.SnapGestureListener gestureListener = new SnapGestureDetector.SnapGestureListener() {
 
         @Override
@@ -34,6 +27,12 @@ public class SnapOnItemTouchListener implements RecyclerView.OnItemTouchListener
         }
 
     };
+
+    public SnapOnItemTouchListener(final Context context, final SnapOnItemClickListener listener) {
+        this.listener = listener;
+        snapGestureDetector = new SnapGestureDetector(context, gestureListener);
+        gestureListener.setDetector(snapGestureDetector);
+    }
 
     @Override
     public boolean onInterceptTouchEvent(RecyclerView recyclerView, MotionEvent e) {

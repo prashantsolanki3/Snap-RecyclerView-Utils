@@ -8,9 +8,9 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
-import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
-import io.github.prashantsolanki3.snaplibrary.snap.selectable.AbstractSnapSelectableAdapter;
-import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableViewHolder;
+import io.github.prashantsolanki3.snaplibrary.snap.adapter.AbstractSnapSelectableAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.viewholder.SnapSelectableViewHolder;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.viewholder.SnapViewHolder;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
 import io.prashantslolanki3.snaprecyclerview.sample.model.PictureCaption;
 

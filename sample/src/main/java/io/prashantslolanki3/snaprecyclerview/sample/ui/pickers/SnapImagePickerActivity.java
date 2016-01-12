@@ -25,12 +25,12 @@ import com.joanzapata.iconify.fonts.FontAwesomeIcons;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
-import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemClickListener;
-import io.github.prashantsolanki3.snaplibrary.snap.selectable.AbstractSnapSelectableAdapter;
-import io.github.prashantsolanki3.snaplibrary.snap.selectable.SelectionListener;
-import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableAdapter;
-import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableLayoutWrapper;
+import io.github.prashantsolanki3.snaplibrary.snap.adapter.AbstractSnapSelectableAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.adapter.SnapSelectableAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.viewholder.SnapViewHolder;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.wrapper.SnapSelectableLayoutWrapper;
+import io.github.prashantsolanki3.snaplibrary.snap.listeners.selection.SelectionListener;
+import io.github.prashantsolanki3.snaplibrary.snap.listeners.touch.SnapOnItemClickListener;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
 import io.prashantslolanki3.snaprecyclerview.sample.ui.BaseRecyclerViewActivity;
 import io.prashantslolanki3.snaprecyclerview.sample.ui.pickers.viewpager.ImagesViewPagerAdapter;
@@ -45,56 +45,27 @@ import static io.github.prashantsolanki3.utiloid.Utiloid.DISPLAY_UTILS.getScreen
  */
 public class SnapImagePickerActivity extends BaseRecyclerViewActivity {
 
-    private int limit = 1;
     private static final String ARG_SELECTION_LIMIT = "limit";
     private static final String ARG_SELECTION_TYPE = "type";
     private static final String ARG_ARRAY_GALLERY_ITEM_URI = "gallery_item_uri_array";
     private static final String ARG_TITLE = "title";
     private static final String ARG_PLACE_HOLDER_IMAGE = "place_holder_image";
-
+    private static Intent intent = null;
     SnapSelectableAdapter<String> adapter;
     ViewPager viewPager;
     ImagesViewPagerAdapter imagesViewPagerAdapter;
     AbstractSnapSelectableAdapter.SelectionType selectionType = null;
-    private static Intent intent = null;
     String placeHolderImage = null;
     String title = null;
+    private int limit = 1;
 
-    public static class Builder {
-
-        Context context;
-
-        public Builder(Context context) {
-            this.context = context;
-            intent = new Intent(context, SnapImagePickerActivity.class);
-        }
-
-        public Builder setSelectionType(AbstractSnapSelectableAdapter.SelectionType selectionType,
-                                        @IntRange(from = 1, to = Integer.MAX_VALUE) int selectionLimit) {
-
-            if (selectionType == AbstractSnapSelectableAdapter.SelectionType.MULTIPLE || selectionType == AbstractSnapSelectableAdapter.SelectionType.MULTIPLE_ON_LONG_PRESS)
-                if (selectionLimit < 1)
-                    throw new RuntimeException("Selection Limit cannot be LESS than 1");
-
-
-            intent.putExtra(ARG_SELECTION_LIMIT, selectionLimit);
-            intent.putExtra(ARG_SELECTION_TYPE, selectionType);
-            return this;
-        }
-
-        public Builder setTitle(String title) {
-            intent.putExtra(ARG_TITLE, title);
-            return this;
-        }
-
-        public Builder setHeaderPlaceHolderImage(String placeHolder) {
-            intent.putExtra(ARG_PLACE_HOLDER_IMAGE, placeHolder);
-            return this;
-        }
-
-        public Intent getIntent() {
-            return intent;
-        }
+    @Nullable
+    public static List<String> getResult(int resultCode, Intent data) {
+        if (resultCode == Activity.RESULT_OK) {
+            List<String> items = data.getStringArrayListExtra(ARG_ARRAY_GALLERY_ITEM_URI);
+            return items;
+        } else
+            return null;
     }
 
     /*
@@ -141,15 +112,6 @@ public class SnapImagePickerActivity extends BaseRecyclerViewActivity {
                 appBarLayout.setExpanded(true, true);
             }
         });
-    }
-
-    @Nullable
-    public static List<String> getResult(int resultCode, Intent data) {
-        if (resultCode == Activity.RESULT_OK) {
-            List<String> items = data.getStringArrayListExtra(ARG_ARRAY_GALLERY_ITEM_URI);
-            return items;
-        } else
-            return null;
     }
 
     @Override
@@ -276,6 +238,43 @@ public class SnapImagePickerActivity extends BaseRecyclerViewActivity {
             }
         }
 
+    }
+
+    public static class Builder {
+
+        Context context;
+
+        public Builder(Context context) {
+            this.context = context;
+            intent = new Intent(context, SnapImagePickerActivity.class);
+        }
+
+        public Builder setSelectionType(AbstractSnapSelectableAdapter.SelectionType selectionType,
+                                        @IntRange(from = 1, to = Integer.MAX_VALUE) int selectionLimit) {
+
+            if (selectionType == AbstractSnapSelectableAdapter.SelectionType.MULTIPLE || selectionType == AbstractSnapSelectableAdapter.SelectionType.MULTIPLE_ON_LONG_PRESS)
+                if (selectionLimit < 1)
+                    throw new RuntimeException("Selection Limit cannot be LESS than 1");
+
+
+            intent.putExtra(ARG_SELECTION_LIMIT, selectionLimit);
+            intent.putExtra(ARG_SELECTION_TYPE, selectionType);
+            return this;
+        }
+
+        public Builder setTitle(String title) {
+            intent.putExtra(ARG_TITLE, title);
+            return this;
+        }
+
+        public Builder setHeaderPlaceHolderImage(String placeHolder) {
+            intent.putExtra(ARG_PLACE_HOLDER_IMAGE, placeHolder);
+            return this;
+        }
+
+        public Intent getIntent() {
+            return intent;
+        }
     }
 
 

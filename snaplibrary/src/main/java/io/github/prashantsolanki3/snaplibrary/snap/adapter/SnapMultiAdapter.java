@@ -1,4 +1,4 @@
-package io.github.prashantsolanki3.snaplibrary.snap;
+package io.github.prashantsolanki3.snaplibrary.snap.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -6,6 +6,8 @@ import android.support.v7.widget.RecyclerView;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+
+import io.github.prashantsolanki3.snaplibrary.snap.layout.wrapper.SnapLayoutWrapper;
 
 /**
  * Created by Prashant Solanki.

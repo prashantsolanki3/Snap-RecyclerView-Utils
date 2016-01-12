@@ -1,4 +1,4 @@
-package io.github.prashantsolanki3.snaplibrary.snap;
+package io.github.prashantsolanki3.snaplibrary.snap.layout.viewholder;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -25,12 +25,12 @@ public abstract class SnapViewHolder<T> extends RecyclerView.ViewHolder {
         this.itemData = itemData;
     }
 
-    public void setContext(Context context) {
-        this.context = context;
-    }
-
     public Context getContext() {
         return context;
+    }
+
+    public void setContext(Context context) {
+        this.context = context;
     }
 
     public abstract void populateViewHolder(T data, int pos);

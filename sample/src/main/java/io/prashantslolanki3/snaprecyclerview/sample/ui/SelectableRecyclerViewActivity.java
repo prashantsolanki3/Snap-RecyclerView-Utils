@@ -13,12 +13,12 @@ import com.joanzapata.iconify.fonts.FontAwesomeIcons;
 
 import java.util.ArrayList;
 
-import io.github.prashantsolanki3.snaplibrary.snap.AbstractSnapMultiAdapter;
-import io.github.prashantsolanki3.snaplibrary.snap.endless.EndlessLoader;
-import io.github.prashantsolanki3.snaplibrary.snap.selectable.AbstractSnapSelectableAdapter;
-import io.github.prashantsolanki3.snaplibrary.snap.selectable.SelectionActionModeListener;
-import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableAdapter;
-import io.github.prashantsolanki3.snaplibrary.snap.selectable.SnapSelectableLayoutWrapper;
+import io.github.prashantsolanki3.snaplibrary.snap.adapter.AbstractSnapMultiAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.adapter.AbstractSnapSelectableAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.adapter.SnapSelectableAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.wrapper.SnapSelectableLayoutWrapper;
+import io.github.prashantsolanki3.snaplibrary.snap.listeners.endless.EndlessLoader;
+import io.github.prashantsolanki3.snaplibrary.snap.listeners.selection.SelectionActionModeListener;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
 import io.prashantslolanki3.snaprecyclerview.sample.model.PictureCaption;
 import io.prashantslolanki3.snaprecyclerview.sample.model.SampleData;

@@ -1,4 +1,4 @@
-package io.github.prashantsolanki3.snaplibrary.snap.selectable;
+package io.github.prashantsolanki3.snaplibrary.snap.adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -12,10 +12,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import io.github.prashantsolanki3.snaplibrary.snap.AbstractSnapMultiAdapter;
-import io.github.prashantsolanki3.snaplibrary.snap.SnapLayoutWrapper;
-import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
-import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemClickListener;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.viewholder.SnapSelectableViewHolder;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.viewholder.SnapViewHolder;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.wrapper.SnapLayoutWrapper;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.wrapper.SnapSelectableLayoutWrapper;
+import io.github.prashantsolanki3.snaplibrary.snap.listeners.selection.SelectionListener;
+import io.github.prashantsolanki3.snaplibrary.snap.listeners.touch.SnapOnItemClickListener;
 import io.github.prashantsolanki3.snaplibrary.snap.utils.UtilsLayoutWrapper;
 
 /**
@@ -28,8 +30,8 @@ import io.github.prashantsolanki3.snaplibrary.snap.utils.UtilsLayoutWrapper;
  */
 public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMultiAdapter<T> {
 
-    public List<T> selectedItems;
     public final SelectionType selectionType;
+    public List<T> selectedItems;
     public boolean selectionEnabled = false;
     public int selectionLimit = Integer.MAX_VALUE;
     SelectionListener<T> selectionListener = null;
@@ -39,6 +41,24 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
     * Adapter Methods
     *
     * */
+    SnapOnItemClickListener snapOnItemClickListener = new SnapOnItemClickListener() {
+        @Override
+        public void onItemClick(SnapViewHolder viewHolder, View view, int position) {
+            if (isSelectionEnabled() && UtilsLayoutWrapper.isViewHolderSelectable(getLayoutWrappers(), (SnapSelectableViewHolder) viewHolder)) {
+                toggleSelection(position);
+            }
+        }
+
+        @Override
+        public void onItemLongPress(SnapViewHolder viewHolder, View view, int position) {
+            if (!isSelectionEnabled() &&
+                    UtilsLayoutWrapper.isViewHolderSelectable(getLayoutWrappers(), (SnapSelectableViewHolder) viewHolder) &&
+                    selectionType == SelectionType.MULTIPLE_ON_LONG_PRESS) {
+                setSelectionEnabled(true);
+                toggleSelection(position);
+            }
+        }
+    };
 
     /**
      * @param context Context.
@@ -96,6 +116,12 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         return null;
     }
 
+    /*
+    *
+    * Selection Methods
+    *
+    */
+
     @Override
     public void onBindViewHolder(final SnapViewHolder holder, final int position) {
         super.onBindViewHolder(holder, position);
@@ -119,12 +145,6 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
 
         }
     }
-
-    /*
-    *
-    * Selection Methods
-    *
-    */
 
     /**
      * Toggle GalleryItems Selection
@@ -287,6 +307,11 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         return true;
     }
 
+    /*
+    *
+    * Getters and Setters
+    *
+    * */
 
     /**
      * Handle Contextual ActionBar
@@ -295,11 +320,9 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         this.selectionListener = selectionListener;
     }
 
-    /*
-    *
-    * Getters and Setters
-    *
-    * */
+    public boolean isSelectionEnabled() {
+        return selectionEnabled;
+    }
 
     public void setSelectionEnabled(boolean selectionEnabled) {
         if (selectionListener != null)
@@ -311,10 +334,6 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
             }
         this.selectionEnabled = selectionEnabled;
         notifyDataSetChanged();
-    }
-
-    public boolean isSelectionEnabled() {
-        return selectionEnabled;
     }
 
     public boolean isSelected(T item) {
@@ -329,18 +348,14 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         this.selectionLimit = selectionLimit;
     }
 
-    public List<T> getSelectedItems() {
-        return selectedItems;
-    }
-
     /*
     *
     * Enum and listeners
     *
     */
 
-    public enum SelectionType {
-        MULTIPLE, MULTIPLE_ON_LONG_PRESS, SINGLE
+    public List<T> getSelectedItems() {
+        return selectedItems;
     }
 
 
@@ -348,24 +363,9 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
     //TODO: and Long press to activate multiple selections. Also complete the selection listener.
     //TODO: Remove Selected item if it has  been removed from the list.
 
-    SnapOnItemClickListener snapOnItemClickListener = new SnapOnItemClickListener() {
-        @Override
-        public void onItemClick(SnapViewHolder viewHolder, View view, int position) {
-            if (isSelectionEnabled() && UtilsLayoutWrapper.isViewHolderSelectable(getLayoutWrappers(), (SnapSelectableViewHolder) viewHolder)) {
-                toggleSelection(position);
-            }
-        }
-
-        @Override
-        public void onItemLongPress(SnapViewHolder viewHolder, View view, int position) {
-            if (!isSelectionEnabled() &&
-                    UtilsLayoutWrapper.isViewHolderSelectable(getLayoutWrappers(), (SnapSelectableViewHolder) viewHolder) &&
-                    selectionType == SelectionType.MULTIPLE_ON_LONG_PRESS) {
-                setSelectionEnabled(true);
-                toggleSelection(position);
-            }
-        }
-    };
+    public enum SelectionType {
+        MULTIPLE, MULTIPLE_ON_LONG_PRESS, SINGLE
+    }
 
 
 

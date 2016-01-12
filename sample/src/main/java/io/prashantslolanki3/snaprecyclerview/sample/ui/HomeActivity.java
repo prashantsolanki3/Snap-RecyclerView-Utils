@@ -13,11 +13,11 @@ import com.joanzapata.iconify.fonts.FontAwesomeIcons;
 
 import java.util.List;
 
-import io.github.prashantsolanki3.snaplibrary.snap.SnapAdapter;
-import io.github.prashantsolanki3.snaplibrary.snap.SnapLayoutWrapper;
-import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
-import io.github.prashantsolanki3.snaplibrary.snap.recycler.SnapOnItemClickListener;
-import io.github.prashantsolanki3.snaplibrary.snap.selectable.AbstractSnapSelectableAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.adapter.AbstractSnapSelectableAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.adapter.SnapAdapter;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.viewholder.SnapViewHolder;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.wrapper.SnapLayoutWrapper;
+import io.github.prashantsolanki3.snaplibrary.snap.listeners.touch.SnapOnItemClickListener;
 import io.github.prashantsolanki3.snaprecyclerviewutils.R;
 import io.prashantslolanki3.snaprecyclerview.sample.model.HomeItem;
 import io.prashantslolanki3.snaprecyclerview.sample.ui.pickers.SnapImagePickerActivity;

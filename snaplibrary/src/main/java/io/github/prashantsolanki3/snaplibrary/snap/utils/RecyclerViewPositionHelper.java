@@ -1,4 +1,4 @@
-package io.github.prashantsolanki3.snaplibrary.snap.endless; /**
+package io.github.prashantsolanki3.snaplibrary.snap.utils; /**
 * RecyclerView position helper class for any LayoutManager. 
 *  
 * compile 'com.android.support:recyclerview-v7:22.0.0' 

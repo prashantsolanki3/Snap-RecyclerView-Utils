@@ -17,19 +17,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c20241f6-414b-49bb-a247-01abf9155877" name="Default" comment="Picker Builder created.">
-      <change type="DELETED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\.idea\libraries\appcompat_v7_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\.idea\libraries\recyclerview_v7_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\.idea\libraries\support_annotations_23_1_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\.idea\libraries\support_v4_23_1_1.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/AbstractSnapSelectableAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/AbstractSnapSelectableAdapter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/sample/src/main/AndroidManifest.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/wrapper/SnapSelectableLayoutWrapper.java" />
+      <change type="DELETED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\SnapLayoutWrapper.java" afterPath="" />
+      <change type="DELETED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\SnapViewHolder.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/HomeActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/HomeActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/HomeVH.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/HomeVH.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/HorizontalRecyclerViewHolder.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/HorizontalRecyclerViewHolder.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/ImageViewHolder.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/ImageViewHolder.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SelectionActionModeListener.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SelectionActionModeListener.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/MultiLayoutActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/MultiLayoutActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/SelectableRecyclerViewActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/SelectableRecyclerViewActivity.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/SelectableSinglePictureCaptionViewHolder.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/SelectableSinglePictureCaptionViewHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/SinglePictureCaptionViewHolder.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/SinglePictureCaptionViewHolder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/utils/SnapGestureDetector.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/utils/SnapGestureDetector.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/pickers/SnapImagePickerActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/pickers/SnapImagePickerActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/res/layout/activity_gallery.xml" afterPath="$PROJECT_DIR$/sample/src/main/res/layout/activity_gallery.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/build.gradle" afterPath="$PROJECT_DIR$/sample/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/utils/UtilsLayoutWrapper.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/utils/UtilsLayoutWrapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\AbstractSnapMultiAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/AbstractSnapMultiAdapter.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\SnapAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/SnapAdapter.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\SnapLayoutWrapper.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/wrapper/SnapLayoutWrapper.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\SnapMultiAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/SnapMultiAdapter.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\SnapViewHolder.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/viewholder/SnapViewHolder.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\endless\EndlessLoader.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/endless/EndlessLoader.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\endless\EndlessRecyclerOnScrollListener.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/endless/EndlessRecyclerOnScrollListener.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\endless\RecyclerViewPositionHelper.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/utils/RecyclerViewPositionHelper.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\layoutmanagers\SnapNestedGridLayoutManager.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/managers/SnapNestedGridLayoutManager.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\layoutmanagers\SnapNestedLinearLayoutManger.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/managers/SnapNestedLinearLayoutManger.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\recycler\SnapOnItemClickListener.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/touch/SnapOnItemClickListener.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\recycler\SnapOnItemTouchListener.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/touch/SnapOnItemTouchListener.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\selectable\AbstractSnapSelectableAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/AbstractSnapSelectableAdapter.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\selectable\SelectionActionModeListener.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/selection/SelectionActionModeListener.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\selectable\SelectionListener.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/selection/SelectionListener.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\selectable\SnapSelectableAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/SnapSelectableAdapter.java" />
+      <change type="MOVED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\selectable\SnapSelectableViewHolder.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/viewholder/SnapSelectableViewHolder.java" />
     </list>
     <ignored path="Snap-RecyclerView-Utils.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,24 +85,7 @@
     <favorites_list name="Snap-RecyclerView-Utils" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="SelectionActionModeListener.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SelectionActionModeListener.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.42086956">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#442#443#0" expanded="true" />
-                <element signature="e#480#481#0" expanded="true" />
-                <element signature="e#563#564#0" expanded="true" />
-                <element signature="e#590#591#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -2518,9 +2520,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/recycler/OnItemClickListener.java" />
-        <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/recycler/SnapClickListener.java" />
-        <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/recycler/SnapRecyclerViewTouchListener.java" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapLayoutWrapper.java" />
         <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layoutwrapper/SnapSelectionLayoutWrapper.java" />
@@ -2569,6 +2568,9 @@
         <option value="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/pickers/SnapImagePickerActivity.java" />
         <option value="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/viewholders/ImageViewHolder.java" />
         <option value="$PROJECT_DIR$/snaplibrary/build.gradle" />
+        <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/listeners/SelectionActionModeListener.java" />
+        <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/SnapOnItemClickListener.java" />
+        <option value="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/utils/RecyclerViewPositionHelper.java" />
       </list>
     </option>
   </component>
@@ -2999,7 +3001,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452517579461</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Picker Builder created.">
+      <created>1452605914244</created>
+      <option name="number" value="00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1452605914244</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -3025,7 +3033,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.38153505" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925472" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32925472" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25139043" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -3035,7 +3043,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24520256" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24520256" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32995737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Fabric" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
@@ -3099,20 +3107,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layoutmanagers/SnapNestedGridLayoutManager.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.73275864">
-          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layoutmanagers/SnapNestedLinearLayoutManger.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63505745">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/res/layout/recycler_view_layout.xml">
       <provider editor-type-id="android-designer">
         <state />
@@ -3130,7 +3124,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/endless/EndlessLoader.java">
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/endless/EndlessLoader.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34195402">
           <caret line="16" column="78" selection-start-line="16" selection-start-column="78" selection-end-line="16" selection-end-column="78" />
@@ -3144,17 +3138,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapMultiAdapter.java">
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/SnapMultiAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15269805">
           <caret line="15" column="53" selection-start-line="15" selection-start-column="53" selection-end-line="15" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapLayoutWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13662457">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -3162,20 +3149,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6291619">
           <caret line="43" column="41" selection-start-line="43" selection-start-column="41" selection-end-line="43" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/recycler/SnapOnItemClickListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.13662457">
-          <caret line="9" column="51" selection-start-line="9" selection-start-column="51" selection-end-line="9" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/recycler/SnapOnItemTouchListener.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.70971566">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -3231,7 +3204,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SelectionListener.java">
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/selection/SelectionListener.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3946932">
           <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
@@ -3297,7 +3270,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapViewHolder.java">
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/viewholder/SnapViewHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6898839">
           <caret line="37" column="25" selection-start-line="37" selection-start-column="25" selection-end-line="37" selection-end-column="25" />
@@ -3329,7 +3302,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/SnapAdapter.java">
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/SnapAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.77446103">
           <caret line="173" column="6" selection-start-line="173" selection-start-column="6" selection-end-line="173" selection-end-column="6" />
@@ -3359,7 +3332,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SnapSelectableAdapter.java">
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/SnapSelectableAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.22553897">
           <caret line="14" column="53" selection-start-line="14" selection-start-column="53" selection-end-line="14" selection-end-column="53" />
@@ -3375,22 +3348,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SnapSelectableViewHolder.java">
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/viewholder/SnapSelectableViewHolder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7910906">
           <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SnapSelectableLayoutWrapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8049155">
-          <caret line="40" column="5" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
-          <folding>
-            <element signature="e#1396#1397#0" expanded="false" />
-            <element signature="e#1444#1445#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3402,7 +3364,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/AbstractSnapSelectableAdapter.java">
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/AbstractSnapSelectableAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.626728">
           <caret line="349" column="0" selection-start-line="349" selection-start-column="0" selection-end-line="349" selection-end-column="0" />
@@ -3418,7 +3380,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/AbstractSnapMultiAdapter.java">
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/AbstractSnapMultiAdapter.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="4.890937">
           <caret line="362" column="5" selection-start-line="362" selection-start-column="5" selection-end-line="362" selection-end-column="5" />
@@ -3460,17 +3422,85 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/selectable/SelectionActionModeListener.java">
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/wrapper/SnapSelectableLayoutWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.42086956">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8052174">
+          <caret line="40" column="1" selection-start-line="40" selection-start-column="1" selection-end-line="40" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/wrapper/SnapLayoutWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1373913">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/managers/SnapNestedLinearLayoutManger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/endless/EndlessRecyclerOnScrollListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29565218">
+          <caret line="10" column="1" selection-start-line="10" selection-start-column="1" selection-end-line="10" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/touch/SnapOnItemClickListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1773913">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#442#443#0" expanded="true" />
-            <element signature="e#480#481#0" expanded="true" />
-            <element signature="e#563#564#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/touch/SnapOnItemTouchListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.053913042">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/layout/managers/SnapNestedGridLayoutManager.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.73391306">
+          <caret line="39" column="5" selection-start-line="39" selection-start-column="5" selection-end-line="39" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/listeners/selection/SelectionActionModeListener.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27304348">
+          <caret line="12" column="3" selection-start-line="12" selection-start-column="3" selection-end-line="12" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#542#543#0" expanded="true" />
+            <element signature="e#580#581#0" expanded="true" />
+            <element signature="e#663#664#0" expanded="true" />
+            <element signature="e#690#691#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/utils/RecyclerViewPositionHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29565218">
+          <caret line="12" column="13" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>

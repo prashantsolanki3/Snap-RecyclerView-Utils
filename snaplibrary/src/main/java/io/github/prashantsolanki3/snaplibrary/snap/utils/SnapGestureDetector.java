@@ -5,7 +5,7 @@ import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 
-import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
+import io.github.prashantsolanki3.snaplibrary.snap.layout.viewholder.SnapViewHolder;
 
 public class SnapGestureDetector extends GestureDetector {
 

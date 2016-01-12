@@ -1,6 +1,8 @@
-package io.github.prashantsolanki3.snaplibrary.snap;
+package io.github.prashantsolanki3.snaplibrary.snap.layout.wrapper;
 
 import android.support.annotation.LayoutRes;
+
+import io.github.prashantsolanki3.snaplibrary.snap.layout.viewholder.SnapViewHolder;
 
 /**
  * Created by Prashant on 12/12/2015.

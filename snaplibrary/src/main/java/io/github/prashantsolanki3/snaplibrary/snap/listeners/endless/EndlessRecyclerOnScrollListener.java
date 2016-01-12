@@ -1,6 +1,8 @@
-package io.github.prashantsolanki3.snaplibrary.snap.endless;
+package io.github.prashantsolanki3.snaplibrary.snap.listeners.endless;
 
 import android.support.v7.widget.RecyclerView;
+
+import io.github.prashantsolanki3.snaplibrary.snap.utils.RecyclerViewPositionHelper;
 
 /**
 * Custom Scroll listener for RecyclerView. 
@@ -8,14 +10,11 @@ import android.support.v7.widget.RecyclerView;
 */ 
 public abstract class EndlessRecyclerOnScrollListener extends RecyclerView.OnScrollListener {
     public static String TAG = "EndlessScrollListener";
- 
- 
+    int firstVisibleItem, visibleItemCount, totalItemCount;
+    RecyclerViewPositionHelper mRecyclerViewHelper;
     private int previousTotal = 0; // The total number of items in the dataset after the last load
     private boolean loading = true; // True if we are still waiting for the last set of data to load.
     private int visibleThreshold = 5; // The minimum amount of items to have below your current scroll position before loading more.
-    int firstVisibleItem, visibleItemCount, totalItemCount;
- 
- 
     private int currentPage = 1;
 
     public EndlessRecyclerOnScrollListener(int visibleThreshold) {
@@ -26,10 +25,7 @@ public abstract class EndlessRecyclerOnScrollListener extends RecyclerView.OnScr
         this.visibleThreshold = visibleThreshold;
     }
 
-    RecyclerViewPositionHelper mRecyclerViewHelper;
- 
- 
-    @Override 
+    @Override
     public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
         super.onScrolled(recyclerView, dx, dy);
         mRecyclerViewHelper = RecyclerViewPositionHelper.createHelper(recyclerView);

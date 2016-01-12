@@ -1,10 +1,10 @@
-package io.github.prashantsolanki3.snaplibrary.snap.selectable;
+package io.github.prashantsolanki3.snaplibrary.snap.layout.viewholder;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
 import android.view.View;
 
-import io.github.prashantsolanki3.snaplibrary.snap.SnapViewHolder;
+import io.github.prashantsolanki3.snaplibrary.snap.adapter.AbstractSnapSelectableAdapter;
 
 /**
  * Package io.github.prashantsolanki3.snaplibrary.snap.selectable
