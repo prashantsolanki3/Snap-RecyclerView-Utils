@@ -48,67 +48,15 @@ public class MultiLayoutActivity extends BaseRecyclerViewActivity {
     }
 
     @Override
+    public void init(Bundle savedInstanceState) {
+
+    }
+
+    @Override
     public void setLayoutManager(RecyclerView recyclerView) {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
     }
 
-    @Override
-    public void setAdapter(final RecyclerView recyclerView) {
-        ArrayList<SnapLayoutWrapper> wrappers = new ArrayList<>();
-        wrappers.add(new SnapLayoutWrapper(HorizontalRecyclerModel.class, HorizontalRecyclerViewHolder.class, R.layout.item_header_layout, 0));
-        wrappers.add(new SnapLayoutWrapper(PictureCaption.class, SinglePictureCaptionViewHolder.class, R.layout.item_pictue_caption_layout, 2));
-        adapter = new SnapAdapter(this, wrappers, recyclerView);
-
-        adapter.setAutoEmptyLayoutHandling(true);
-        adapter.setAlternateViewContainer((FrameLayout) findViewById(R.id.alternateViewContainer));
-
-        View empty = adapter.getViewFromId(R.layout.alter_empty);
-        TextView textView = (TextView) empty.findViewById(R.id.alter_tv);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(final View v) {
-                Runnable runnable = new Runnable() {
-                    @Override
-                    public void run() {
-                        setFabOnClickAction(null);
-                    }
-                };
-                adapter.showAlternateLayout(adapter.getViewFromId(R.layout.alter_loading));
-                new Handler().postDelayed(runnable, 2500);
-            }
-        });
-
-        adapter.setEmptyView(empty);
-        adapter.hideAlternateLayout();
-        recyclerView.setAdapter(adapter);
-        adapter.setEndlessLoader(5, new EndlessLoader<Object>() {
-            @Override
-            public void loadMore(AbstractSnapMultiAdapter<Object> adapter, int pageNo) {
-                for (int i = 0; i < 15; i++) {
-                    setFabOnClickAction(null);
-                }
-            }
-
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-
-            }
-        });
-
-        adapter.setOnItemClickListener(new SnapOnItemClickListener() {
-
-            @Override
-            public void onItemClick(SnapViewHolder viewHolder, View view, int position) {
-                Toast.makeText(getApplicationContext(), "Pos: " + position, Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onItemLongPress(SnapViewHolder viewHolder, View view, int position) {
-                Toast.makeText(getApplicationContext(), "Long: " + position, Toast.LENGTH_SHORT).show();
-            }
-
-        });
-    }
     @Override
     public void setAdapter(final RecyclerView recyclerView) {
         ArrayList<SnapLayoutWrapper> wrappers = new ArrayList<>();

@@ -16,11 +16,8 @@
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c20241f6-414b-49bb-a247-01abf9155877" name="Default" comment="Restructured.">
-      <change type="DELETED" beforePath="E:\Bitbucket\Snap-RecyclerView-Utils\snaplibrary\src\main\java\io\github\prashantsolanki3\snaplibrary\snap\selectable\SnapSelectableLayoutWrapper.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/AbstractSnapMultiAdapter.java" afterPath="$PROJECT_DIR$/snaplibrary/src/main/java/io/github/prashantsolanki3/snaplibrary/snap/adapter/AbstractSnapMultiAdapter.java" />
+    <list default="true" id="c20241f6-414b-49bb-a247-01abf9155877" name="Default" comment="Travis CI Fix">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/MultiLayoutActivity.java" afterPath="$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/MultiLayoutActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Snap-RecyclerView-Utils.iws" />
@@ -72,13 +69,14 @@
       <file leaf-file-name="MultiLayoutActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/MultiLayoutActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2596006">
-              <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.49615976">
+              <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2843#3331#0" expanded="true" />
                 <element signature="e#2978#3155#0" expanded="true" />
                 <element signature="e#3154#3155#0" expanded="true" />
+                <element signature="e#3330#3331#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -3032,7 +3030,13 @@
       <option name="project" value="LOCAL" />
       <updated>1452606805033</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Travis CI Fix">
+      <created>1452607483409</created>
+      <option name="number" value="00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1452607483409</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TodoView" selected-index="4">
@@ -3107,7 +3111,8 @@
     <MESSAGE value="Basic Adapter Method moved to Interface." />
     <MESSAGE value="Picker Builder created." />
     <MESSAGE value="Restructured." />
-    <option name="LAST_COMMIT_MESSAGE" value="Restructured." />
+    <MESSAGE value="Travis CI Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Travis CI Fix" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -3526,13 +3531,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/sample/src/main/java/io/prashantslolanki3/snaprecyclerview/sample/ui/MultiLayoutActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2596006">
-          <caret line="77" column="13" selection-start-line="77" selection-start-column="13" selection-end-line="77" selection-end-column="13" />
+        <state vertical-scroll-proportion="0.49615976">
+          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2843#3331#0" expanded="true" />
             <element signature="e#2978#3155#0" expanded="true" />
             <element signature="e#3154#3155#0" expanded="true" />
+            <element signature="e#3330#3331#0" expanded="true" />
           </folding>
         </state>
       </provider>
