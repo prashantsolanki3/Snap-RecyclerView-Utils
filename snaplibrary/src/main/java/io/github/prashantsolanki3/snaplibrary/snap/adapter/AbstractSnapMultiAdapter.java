@@ -168,6 +168,12 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         handleEmptyLayoutVisibility();
     }
 
+    public void update(@NonNull T item){
+        int pos = indexOf(item);
+        mData.set(pos,item);
+        notifyItemChanged(pos);
+    }
+
     @Override
     public void set(@Nullable List<T> data) {
         clear();
@@ -368,5 +374,7 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
     public int getPosition(@NonNull T item) {
         return indexOf(item);
     }
+
+
 
 }
