@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 /**
+ *
  * Created by Prashant on 12/5/2015.
  */
 public abstract class SnapViewHolder<T> extends RecyclerView.ViewHolder {
@@ -35,8 +36,12 @@ public abstract class SnapViewHolder<T> extends RecyclerView.ViewHolder {
 
     public abstract void populateViewHolder(T data, int pos);
 
-    public abstract void animateViewHolder(SnapViewHolder viewHolder, int pos);
+    /**
+     * Use ItemAnimator Instead.
+     * */
+    @Deprecated
+    public void animateViewHolder(SnapViewHolder viewHolder, int pos){}
 
-    public abstract void attachOnClickListeners(SnapViewHolder viewHolder, T item, int pos);
+    public void attachOnClickListeners(SnapViewHolder viewHolder, T item, int pos){};
 
 }
