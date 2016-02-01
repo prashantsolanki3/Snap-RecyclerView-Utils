@@ -6,7 +6,6 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -236,8 +235,6 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
     @Override
     public int getItemCount() {
         int size = mData.size();
-        Log.d("Size", size + "");
-
         if (autoEmptyLayoutHandling)
             if (alternateViewContainer != null && size == 0)
                 showEmptyLayout();
