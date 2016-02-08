@@ -18,6 +18,8 @@ Simple Library to create RecyclerView Adapters and Viewholder in a snap.
 
 [![Release](https://img.shields.io/github/release/prashantsolanki3/Snap-RecyclerView-Utils.svg?label=jitpack)](https://jitpack.io/#prashantsolanki3/Snap-RecyclerView-Utils)
 
+###[Check out v2 Beta!](https://github.com/prashantsolanki3/Snap-RecyclerView-Utils/releases)
+
 Add JitPack to repositories in your project's root `build.gradle` file:
 
 ```Gradle
