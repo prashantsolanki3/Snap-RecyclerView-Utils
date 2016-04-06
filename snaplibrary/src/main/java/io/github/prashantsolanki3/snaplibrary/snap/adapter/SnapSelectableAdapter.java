@@ -3,6 +3,7 @@ package io.github.prashantsolanki3.snaplibrary.snap.adapter;
 import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
+import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
@@ -29,6 +30,30 @@ public class SnapSelectableAdapter<T> extends AbstractSnapSelectableAdapter<T> {
                                  SelectionType selectionType) {
         super(context, layoutWrappers, recyclerView, selectionType);
     }
+
+    /**
+     * @param context       Context.
+     * @param wrapper       SnapLayoutWrapper
+     * @param recyclerView
+     * @param alternateView
+     * @param selectionType
+     */
+    public SnapSelectableAdapter(@NonNull Context context,
+                                 @NonNull SnapSelectableLayoutWrapper wrapper,
+                                 RecyclerView recyclerView,
+                                 ViewGroup alternateView,
+                                 SelectionType selectionType) {
+        super(context, wrapper, recyclerView, alternateView, selectionType);
+    }
+
+    public SnapSelectableAdapter(@NonNull Context context,
+                                 ArrayList<SnapLayoutWrapper> layoutWrappers,
+                                 RecyclerView recyclerView,
+                                 ViewGroup alternateView,
+                                 SelectionType selectionType) {
+        super(context, layoutWrappers, recyclerView, alternateView, selectionType);
+    }
+
 
     //TODO: Builder to make adapters
 

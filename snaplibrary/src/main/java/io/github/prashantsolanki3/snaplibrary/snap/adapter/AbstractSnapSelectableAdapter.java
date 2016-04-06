@@ -65,19 +65,53 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
      * @param wrapper SnapLayoutWrapper
      */
     public AbstractSnapSelectableAdapter(@NonNull Context context, @NonNull SnapSelectableLayoutWrapper wrapper, RecyclerView recyclerView, SelectionType selectionType) {
-        super(context, new ArrayList<SnapLayoutWrapper>(Collections.singletonList(wrapper)), recyclerView);
-        this.selectionType = selectionType;
-        init();
+        this(context,
+                new ArrayList<SnapLayoutWrapper>(Collections.singletonList(wrapper)),
+                recyclerView,
+                selectionType);
     }
 
     public AbstractSnapSelectableAdapter(@NonNull Context context,
                                          ArrayList<SnapLayoutWrapper> layoutWrappers,
                                          RecyclerView recyclerView,
                                          SelectionType selectionType) {
-        super(context, layoutWrappers, recyclerView);
+        this(context,
+                layoutWrappers,
+                recyclerView,
+                null,
+                selectionType);
+    }
+
+    /**
+     * @param context Context.
+     * @param wrapper SnapLayoutWrapper
+     */
+    public AbstractSnapSelectableAdapter(@NonNull Context context,
+                                         @NonNull SnapSelectableLayoutWrapper wrapper,
+                                         RecyclerView recyclerView,
+                                         ViewGroup alternateView,
+                                         SelectionType selectionType) {
+        this(context,
+                new ArrayList<SnapLayoutWrapper>(Collections.singletonList(wrapper)),
+                recyclerView,
+                alternateView,
+                selectionType);
+    }
+
+    public AbstractSnapSelectableAdapter(@NonNull Context context,
+                                         ArrayList<SnapLayoutWrapper> layoutWrappers,
+                                         RecyclerView recyclerView,
+                                         ViewGroup alternateView,
+                                         SelectionType selectionType) {
+        super(context,
+                layoutWrappers,
+                recyclerView,
+                alternateView);
         this.selectionType = selectionType;
         init();
     }
+
+
 
     private void init() {
         selectedItems = new ArrayList<>();
