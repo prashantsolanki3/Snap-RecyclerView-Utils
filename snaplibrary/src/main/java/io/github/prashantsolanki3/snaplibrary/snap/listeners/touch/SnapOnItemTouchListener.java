@@ -17,13 +17,18 @@ public class SnapOnItemTouchListener implements RecyclerView.OnItemTouchListener
 
         @Override
         public boolean onSingleTapUp(MotionEvent e, SnapViewHolder viewHolder, View view, int position) {
-            listener.onItemClick(viewHolder, view, position);
-            return true;
+            if (listener != null) {
+                listener.onItemClick(viewHolder, view, position);
+            }
+                return true;
+
         }
 
         @Override
         public void onLongPress(MotionEvent e, SnapViewHolder viewHolder, View view, int position) {
-            listener.onItemLongPress(viewHolder, view, position);
+            if(listener !=null){
+                listener.onItemLongPress(viewHolder, view, position);
+            }
         }
 
     };
