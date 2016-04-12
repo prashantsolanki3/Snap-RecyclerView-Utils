@@ -81,7 +81,6 @@ public class SelectableRecyclerViewActivity extends BaseRecyclerViewActivity {
             }
         });
 
-
         adapter.setOnSelectionListener(new SelectionActionModeListener(getToolbar()) {
             @Override
             public boolean onPrepareActionMode(ActionMode mode, Menu menu) {
