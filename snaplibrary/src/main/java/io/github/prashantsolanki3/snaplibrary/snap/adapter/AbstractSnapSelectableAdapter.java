@@ -402,7 +402,6 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
     @Override
     public void setOnItemClickListener(@NonNull SnapOnItemClickListener clickListener) {
         snapOnItemClickListener = clickListener;
-        super.setOnItemClickListener(clickListener);
     }
 
 }
