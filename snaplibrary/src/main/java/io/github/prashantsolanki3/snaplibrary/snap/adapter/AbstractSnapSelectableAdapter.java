@@ -111,8 +111,6 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         init();
     }
 
-
-
     private void init() {
         selectedItems = new ArrayList<>();
 
@@ -401,7 +399,10 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         MULTIPLE, MULTIPLE_ON_LONG_PRESS, SINGLE
     }
 
-
-
+    @Override
+    public void setOnItemClickListener(@NonNull SnapOnItemClickListener clickListener) {
+        snapOnItemClickListener = clickListener;
+        super.setOnItemClickListener(clickListener);
+    }
 
 }
