@@ -124,11 +124,12 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
                 break;
             case MULTIPLE_ON_LONG_PRESS:
                 selectionEnabled = false;
+                setOnItemClickListener(snapOnItemClickListener);
                 break;
             default:
                 throw new IllegalArgumentException("Selection type not Supported");
         }
-        setOnItemClickListener(snapOnItemClickListener);
+
     }
 
     @Override
