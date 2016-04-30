@@ -360,8 +360,15 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
 
     public void setOnItemClickListener(@NonNull SnapOnItemClickListener clickListener) {
         checkRecyclerViewInit();
-        recyclerView.addOnItemTouchListener(new SnapOnItemTouchListener(getContext(), clickListener));
+
+        if(itemClickListener!=null)
+        recyclerView.removeOnItemTouchListener(itemClickListener);
+
+        itemClickListener = new SnapOnItemTouchListener(getContext(), clickListener);
+        recyclerView.addOnItemTouchListener(itemClickListener);
     }
+
+    SnapOnItemTouchListener itemClickListener = null;
 
     @Override
     public int indexOf(@NonNull T item) {

@@ -18,6 +18,7 @@ import io.github.prashantsolanki3.snaplibrary.snap.layout.wrapper.SnapLayoutWrap
 import io.github.prashantsolanki3.snaplibrary.snap.layout.wrapper.SnapSelectableLayoutWrapper;
 import io.github.prashantsolanki3.snaplibrary.snap.listeners.selection.SelectionListener;
 import io.github.prashantsolanki3.snaplibrary.snap.listeners.touch.SnapOnItemClickListener;
+import io.github.prashantsolanki3.snaplibrary.snap.listeners.touch.SnapSelectableOnItemClickListener;
 import io.github.prashantsolanki3.snaplibrary.snap.utils.UtilsLayoutWrapper;
 
 /**
@@ -41,8 +42,8 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
     * Adapter Methods
     *
     * */
-    SnapOnItemClickListener snapOnItemClickListener = new SnapOnItemClickListener() {
-        @Override
+    SnapOnItemClickListener snapOnItemClickListener = new SnapSelectableOnItemClickListener(this) {
+/*        @Override
         public void onItemClick(SnapViewHolder viewHolder, View view, int position) {
             if (isSelectionEnabled() && UtilsLayoutWrapper.isViewHolderSelectable(getLayoutWrappers(), (SnapSelectableViewHolder) viewHolder)) {
                 toggleSelection(position);
@@ -57,8 +58,20 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
                 setSelectionEnabled(true);
                 toggleSelection(position);
             }
+        }*/
+
+        @Override
+        public void onItemClick(SnapSelectableViewHolder viewHolder, View view, int position) {
+
+        }
+
+        @Override
+        public void onItemLongPress(SnapSelectableViewHolder viewHolder, View view, int position) {
+
         }
     };
+
+
 
     /**
      * @param context Context.
@@ -111,8 +124,6 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         init();
     }
 
-
-
     private void init() {
         selectedItems = new ArrayList<>();
 
@@ -126,11 +137,12 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
                 break;
             case MULTIPLE_ON_LONG_PRESS:
                 selectionEnabled = false;
+                setOnItemClickListener(snapOnItemClickListener);
                 break;
             default:
                 throw new IllegalArgumentException("Selection type not Supported");
         }
-        setOnItemClickListener(snapOnItemClickListener);
+
     }
 
     @Override
@@ -401,7 +413,16 @@ public abstract class AbstractSnapSelectableAdapter<T> extends AbstractSnapMulti
         MULTIPLE, MULTIPLE_ON_LONG_PRESS, SINGLE
     }
 
+    @Deprecated
+    @Override
+    public void setOnItemClickListener(@NonNull SnapOnItemClickListener clickListener) {
+        snapOnItemClickListener = clickListener;
+        super.setOnItemClickListener(clickListener);
+    }
 
-
+    public void setOnItemClickListener(@NonNull SnapSelectableOnItemClickListener clickListener) {
+        snapOnItemClickListener = clickListener;
+        super.setOnItemClickListener(clickListener);
+    }
 
 }
