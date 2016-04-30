@@ -372,6 +372,14 @@ public abstract class AbstractSnapMultiAdapter<T> extends RecyclerView.Adapter<S
         return indexOf(item);
     }
 
+    public int getCurrentPage(){
+        if(endlessRecyclerOnScrollListener==null)
+            return -1;
+        return endlessRecyclerOnScrollListener.getCurrentPage();
+    }
 
-
+    public void setCurrentPage(int currentPage){
+        if(endlessRecyclerOnScrollListener!=null)
+            endlessRecyclerOnScrollListener.setCurrentPage(currentPage);
+    }
 }

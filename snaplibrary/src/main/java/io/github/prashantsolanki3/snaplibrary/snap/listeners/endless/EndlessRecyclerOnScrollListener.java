@@ -55,6 +55,15 @@ public abstract class EndlessRecyclerOnScrollListener extends RecyclerView.OnScr
     }
 
 
+
+    public int getCurrentPage() {
+        return currentPage;
+    }
+
+    public void setCurrentPage(int currentPage) {
+        this.currentPage = currentPage;
+    }
+
     public void itemRemoved(int count) {
         this.previousTotal -= count;
     }
